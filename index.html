@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Süper Lig Oyuncu Atlası</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-label="Uygulama üst bölümü">
+        <div>
+          <p class="eyebrow">Süper Lig Oyuncu Atlası</p>
+          <h1>Değerine göre en çok katkı yapan oyuncuları keşfet.</h1>
+        </div>
+        <div class="season-pill">
+          <span class="dot"></span>
+          Demo veri
+        </div>
+      </section>
+
+      <section class="scoreboard" aria-label="Özet skorlar">
+        <article>
+          <span>En yüksek etki</span>
+          <strong id="topImpact">-</strong>
+        </article>
+        <article>
+          <span>En iyi fiyat/katkı</span>
+          <strong id="topValue">-</strong>
+        </article>
+        <article>
+          <span>Scout radarı</span>
+          <strong id="topScout">-</strong>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <aside class="control-panel" aria-label="Filtreler">
+          <div class="panel-section">
+            <label for="searchInput">Oyuncu ara</label>
+            <input id="searchInput" type="search" placeholder="İsim, takım veya mevki">
+          </div>
+
+          <div class="panel-section">
+            <label for="positionFilter">Mevki</label>
+            <select id="positionFilter">
+              <option value="all">Tüm mevkiler</option>
+              <option value="Forvet">Forvet</option>
+              <option value="Kanat">Kanat</option>
+              <option value="Orta saha">Orta saha</option>
+              <option value="Defans">Defans</option>
+              <option value="Kaleci">Kaleci</option>
+            </select>
+          </div>
+
+          <div class="panel-section">
+            <label for="sortMode">Sırala</label>
+            <select id="sortMode">
+              <option value="valueScore">Değer skoru</option>
+              <option value="impactScore">Etki skoru</option>
+              <option value="form">Form</option>
+              <option value="marketValue">Piyasa değeri</option>
+            </select>
+          </div>
+
+          <div class="panel-section split">
+            <label class="checkbox-row">
+              <input id="budgetOnly" type="checkbox">
+              2M altı fırsatlar
+            </label>
+          </div>
+        </aside>
+
+        <section class="player-area" aria-label="Oyuncu listesi">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Radar</p>
+              <h2>Oyuncu kartları</h2>
+            </div>
+            <span id="resultCount">0 oyuncu</span>
+          </div>
+          <div id="playerGrid" class="player-grid"></div>
+        </section>
+      </section>
+
+      <section class="compare-panel" aria-label="Oyuncu kıyaslama">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Kapışma modu</p>
+            <h2>İki oyuncuyu kıyasla</h2>
+          </div>
+        </div>
+
+        <div class="compare-controls">
+          <select id="playerA"></select>
+          <button id="swapButton" type="button" aria-label="Oyuncuları değiştir" title="Oyuncuları değiştir">↔</button>
+          <select id="playerB"></select>
+        </div>
+
+        <div id="comparison" class="comparison"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
