@@ -419,7 +419,54 @@ const state = {
   budgetOnly: false
 };
 
-const enrichedPlayers = players.map((player) => {
+// Yeni otomatik oyuncu üretme bölümümüz
+const allPlayers = [...players];
+
+Object.keys(teamSquads).forEach(teamName => {
+  teamSquads[teamName].forEach(squadPlayer => {
+    if (!allPlayers.find(p => p.name === squadPlayer.name)) {
+      
+      let baseValue = Math.random() * 4 + 0.5; 
+      if (["Galatasaray", "Fenerbahce", "Besiktas", "Trabzonspor"].includes(teamName)) {
+        baseValue += Math.random() * 8 + 2; 
+      }
+
+      let goals = 0; 
+      let assists = 0;
+      const pos = squadPlayer.position || "Orta saha";
+      
+      let cleanPosition = "Orta saha";
+      if (pos.includes("Kanat")) cleanPosition = "Kanat";
+      else if (pos.includes("Kaleci")) cleanPosition = "Kaleci";
+      else if (pos.includes("Forvet") || pos.includes("Santrfor") || pos.includes("Hucum")) cleanPosition = "Forvet";
+      else if (pos.includes("Defans") || pos.includes("Stoper") || pos.includes("bek")) cleanPosition = "Defans";
+
+      if (cleanPosition === "Forvet") { 
+        goals = Math.floor(Math.random() * 12); assists = Math.floor(Math.random() * 4); 
+      } else if (cleanPosition === "Orta saha" || cleanPosition === "Kanat") { 
+        goals = Math.floor(Math.random() * 6); assists = Math.floor(Math.random() * 8); 
+      } else if (cleanPosition === "Defans") { 
+        goals = Math.floor(Math.random() * 2); assists = Math.floor(Math.random() * 3); 
+      }
+
+      allPlayers.push({
+        name: squadPlayer.name,
+        team: teamName,
+        position: cleanPosition,
+        age: 18 + Math.floor(Math.random() * 15),
+        marketValue: baseValue,
+        goals: goals,
+        assists: assists,
+        minutes: 300 + Math.floor(Math.random() * 2500),
+        bigMatch: 65 + Math.floor(Math.random() * 25), 
+        form: 60 + Math.floor(Math.random() * 35), 
+        story: `${teamName} kadrosundan sisteme analiz icin entegre edildi.`
+      });
+    }
+  });
+});
+
+const enrichedPlayers = allPlayers.map((player) => {
   const attacking = player.goals * weights.goal + player.assists * weights.assist;
   const roleBonus = player.position === "Kaleci" ? 46 : player.position === "Defans" ? 28 : 0;
   const impactScore = Math.round(
