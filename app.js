@@ -1079,6 +1079,250 @@ if (loadMoreBtn) {
   });
 }
 
+// ── SQUAD BUILDER STATE & REFS ─────────────────────────────────
+state.builderSquad = {
+  lw: null, st: null, rw: null,
+  lcm: null, cm: null, rcm: null,
+  lb: null, lcb: null, rcb: null, rb: null,
+  gk: null
+};
+state.builderBudget = 25.0;
+state.activeSlotId = null;
+state.builderSearch = "";
+
+const squadBudgetLimit  = document.querySelector("#squadBudgetLimit");
+const totalValueValue   = document.querySelector("#totalValueValue");
+const maxBudgetValue    = document.querySelector("#maxBudgetValue");
+const totalImpactValue  = document.querySelector("#totalImpactValue");
+const budgetProgressBar = document.querySelector("#budgetProgressBar");
+const resetBuilderBtn   = document.querySelector("#resetBuilderBtn");
+const builderMessage    = document.querySelector("#builderMessage");
+
+const builderModal          = document.querySelector("#builderModal");
+const builderModalClose     = document.querySelector("#builderModalClose");
+const builderModalTitle     = document.querySelector("#builderModalTitle");
+const builderModalSubtitle  = document.querySelector("#builderModalSubtitle");
+const builderSearchInput    = document.querySelector("#builderSearchInput");
+const builderPlayerList     = document.querySelector("#builderPlayerList");
+
+function renderBuilderPlayers() {
+  if (!state.activeSlotId) return;
+  const slotEl = document.getElementById(state.activeSlotId);
+  if (!slotEl) return;
+  
+  const slotPosition = slotEl.dataset.position;
+  const slotRole = slotEl.dataset.role;
+  const isForvet = slotPosition === "Forvet";
+  
+  // Filter eligible players
+  const filtered = enrichedPlayers.filter(p => {
+    // position match: Forvet slots accept Kanat and Forvet
+    const matchesPos = isForvet 
+      ? (p.position === "Forvet" || p.position === "Kanat") 
+      : (p.position === slotPosition);
+    if (!matchesPos) return false;
+    
+    // exclude players already selected in OTHER slots
+    const isAlreadySelected = Object.entries(state.builderSquad).some(([role, sel]) => {
+      return role !== slotRole && sel && sel.name === p.name;
+    });
+    if (isAlreadySelected) return false;
+    
+    // search filter
+    if (state.builderSearch) {
+      const q = state.builderSearch.toLowerCase();
+      return p.name.toLowerCase().includes(q) || p.team.toLowerCase().includes(q);
+    }
+    return true;
+  });
+  
+  // Sort by impact score descending
+  filtered.sort((a, b) => b.impactScore - a.impactScore);
+  
+  if (filtered.length === 0) {
+    builderPlayerList.innerHTML = `<p style="padding:20px; text-align:center; color:var(--muted); font-weight:600;">Oyuncu bulunamadı.</p>`;
+    return;
+  }
+  
+  builderPlayerList.innerHTML = filtered.map(p => `
+    <div class="builder-player-card" data-name="${p.name}">
+      <div class="builder-player-info">
+        <strong>${p.name}</strong>
+        <small>${p.team} • ${p.position} • Yaş ${p.age}</small>
+      </div>
+      <div class="builder-player-stats">
+        <span class="builder-player-val">${p.marketValue.toFixed(1)} M€</span>
+        <span class="builder-player-impact">${p.impactScore} Pts</span>
+      </div>
+    </div>
+  `).join("");
+  
+  // Bind click events to player cards
+  builderPlayerList.querySelectorAll(".builder-player-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const name = card.dataset.name;
+      const player = enrichedPlayers.find(x => x.name === name);
+      if (player) {
+        state.builderSquad[slotRole] = player;
+        updateBuilderSlotDOM(slotRole);
+        updateBuilderStats();
+        closeBuilderModal();
+      }
+    });
+  });
+}
+
+function updateBuilderSlotDOM(role) {
+  const slotEl = document.getElementById("slot-" + role);
+  if (!slotEl) return;
+  
+  const player = state.builderSquad[role];
+  if (player) {
+    slotEl.classList.add("populated");
+    slotEl.innerHTML = `
+      <button class="remove-player-btn" data-role="${role}" type="button" aria-label="Kaldır">✕</button>
+      <span class="slot-role">${role.toUpperCase()}</span>
+      <span class="populated-player-name">${player.name}</span>
+      <span class="populated-player-value">${player.marketValue.toFixed(1)} M€</span>
+      <span class="populated-player-score">${player.impactScore} Pts</span>
+    `;
+    
+    // Bind remove button click
+    slotEl.querySelector(".remove-player-btn").addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent modal opening
+      state.builderSquad[role] = null;
+      updateBuilderSlotDOM(role);
+      updateBuilderStats();
+    });
+  } else {
+    slotEl.classList.remove("populated");
+    slotEl.innerHTML = `
+      <span class="slot-role">${role.toUpperCase()}</span>
+      <span class="slot-add">+</span>
+    `;
+  }
+}
+
+function updateBuilderStats() {
+  let totalValue = 0;
+  let totalImpact = 0;
+  let populatedCount = 0;
+  
+  Object.values(state.builderSquad).forEach(p => {
+    if (p) {
+      totalValue += p.marketValue;
+      totalImpact += p.impactScore;
+      populatedCount++;
+    }
+  });
+  
+  totalValueValue.textContent = totalValue.toFixed(1) + " M€";
+  totalImpactValue.textContent = totalImpact;
+  
+  const budget = state.builderBudget;
+  maxBudgetValue.textContent = budget.toFixed(1) + " M€";
+  
+  const pct = Math.min(100, (totalValue / budget) * 100);
+  budgetProgressBar.style.width = pct + "%";
+  
+  const labelsEl = totalValueValue.closest(".budget-progress-labels");
+  
+  if (totalValue > budget) {
+    budgetProgressBar.classList.add("exceeded");
+    if (labelsEl) labelsEl.classList.add("exceeded");
+    
+    builderMessage.className = "builder-status-msg error";
+    builderMessage.textContent = `Bütçe limitini aştınız! Limit: ${budget.toFixed(1)} M€, Kadro Değeri: ${totalValue.toFixed(1)} M€`;
+    builderMessage.hidden = false;
+  } else {
+    budgetProgressBar.classList.remove("exceeded");
+    if (labelsEl) labelsEl.classList.remove("exceeded");
+    
+    if (populatedCount === 11) {
+      builderMessage.className = "builder-status-msg success";
+      builderMessage.textContent = `Tebrikler! ${budget.toFixed(1)} M€ bütçe altında ${totalImpact} toplam etki skoruyla kadronuzu başarıyla kurdunuz!`;
+      builderMessage.hidden = false;
+    } else {
+      builderMessage.hidden = true;
+    }
+  }
+}
+
+function closeBuilderModal() {
+  builderModal.hidden = true;
+  state.activeSlotId = null;
+}
+
+function resetBuilder() {
+  Object.keys(state.builderSquad).forEach(role => {
+    state.builderSquad[role] = null;
+    updateBuilderSlotDOM(role);
+  });
+  updateBuilderStats();
+}
+
+function initSquadBuilder() {
+  // Budget dropdown change handler
+  if (squadBudgetLimit) {
+    squadBudgetLimit.addEventListener("change", (e) => {
+      state.builderBudget = parseFloat(e.target.value);
+      updateBuilderStats();
+    });
+  }
+  
+  // Pitch slot click handler
+  document.querySelectorAll(".pitch-slot").forEach(slot => {
+    slot.addEventListener("click", () => {
+      state.activeSlotId = slot.id;
+      const slotRole = slot.dataset.role;
+      const slotPosition = slot.dataset.position;
+      
+      builderModalSubtitle.textContent = `Mevki: ${slotPosition} (${slotRole.toUpperCase()})`;
+      state.builderSearch = "";
+      builderSearchInput.value = "";
+      
+      renderBuilderPlayers();
+      builderModal.hidden = false;
+    });
+  });
+  
+  // Search input handler in builder modal
+  if (builderSearchInput) {
+    builderSearchInput.addEventListener("input", (e) => {
+      state.builderSearch = e.target.value;
+      renderBuilderPlayers();
+    });
+  }
+  
+  // Close buttons & modal clicks
+  if (builderModalClose) {
+    builderModalClose.addEventListener("click", closeBuilderModal);
+  }
+  
+  if (builderModal) {
+    builderModal.addEventListener("click", (e) => {
+      if (e.target === builderModal) {
+        closeBuilderModal();
+      }
+    });
+  }
+  
+  // Reset button click
+  if (resetBuilderBtn) {
+    resetBuilderBtn.addEventListener("click", resetBuilder);
+  }
+  
+  // Escape key support to close builder modal
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !builderModal.hidden) {
+      closeBuilderModal();
+    }
+  });
+  
+  // Initial stats setup
+  updateBuilderStats();
+}
+
 // ── INIT ──────────────────────────────────────────────────────
 fillTeamFilter();
 fillCompareOptions();
@@ -1092,3 +1336,4 @@ renderPlayers();
 renderComparison();
 renderPoll();
 renderMatchPredictions();
+initSquadBuilder();

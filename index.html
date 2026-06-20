@@ -28,6 +28,7 @@
           <a href="#awards-section" class="nav-link">Sezon Ödülleri</a>
           <a href="#squad-section" class="nav-link">Kadrolar</a>
           <a href="#compare-section" class="nav-link">Kıyaslama</a>
+          <a href="#squad-builder-section" class="nav-link">Kadro Kur</a>
           <a href="#poll-section" class="nav-link">Anket</a>
           <a href="#predict-section" class="nav-link">Tahmin Oyunu</a>
         </div>
@@ -40,6 +41,7 @@
         <a href="#standings-section" class="nav-link">Puan Durumu</a>
         <a href="#squad-section" class="nav-link">Kadrolar</a>
         <a href="#compare-section" class="nav-link">Kıyaslama</a>
+        <a href="#squad-builder-section" class="nav-link">Kadro Kur</a>
         <a href="#poll-section" class="nav-link">Anket</a>
         <a href="#predict-section" class="nav-link">Tahmin Oyunu</a>
       </div>
@@ -326,6 +328,110 @@
         <div id="comparison" class="comparison"></div>
       </section>
 
+      <!-- SQUAD BUILDER PANEL -->
+      <section class="squad-builder-panel" id="squad-builder-section" aria-label="Bütçeli Kadro Kurucu">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Scout Mücadelesi</p>
+            <h2>💰 Bütçeli Kadro Kurucu</h2>
+          </div>
+          <div class="budget-selector">
+            <span>Bütçe Limiti:</span>
+            <select id="squadBudgetLimit" aria-label="Bütçe limiti seç">
+              <option value="15">15 M€ (Çok Zor)</option>
+              <option value="25" selected>25 M€ (Zor)</option>
+              <option value="40">40 M€ (Normal)</option>
+              <option value="60">60 M€ (Kolay)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="budget-bar">
+          <div class="budget-progress-container">
+            <div class="budget-progress-labels">
+              <span>Kullanılan Bütçe: <strong id="totalValueValue">0.0 M€</strong> / <span id="maxBudgetValue">25.0 M€</span></span>
+              <span>Toplam Etki Skoru: <strong id="totalImpactValue">0</strong></span>
+            </div>
+            <div class="budget-progress-track">
+              <div id="budgetProgressBar" class="budget-progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+          <button id="resetBuilderBtn" class="btn-ghost compact" type="button">Kadroyu Sıfırla</button>
+        </div>
+
+        <div id="builderMessage" class="builder-status-msg" hidden></div>
+
+        <div class="pitch-container">
+          <div class="football-pitch">
+            <!-- Pitch lines -->
+            <div class="pitch-line center-line"></div>
+            <div class="pitch-line center-circle"></div>
+            <div class="pitch-line penalty-area-top"></div>
+            <div class="pitch-line penalty-area-bottom"></div>
+
+            <!-- LW, ST, RW (FORWARDS) -->
+            <div class="pitch-row forwards-row">
+              <div class="pitch-slot" data-position="Forvet" data-role="lw" id="slot-lw">
+                <span class="slot-role">LW</span>
+                <span class="slot-add">+</span>
+              </div>
+              <div class="pitch-slot" data-position="Forvet" data-role="st" id="slot-st">
+                <span class="slot-role">ST</span>
+                <span class="slot-add">+</span>
+              </div>
+              <div class="pitch-slot" data-position="Forvet" data-role="rw" id="slot-rw">
+                <span class="slot-role">RW</span>
+                <span class="slot-add">+</span>
+              </div>
+            </div>
+
+            <!-- LCM, CM, RCM (MIDFIELDERS) -->
+            <div class="pitch-row midfielders-row">
+              <div class="pitch-slot" data-position="Orta saha" data-role="lcm" id="slot-lcm">
+                <span class="slot-role">LCM</span>
+                <span class="slot-add">+</span>
+              </div>
+              <div class="pitch-slot" data-position="Orta saha" data-role="cm" id="slot-cm">
+                <span class="slot-role">CM</span>
+                <span class="slot-add">+</span>
+              </div>
+              <div class="pitch-slot" data-position="Orta saha" data-role="rcm" id="slot-rcm">
+                <span class="slot-role">RCM</span>
+                <span class="slot-add">+</span>
+              </div>
+            </div>
+
+            <!-- LB, LCB, RCB, RB (DEFENDERS) -->
+            <div class="pitch-row defenders-row">
+              <div class="pitch-slot" data-position="Defans" data-role="lb" id="slot-lb">
+                <span class="slot-role">LB</span>
+                <span class="slot-add">+</span>
+              </div>
+              <div class="pitch-slot" data-position="Defans" data-role="lcb" id="slot-lcb">
+                <span class="slot-role">LCB</span>
+                <span class="slot-add">+</span>
+              </div>
+              <div class="pitch-slot" data-position="Defans" data-role="rcb" id="slot-rcb">
+                <span class="slot-role">RCB</span>
+                <span class="slot-add">+</span>
+              </div>
+              <div class="pitch-slot" data-position="Defans" data-role="rb" id="slot-rb">
+                <span class="slot-role">RB</span>
+                <span class="slot-add">+</span>
+              </div>
+            </div>
+
+            <!-- GK (GOALKEEPER) -->
+            <div class="pitch-row goalkeeper-row">
+              <div class="pitch-slot" data-position="Kaleci" data-role="gk" id="slot-gk">
+                <span class="slot-role">GK</span>
+                <span class="slot-add">+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- MATCH PREDICTION GAME -->
       <section class="predict-panel" id="predict-section" aria-label="Maç tahmin oyunu">
         <div class="section-title compact">
@@ -361,6 +467,26 @@
           <span id="modalPlayerTag" class="tag">Analiz</span>
         </div>
         <div id="modalContent" class="modal-content"></div>
+      </article>
+    </div>
+
+    <!-- BUILDER MODAL -->
+    <div id="builderModal" class="modal-backdrop" hidden>
+      <article class="player-modal builder-modal-container" role="dialog" aria-modal="true" aria-labelledby="builderModalTitle">
+        <button id="builderModalClose" class="modal-close" type="button" aria-label="Detayı kapat">✕</button>
+        <div class="modal-head">
+          <div>
+            <p id="builderModalSubtitle" class="eyebrow">Pozisyon: -</p>
+            <h2 id="builderModalTitle">Oyuncu Seç</h2>
+          </div>
+          <span class="tag">Kadro Kurucu</span>
+        </div>
+        <div class="modal-search-wrapper">
+          <input id="builderSearchInput" class="custom-select-search" type="text" placeholder="Oyuncu ismi veya takım ara..." autocomplete="off">
+        </div>
+        <div id="builderPlayerList" class="builder-player-list">
+          <!-- JS dinamik dolduracak -->
+        </div>
       </article>
     </div>
 

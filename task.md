@@ -1,8 +1,21 @@
-# Görev Listesi
+# Görev Listesi — Bütçeli Kadro Kurucu (Squad Builder) Entegrasyonu
 
-- [x] Aşama 1: Tasarım yenileme + Logo/Favicon + Navbar
-- [x] Aşama 2: Puan durumu tablosu
-- [x] Aşama 3: Daha fazla oyuncu (~40+ yeni oyuncu eklendi)
-- [x] Aşama 4: Anket sistemi (localStorage ile)
-- [x] Aşama 5: Maç tahmin oyunu (puan sistemi)
-- [x] Aşama 6: Mobil iyileştirme (hamburger menü + responsive)
+- [x] **Aşama 1: HTML Entegrasyonu**
+  - [x] Masaüstü navigasyon menüsüne (`.navbar-links`) ve mobil menüye (`.nav-mobile-menu`) "Kadro Kur" linklerinin eklenmesi
+  - [x] `#squad-builder-section` paneli, bütçe ilerleme barı ve göstergelerin `index.html` içerisine yerleştirilmesi
+  - [x] Oyuncu seçim modalının (`#builderModal`) `index.html` altına eklenmesi
+- [x] **Aşama 2: CSS Stilleri ve Saha Çizimi**
+  - [x] Futbol sahası yeşil zemin çizgileri ve katmanlarının `styles.css` içerisinde çizilmesi
+  - [x] Saha slotları (`.pitch-slot`), dolu slot stilleri (`.pitch-slot.populated`) ve silme butonunun (`.remove-player-btn`) stilize edilmesi
+  - [x] Bütçe ilerleme çubuğu, bütçe aşım neon efektleri ve animasyonların tanımlanması
+  - [x] Arama ve oyuncu listesi öğelerinin modal için tasarlanması
+- [x] **Aşama 3: JavaScript Mantığı (app.js)**
+  - [x] `state.builderSquad`, `state.builderBudget` ve slot eşleşmelerinin tanımlanması
+  - [x] Menü scroll yönlendirmesinin yapılması
+  - [x] Slot tıklamalarının dinlenmesi, ilgili mevkiyle sınırlandırılmış ve daha önce seçilmemiş oyuncuların modalda listelenmesi
+  - [x] Modal içi gerçek zamanlı arama fonksiyonunun yazılması
+  - [x] Oyuncu seçme, kadroya ekleme, bütçe barını ve etki skorunu güncelleme işlevlerinin kodlanması
+  - [x] Oyuncu silme ve tüm kadroyu sıfırlama işlemlerinin kodlanması
+- [x] **Aşama 4: Test ve Walkthrough**
+  - [x] Sözdizimi kontrolü ve işlevsellik doğrulamaları
+  - [x] `walkthrough.md` dosyasının güncellenmesi
