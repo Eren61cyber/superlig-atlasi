@@ -151,25 +151,25 @@ const players = [
 
 // ── TAKIM TEMELERİ ─────────────────────────────────────────────
 const teamThemes = [
-  { name:"Lig teması",      primary:"#22c76e", secondary:"#f0a830", accent:"#e8604a", dark:"#0c1410" },
-  { name:"Galatasaray",     primary:"#a90432", secondary:"#f4b000", accent:"#ff6a13", dark:"#18070c" },
-  { name:"Fenerbahce",      primary:"#003f8f", secondary:"#ffd200", accent:"#ffffff", dark:"#07172f" },
-  { name:"Besiktas",        primary:"#111111", secondary:"#ffffff", accent:"#d71920", dark:"#050505" },
-  { name:"Trabzonspor",     primary:"#7a263a", secondary:"#5bb6d6", accent:"#f1d2dc", dark:"#160b12" },
-  { name:"Basaksehir",      primary:"#f47b20", secondary:"#173b7a", accent:"#ffffff", dark:"#1f1308" },
-  { name:"Goztepe",         primary:"#d71920", secondary:"#f8d000", accent:"#111111", dark:"#190908" },
-  { name:"Samsunspor",      primary:"#d71920", secondary:"#ffffff", accent:"#111111", dark:"#190909" },
-  { name:"Rizespor",        primary:"#007a3d", secondary:"#0b69b3", accent:"#ffffff", dark:"#06141a" },
-  { name:"Konyaspor",       primary:"#159447", secondary:"#ffffff", accent:"#d71920", dark:"#07170e" },
-  { name:"Kocaelispor",     primary:"#138a44", secondary:"#111111", accent:"#ffffff", dark:"#07150d" },
-  { name:"Alanyaspor",      primary:"#f47b20", secondary:"#16823a", accent:"#ffffff", dark:"#1d1208" },
-  { name:"Gaziantep FK",    primary:"#d71920", secondary:"#111111", accent:"#ffffff", dark:"#180807" },
-  { name:"Kasimpasa",       primary:"#174a9c", secondary:"#ffffff", accent:"#2bb3e7", dark:"#071326" },
-  { name:"Genclerbirligi",  primary:"#d71920", secondary:"#111111", accent:"#ffffff", dark:"#170708" },
-  { name:"Eyupspor",        primary:"#5b2c83", secondary:"#f2c14e", accent:"#ffffff", dark:"#160d1f" },
-  { name:"Antalyaspor",     primary:"#d71920", secondary:"#ffffff", accent:"#111111", dark:"#180807" },
-  { name:"Kayserispor",     primary:"#d71920", secondary:"#ffd200", accent:"#111111", dark:"#1a0d07" },
-  { name:"Karagumruk",      primary:"#d71920", secondary:"#111111", accent:"#ffffff", dark:"#190707" }
+  { name:"Lig teması",      primary:"#38bdf8", secondary:"#fbbf24", accent:"#f43f5e", dark:"#090e1a" },
+  { name:"Galatasaray",     primary:"#ffb700", secondary:"#a90432", accent:"#ff6a13", dark:"#120106" },
+  { name:"Fenerbahce",      primary:"#1e40af", secondary:"#fbbf24", accent:"#ffffff", dark:"#020617" },
+  { name:"Besiktas",        primary:"#f8fafc", secondary:"#0f172a", accent:"#e11d48", dark:"#050508" },
+  { name:"Trabzonspor",     primary:"#0284c7", secondary:"#881337", accent:"#e0f2fe", dark:"#0a0206" },
+  { name:"Basaksehir",      primary:"#f97316", secondary:"#1e3a8a", accent:"#ffffff", dark:"#0a0602" },
+  { name:"Goztepe",         primary:"#ef4444", secondary:"#eab308", accent:"#1e293b", dark:"#0f0302" },
+  { name:"Samsunspor",      primary:"#ef4444", secondary:"#ffffff", accent:"#1e293b", dark:"#0f0303" },
+  { name:"Rizespor",        primary:"#10b981", secondary:"#1d4ed8", accent:"#ffffff", dark:"#020f0a" },
+  { name:"Konyaspor",       primary:"#10b981", secondary:"#ffffff", accent:"#ef4444", dark:"#020f0a" },
+  { name:"Kocaelispor",     primary:"#10b981", secondary:"#000000", accent:"#ffffff", dark:"#020f0a" },
+  { name:"Alanyaspor",      primary:"#f97316", secondary:"#15803d", accent:"#ffffff", dark:"#0f0703" },
+  { name:"Gaziantep FK",    primary:"#ef4444", secondary:"#000000", accent:"#ffffff", dark:"#0f0303" },
+  { name:"Kasimpasa",       primary:"#1d4ed8", secondary:"#ffffff", accent:"#38bdf8", dark:"#020617" },
+  { name:"Genclerbirligi",  primary:"#ef4444", secondary:"#000000", accent:"#ffffff", dark:"#0f0303" },
+  { name:"Eyupspor",        primary:"#6b21a8", secondary:"#facc15", accent:"#ffffff", dark:"#0b0312" },
+  { name:"Antalyaspor",     primary:"#ef4444", secondary:"#ffffff", accent:"#1e293b", dark:"#0f0303" },
+  { name:"Kayserispor",     primary:"#ef4444", secondary:"#eab308", accent:"#1e293b", dark:"#0f0502" },
+  { name:"Karagumruk",      primary:"#ef4444", secondary:"#000000", accent:"#ffffff", dark:"#0f0303" }
 ];
 
 // ── KADROLAR ──────────────────────────────────────────────────
@@ -810,9 +810,9 @@ function sl(lbl,l,r) {
 function renderComparison() {
   const l=enrichedPlayers.find(p=>p.name===playerA.value), r=enrichedPlayers.find(p=>p.name===playerB.value);
   if (!l||!r) return;
-  const w = l.valueScore===r.valueScore ? "Bu eşleşme berabereye çok yakın."
-    : l.valueScore>r.valueScore ? `${l.name} değerine göre daha fazla etki üretiyor.`
-    : `${r.name} değerine göre daha fazla etki üretiyor.`;
+  const w = l.impactScore===r.impactScore ? "Bu eşleşmede performans dengesi tam anlamıyla eşit."
+    : l.impactScore>r.impactScore ? `${l.name} sahaya yansıttığı etki skoru ve performansı ile bu kıyaslamada öne çıkıyor.`
+    : `${r.name} sahaya yansıttığı etki skoru ve performansı ile bu kıyaslamada öne çıkıyor.`;
   comparison.innerHTML = `
     <article class="duel-card"><h3>${l.name}</h3>
       ${sl("Gol",l.goals,r.goals)}${sl("Asist",l.assists,r.assists)}
