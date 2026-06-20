@@ -65,17 +65,17 @@ button, input, select {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(12, 20, 16, 0.86);
+  background: rgba(12, 20, 16, 0.90);
   backdrop-filter: blur(18px) saturate(1.6);
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  height: var(--navbar-h);
+  /* height intentionally NOT set here — lets mobile menu expand */
 }
 
 .navbar-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
-  height: 100%;
+  height: var(--navbar-h);
   display: flex;
   align-items: center;
   gap: 24px;
@@ -152,17 +152,23 @@ button, input, select {
 }
 
 .nav-mobile-menu {
-  background: rgba(12, 20, 16, 0.96);
+  background: rgba(10, 18, 14, 0.97);
   border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 12px 16px;
+  padding: 10px 16px 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  animation: riseIn 180ms ease both;
+}
+
+.nav-mobile-menu[hidden] {
+  display: none !important;
 }
 
 .nav-mobile-menu .nav-link {
-  padding: 10px 14px;
+  padding: 11px 14px;
   border-radius: 8px;
+  font-size: 0.95rem;
 }
 
 /* ===================== APP SHELL ===================== */
@@ -1659,5 +1665,132 @@ select:focus {
 
   .btn-primary, .btn-ghost {
     text-align: center;
+  }
+}
+
+/* ===================== SEASON AWARDS ===================== */
+.awards-panel {
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  animation: riseIn 740ms ease 95ms both;
+  margin-bottom: 20px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.award-card {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid #e0e8de;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  background: #fff;
+}
+
+.award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(20,40,28,0.14);
+  border-color: color-mix(in srgb, var(--theme-primary) 45%, #e0e8de);
+}
+
+.award-header {
+  padding: 16px 18px 12px;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--award-color, var(--theme-primary)) 22%, transparent),
+    transparent 70%),
+    var(--theme-dark);
+  color: #f0faf5;
+  position: relative;
+  overflow: hidden;
+}
+
+.award-header::before {
+  content: var(--award-emoji, "🏆");
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.4rem;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.award-emoji-main {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.award-title {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--award-color, var(--theme-primary)) 70%, #a8d8be);
+  margin-bottom: 4px;
+}
+
+.award-winner {
+  display: block;
+  font-size: 1.18rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #f0faf5;
+}
+
+.award-team-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #c8ddd2;
+}
+
+.award-body {
+  padding: 14px 18px 16px;
+}
+
+.award-detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--award-color, var(--theme-primary)) 10%, #f4f8f2);
+  border: 1px solid color-mix(in srgb, var(--award-color, var(--theme-primary)) 25%, #e0e8de);
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: var(--theme-dark);
+  margin-bottom: 10px;
+}
+
+.award-note {
+  margin: 0;
+  color: #4a5c52;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .awards-grid {
+    grid-template-columns: 1fr;
   }
 }

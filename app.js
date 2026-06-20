@@ -1,676 +1,771 @@
 // ================================================================
-// SÜPER LİG ATLASI — app.js
+// SÜPER LİG ATLASI — app.js  |  2025-26 Sezonu
 // ================================================================
 
-// ── OYUNCU VERİSİ ──────────────────────────────────────────────
+// ── OYUNCU VERİSİ (2025-26) ────────────────────────────────────
 const players = [
-  // === GALATASARAY ===
+
+  // ===== GALATASARAY =====
   {
-    name: "Victor Osimhen", team: "Galatasaray", position: "Forvet", age: 27,
-    marketValue: 75, goals: 15, assists: 5, minutes: 2100, bigMatch: 90, form: 88,
-    story: "Piyasa değeri çok yüksek ama skor, pres ve fiziksel baskı tarafında Galatasaray'a elit seviye etki veren forvet.",
-    career: ["Wolfsburg", "Charleroi", "Lille", "Napoli", "Galatasaray"],
-    strengths: ["Pres", "Derin koşu", "Bitiricilik"],
-    profile: "Modern elit santrfor profili. Sadece gol atmaz; savunmayı zorlar, presi başlatır ve takım hücumunu fiziksel olarak yukarı taşır."
-  },
-  {
-    name: "Mauro Icardi", team: "Galatasaray", position: "Forvet", age: 33,
-    marketValue: 10, goals: 14, assists: 4, minutes: 2050, bigMatch: 87, form: 85,
-    story: "Klasik bitirici rolüyle az alanda çok iş yapan, büyük anlarda skor tehdidi yüksek Galatasaray kaptanı.",
-    career: ["Sampdoria", "Inter", "PSG", "Galatasaray"],
-    strengths: ["Pozisyon alma", "Penaltı", "Tek vuruş"],
-    profile: "Ceza sahasında az temasla maksimum sonuç almaya çalışan elit bitirici."
-  },
-  {
-    name: "Baris Alper Yilmaz", team: "Galatasaray", position: "Kanat", age: 24,
-    marketValue: 22, goals: 9, assists: 11, minutes: 2200, bigMatch: 86, form: 90,
-    story: "Hem gol hem asist üretebilen, hızı ve yaratıcılığıyla Galatasaray'ın sol kanadında tehdit yaratan milli oyuncu.",
-    career: ["Altay", "Galatasaray"],
-    strengths: ["Hız", "Asist", "Dribbling"],
-    profile: "Sol kanatta direktif ve yaratıcılığı birleştiren modern kanat profili. Milli takımın da vazgeçilmezi."
-  },
-  {
-    name: "Ugurcan Cakir", team: "Galatasaray", position: "Kaleci", age: 30,
-    marketValue: 15, goals: 0, assists: 0, minutes: 2900, bigMatch: 89, form: 87,
-    story: "Büyük takim kalecisi etkisini temsil eden, büyük maçlarda tutarlı performansıyla öne çıkan profil.",
+    name: "Ugurcan Cakir", team: "Galatasaray", position: "Kaleci", age: 31,
+    marketValue: 18, goals: 0, assists: 0, minutes: 3230, bigMatch: 92, form: 91,
+    story: "20 gol yememe ile üst üste 3. şampiyonluğun mimarı. Sezonun kalecisi ödülünü zirvede bitirdi.",
     career: ["1461 Trabzon", "Trabzonspor", "Galatasaray"],
-    strengths: ["Liderlik", "Refleks", "Büyük maç"],
-    profile: "Türkiye liginin en bilinen kaleci profillerinden. Büyük takim kalecisinde beklenti yüksek olduğu için deger/etki yorumu farklı ele alınmalı."
+    strengths: ["Kurtarış", "Liderlik", "Büyük maç"]
   },
   {
-    name: "Gabriel Sara", team: "Galatasaray", position: "Orta saha", age: 26,
-    marketValue: 28, goals: 7, assists: 9, minutes: 2350, bigMatch: 84, form: 88,
-    story: "Yaratıcı pas, top taşıma ve büyük maç katkısıyla Galatasaray'ın orta sahasını yöneten kilit isim.",
+    name: "Baris Alper Yilmaz", team: "Galatasaray", position: "Kanat", age: 25,
+    marketValue: 30, goals: 16, assists: 12, minutes: 2900, bigMatch: 92, form: 95,
+    story: "Hem gol hem asist listelerinde zirve, büyük maçlarda fark yaratan oyunla sezonun tartışmasız en iyisi.",
+    career: ["Altay", "Galatasaray"],
+    strengths: ["Hız", "Gol", "Asist"]
+  },
+  {
+    name: "Gabriel Sara", team: "Galatasaray", position: "Orta saha", age: 27,
+    marketValue: 32, goals: 8, assists: 14, minutes: 2850, bigMatch: 88, form: 91,
+    story: "Sezonun asist krallığına oynayan yaratıcı orta saha, Galatasaray'ın oyun kurma merkezinde kritik rol.",
     career: ["Gremio", "Norwich", "Galatasaray"],
-    strengths: ["Pas kalitesi", "Top taşıma", "Yaratıcılık"],
-    profile: "Orta saha organize ederek hücum yaratan modern 8 numarası profili."
+    strengths: ["Pas kalitesi", "Yaratıcılık", "Top taşıma"]
   },
   {
-    name: "Ilkay Gundogan", team: "Galatasaray", position: "Orta saha", age: 35,
-    marketValue: 12, goals: 5, assists: 8, minutes: 2100, bigMatch: 88, form: 84,
-    story: "Kariyer tecrübesi ve oyun zekasıyla Galatasaray'a liderlik eden, büyük kulüplerde oynamış dünya yıldızı.",
-    career: ["Dortmund", "Man City", "Barcelona", "Galatasaray"],
-    strengths: ["Oyun zekası", "Pas", "Liderlik"],
-    profile: "Orta sahada topu dağıtan, ritmi ayarlayan klasik 10 numarası. Tecrübesi takıma değer katar."
+    name: "Artem Dovbyk", team: "Galatasaray", position: "Forvet", age: 28,
+    marketValue: 45, goals: 18, assists: 6, minutes: 2600, bigMatch: 87, form: 88,
+    story: "Roma'dan transfer edilen Ukrayna milli takımı golcüsü, Galatasaray için sezonun en etkili transferi oldu.",
+    career: ["Dnipro", "Girona", "Roma", "Galatasaray"],
+    strengths: ["Bitiricilik", "Hava topu", "Büyük maç"]
+  },
+  {
+    name: "Leroy Sane", team: "Galatasaray", position: "Kanat", age: 30,
+    marketValue: 28, goals: 10, assists: 9, minutes: 2400, bigMatch: 86, form: 87,
+    story: "Bayern sonrası ilk tam sezonunu oynayan Sane, büyük maçlarda imzasını attı ve şampiyonluğa katkı sağladı.",
+    career: ["Schalke", "Man City", "Bayern", "Galatasaray"],
+    strengths: ["Hız", "Teknik", "Gol"]
+  },
+  {
+    name: "Lucas Torreira", team: "Galatasaray", position: "Orta saha", age: 30,
+    marketValue: 14, goals: 3, assists: 7, minutes: 2700, bigMatch: 87, form: 88,
+    story: "Galatasaray'ın savunma ve hücum dengesini kuran yorulmaz motor. Şampiyonluğun görünmez mimarı.",
+    career: ["Sampdoria", "Arsenal", "Atletico", "Fiorentina", "Galatasaray"],
+    strengths: ["Savunma", "Pas", "Istikrar"]
   },
 
-  // === FENERBAHÇE ===
+  // ===== FENERBAHÇE =====
   {
-    name: "Talisca", team: "Fenerbahce", position: "Orta saha", age: 32,
-    marketValue: 13, goals: 19, assists: 4, minutes: 2300, bigMatch: 88, form: 89,
-    story: "Skor tehdidi yüksek, ceza sahası dışı şut ve duran top etkisiyle Fenerbahçe'nin en net hücum silahlarından.",
-    career: ["Bahia", "Benfica", "Besiktas", "Guangzhou", "Al Nassr", "Fenerbahce"],
-    strengths: ["Şut", "Duran top", "Skor katkısı"],
-    profile: "Klasik on numara ile ikinci forvet arasında oynayabilen, uzaktan şut ve duran toplarla maçın dengesini değiştiren oyuncu."
-  },
-  {
-    name: "Marco Asensio", team: "Fenerbahce", position: "Orta saha", age: 30,
-    marketValue: 18, goals: 11, assists: 12, minutes: 2350, bigMatch: 85, form: 87,
-    story: "Gol ve asist dengesini birlikte taşıyan, değeri yüksek ama toplam hücum katkısı da çok güçlü profil.",
-    career: ["Mallorca", "Real Madrid", "PSG", "Aston Villa", "Fenerbahce"],
-    strengths: ["Şut", "Pas kalitesi", "Tecrübe"],
-    profile: "Teknik kalite ve son pas tehdidiyle oynayan sol ayaklı hücum oyuncusu."
-  },
-  {
-    name: "Dorgeles Nene", team: "Fenerbahce", position: "Kanat", age: 23,
-    marketValue: 18, goals: 11, assists: 5, minutes: 1900, bigMatch: 86, form: 89,
-    story: "Hat-trick etkisiyle öne çıkan, hız ve skor tehdidiyle Fenerbahçe'nin patlama potansiyeli yüksek kanadı.",
+    name: "Dorgeles Nene", team: "Fenerbahce", position: "Kanat", age: 24,
+    marketValue: 30, goals: 13, assists: 16, minutes: 2700, bigMatch: 90, form: 92,
+    story: "16 asist ile sezonun asist krallığı. Hız, vizyonu ve son pas kalitesiyle Fenerbahçe'nin parlayan yıldızı.",
     career: ["Salzburg", "Westerlo", "Fenerbahce"],
-    strengths: ["Hız", "Bire bir", "Patlama"],
-    profile: "Genç, hızlı ve direkt oynayan kanat profili. Form yakaladığında maçı bir anda açabilen oyuncu tiplerinden."
+    strengths: ["Asist", "Hız", "Bire bir"]
   },
   {
-    name: "Edson Alvarez", team: "Fenerbahce", position: "Orta saha", age: 28,
-    marketValue: 30, goals: 3, assists: 6, minutes: 2400, bigMatch: 83, form: 86,
-    story: "Savunma organizasyonu ve top kapma kalitesiyle Fenerbahçe'nin orta sahasının güvenlik duvarı.",
+    name: "Talisca", team: "Fenerbahce", position: "Orta saha", age: 33,
+    marketValue: 11, goals: 17, assists: 5, minutes: 2200, bigMatch: 89, form: 87,
+    story: "Sezona sürpriz gibi geldi ama her büyük maçta parmak izi bırakarak Fenerbahçe'nin gol silahı olmaya devam etti.",
+    career: ["Bahia", "Benfica", "Besiktas", "Guangzhou", "Al Nassr", "Fenerbahce"],
+    strengths: ["Şut", "Duran top", "Büyük maç"]
+  },
+  {
+    name: "Edson Alvarez", team: "Fenerbahce", position: "Orta saha", age: 29,
+    marketValue: 32, goals: 4, assists: 8, minutes: 2900, bigMatch: 86, form: 88,
+    story: "Fenerbahçe'nin orta sahasının güvenlik kilidi. Etkili top kapma ve hücum başlatma kalitesiyle fark yarattı.",
     career: ["Club America", "Ajax", "West Ham", "Fenerbahce"],
-    strengths: ["Top kapma", "Savunma", "Fizik"],
-    profile: "Defensive midfield rolünde pres ve top kapmayla alanı kapatan Meksika milli takımının kilit ismi."
+    strengths: ["Top kapma", "Savunma", "Fizik"]
   },
   {
-    name: "Caglar Soyuncu", team: "Fenerbahce", position: "Defans", age: 29,
-    marketValue: 14, goals: 1, assists: 2, minutes: 2600, bigMatch: 82, form: 85,
-    story: "Defans liderliği ve havada üstünlüğüyle Fenerbahçe'nin savunma organizasyonunun temel taşı.",
+    name: "Caglar Soyuncu", team: "Fenerbahce", position: "Defans", age: 30,
+    marketValue: 16, goals: 2, assists: 3, minutes: 2800, bigMatch: 84, form: 86,
+    story: "Fenerbahçe savunma blokunu organize eden lider stoper, büyük maçlarda güvenilir kale bekçisi.",
     career: ["Altinordu", "Freiburg", "Leicester", "Atletico Madrid", "Fenerbahce"],
-    strengths: ["Hava topu", "Liderlik", "Pozisyon"],
-    profile: "Modern stoper profili. Topla çıkış yapabilen, savunmayı organize eden, büyük maçlarda istikrarlı profil."
+    strengths: ["Hava topu", "Liderlik", "Topla çıkış"]
+  },
+  {
+    name: "Kerem Akturkoglu", team: "Fenerbahce", position: "Kanat", age: 27,
+    marketValue: 26, goals: 11, assists: 7, minutes: 2500, bigMatch: 85, form: 86,
+    story: "Galatasaray'dan transferi şok yarattı. İlk sezonunu Fenerbahçe formasıyla geçirdi ve eleştirenlere cevabı sahada verdi.",
+    career: ["Altinordu", "Giresunspor", "Galatasaray", "Fenerbahce"],
+    strengths: ["Hız", "Dribbling", "Gol"]
+  },
+  {
+    name: "Marco Asensio", team: "Fenerbahce", position: "Orta saha", age: 31,
+    marketValue: 15, goals: 9, assists: 10, minutes: 2100, bigMatch: 84, form: 85,
+    story: "Hem gol hem asist üretme kapasitesiyle Fenerbahçe'nin hücum çeşitliliğine zenginlik katan Madridli teknikten.",
+    career: ["Mallorca", "Real Madrid", "PSG", "Aston Villa", "Fenerbahce"],
+    strengths: ["Şut", "Pas kalitesi", "Tecrübe"]
   },
 
-  // === BEŞİKTAŞ ===
+  // ===== BEŞİKTAŞ =====
   {
-    name: "Orkun Kokcu", team: "Besiktas", position: "Orta saha", age: 25,
-    marketValue: 30, goals: 8, assists: 10, minutes: 2200, bigMatch: 87, form: 88,
-    story: "Teknik kalitesi ve geniş vizyon sahibi oyun anlayışıyla Beşiktaş'ın yeni nesil orta saha yıldızı.",
+    name: "Orkun Kokcu", team: "Besiktas", position: "Orta saha", age: 26,
+    marketValue: 34, goals: 9, assists: 12, minutes: 2600, bigMatch: 88, form: 90,
+    story: "Benfica'dan kalıcı transferi gerçekleşti. Sezona damga vuran performansıyla Beşiktaş'ın orta saha yıldızı.",
     career: ["Feyenoord", "Benfica", "Besiktas"],
-    strengths: ["Pas", "Vizyon", "Top kontrolü"],
-    profile: "Orta sahadan oyunu yönetebilen, son pas ve şutla hücuma katkı veren modern orta saha profili."
+    strengths: ["Pas", "Vizyon", "Gol"]
   },
   {
-    name: "Rafa Silva", team: "Besiktas", position: "Orta saha", age: 32,
-    marketValue: 8, goals: 10, assists: 8, minutes: 2050, bigMatch: 84, form: 86,
-    story: "Deneyimi ve tekniğiyle Beşiktaş'ın hücum organizasyonuna farklı boyut katan Portekizli oyun kurucu.",
+    name: "Tammy Abraham", team: "Besiktas", position: "Forvet", age: 29,
+    marketValue: 24, goals: 15, assists: 5, minutes: 2500, bigMatch: 86, form: 87,
+    story: "Premier Lig formunu Türkiye'ye taşıdı. Fiziksel güç ve ceza sahası etkisiyle Beşiktaş'ın santrfor çözümü.",
+    career: ["Chelsea", "Aston Villa", "Leeds", "Roma", "Besiktas"],
+    strengths: ["Fizik", "Ceza sahası", "Hava topu"]
+  },
+  {
+    name: "Rafa Silva", team: "Besiktas", position: "Orta saha", age: 33,
+    marketValue: 7, goals: 8, assists: 9, minutes: 2200, bigMatch: 83, form: 84,
+    story: "Dar alanlarda top kaybetmeyen teknik zeka. Beşiktaş hücumunu her an aktive edebilen yaratıcı profil.",
     career: ["Estoril", "Braga", "Benfica", "Besiktas"],
-    strengths: ["Teknik", "Yaratıcılık", "Son pas"],
-    profile: "Dar alanlarda top kaybetmeyen, hücum başlatma konusunda yetenekli, deneyimli orta saha."
+    strengths: ["Teknik", "Yaratıcılık", "Son pas"]
   },
   {
-    name: "Tammy Abraham", team: "Besiktas", position: "Forvet", age: 28,
-    marketValue: 22, goals: 12, assists: 4, minutes: 2100, bigMatch: 83, form: 84,
-    story: "Fiziksel üstünlüğü ve ceza sahasındaki akıllı hareketleriyle Beşiktaş'ın hücum eksenini taşıyan santrfor.",
-    career: ["Chelsea", "Swansea", "Aston Villa", "Leeds", "Roma", "Besiktas"],
-    strengths: ["Fizik", "Ceza sahası", "Havada güç"],
-    profile: "Büyük ve güçlü yapısıyla ceza sahasında fark yaratan klasik santrfor. Besiktas için hem gol hem de ekran oyuncusu."
+    name: "Joao Mario", team: "Besiktas", position: "Orta saha", age: 32,
+    marketValue: 9, goals: 6, assists: 8, minutes: 2400, bigMatch: 82, form: 85,
+    story: "Portekiz milli takımı kariyeriyle gelen deneyimli orta saha, Beşiktaş'a sol taraftan önemli katkılar sağladı.",
+    career: ["Sporting", "Inter", "Lokomotiv", "Benfica", "Besiktas"],
+    strengths: ["Pas", "Uzun top", "Tecrübe"]
   },
   {
-    name: "Wilfred Ndidi", team: "Besiktas", position: "Orta saha", age: 29,
-    marketValue: 12, goals: 2, assists: 4, minutes: 2450, bigMatch: 84, form: 85,
-    story: "Savunma katkısı ve güçlü fizikiyle Beşiktaş'ın orta sahasında kontrol ve istikrar sağlayan motor.",
+    name: "Wilfred Ndidi", team: "Besiktas", position: "Orta saha", age: 30,
+    marketValue: 13, goals: 3, assists: 5, minutes: 2700, bigMatch: 85, form: 86,
+    story: "Leicester City'nin efsane motor oyuncusu Beşiktaş'ta aynı güveni veriyor. Savunma organizasyonunun merkezinde.",
     career: ["Nath. Star", "Genk", "Leicester", "Besiktas"],
-    strengths: ["Savunma", "Fizik", "Istikrar"],
-    profile: "Defensive midfield rolünde alan kaplayan, presi başlatan Nijeryalı motor oyuncu."
+    strengths: ["Savunma", "Fizik", "Istikrar"]
+  },
+  {
+    name: "Mert Gunok", team: "Besiktas", position: "Kaleci", age: 35,
+    marketValue: 4, goals: 0, assists: 0, minutes: 3200, bigMatch: 83, form: 82,
+    story: "Beşiktaş'ın tecrübeli kaleci duvarı. Büyük maçlarda etkili kurtarışlarıyla takımı sırtlayan kaptan.",
+    career: ["Besiktas", "Galatasaray", "Besiktas"],
+    strengths: ["Deneyim", "Kurtarış", "Liderlik"]
   },
 
-  // === TRABZONSPOR ===
+  // ===== TRABZONSPOR =====
   {
-    name: "Paul Onuachu", team: "Trabzonspor", position: "Forvet", age: 31,
-    marketValue: 12, goals: 22, assists: 2, minutes: 2500, bigMatch: 91, form: 93,
-    story: "Lig gol krallığı seviyesine çıkan, hava gücü ve ceza sahası bitiriciliğiyle sezonun en büyük etkilerinden biri.",
+    name: "Paul Onuachu", team: "Trabzonspor", position: "Forvet", age: 32,
+    marketValue: 13, goals: 24, assists: 3, minutes: 2800, bigMatch: 93, form: 94,
+    story: "24 gol ile 2. kez üst üste gol krallığı! Süper Lig tarihine geçen fiziksel güç ve ceza sahası hâkimiyeti.",
     career: ["Midtjylland", "Genk", "Southampton", "Trabzonspor"],
-    strengths: ["Hava topları", "Ceza sahası", "Bitiricilik"],
-    profile: "Uzun boyu ve fizik gücüyle ceza sahasında fark yaratan klasik santrfor. Trabzonspor için sadece gol değil, rakip savunmayı geri iten bir oyun merkezi."
+    strengths: ["Hava topları", "Bitiricilik", "Ceza sahası"]
   },
   {
-    name: "Felipe Augusto", team: "Trabzonspor", position: "Forvet", age: 22,
-    marketValue: 3.5, goals: 13, assists: 2, minutes: 2250, bigMatch: 84, form: 88,
-    story: "Trabzonspor'un skor dağılımını güçlendiren, yaşı ve maliyetiyle scout radarında durması gereken hücumcu.",
+    name: "Felipe Augusto", team: "Trabzonspor", position: "Forvet", age: 23,
+    marketValue: 6, goals: 14, assists: 4, minutes: 2400, bigMatch: 87, form: 90,
+    story: "23 yaşında ikinci sezonunda çiçek gibi açtı. Gol sayısını ikiye katladı, Avrupa kulüpleri takibe aldı.",
     career: ["Corinthians", "Cercle Brugge", "Trabzonspor"],
-    strengths: ["Potansiyel", "Ceza sahası", "Hareketlilik"],
-    profile: "Yaşı ve skor katkısı bir araya geldiğinde scout radarına giren profillerden."
+    strengths: ["Potansiyel", "Bitiricilik", "Hareketlilik"]
   },
   {
-    name: "Ernest Muci", team: "Trabzonspor", position: "Orta saha", age: 25,
-    marketValue: 9, goals: 10, assists: 4, minutes: 2100, bigMatch: 88, form: 90,
-    story: "Büyük maçlarda skor üreten, orta saha/hücum arası rolde Trabzonspor'a farklı bir bitiricilik katan oyuncu.",
+    name: "Ernest Muci", team: "Trabzonspor", position: "Orta saha", age: 26,
+    marketValue: 12, goals: 9, assists: 6, minutes: 2200, bigMatch: 89, form: 91,
+    story: "Büyük maçlarda sürekli skor üreten, her forma giyme anında fark yaratan Trabzonspor'un hücum dinamosu.",
     career: ["Tirana", "Legia Warsaw", "Besiktas", "Trabzonspor"],
-    strengths: ["Şut", "Yaratıcılık", "Büyük maç"],
-    profile: "Hücum orta saha ve kanat rollerine kayabilen, skor tehdidiyle klasik pasör orta sahadan ayrılan dinamik profil."
+    strengths: ["Büyük maç", "Şut", "Yaratıcılık"]
   },
   {
-    name: "Okay Yokuslu", team: "Trabzonspor", position: "Orta saha", age: 31,
-    marketValue: 6, goals: 2, assists: 5, minutes: 2600, bigMatch: 82, form: 84,
-    story: "Tecrübesi ve savunma katkısıyla Trabzonspor'un orta sahasında denge ve istikrar sağlayan milli isim.",
+    name: "Okay Yokuslu", team: "Trabzonspor", position: "Orta saha", age: 32,
+    marketValue: 5, goals: 2, assists: 6, minutes: 2700, bigMatch: 83, form: 85,
+    story: "Tecrübesi ve savunma katkısıyla Trabzonspor'un orta sahasının dengeleme taşı. Görünmez ama vazgeçilmez.",
     career: ["Trabzonspor", "Celta Vigo", "WBA", "Crystal Palace", "Trabzonspor"],
-    strengths: ["Savunma", "Tecrübe", "Pas"],
-    profile: "Orta sahada savunma-hücum dengesini kuran, topu doğru dağıtan milli kalibrede oyuncu."
+    strengths: ["Savunma", "Tecrübe", "Pas"]
+  },
+  {
+    name: "Oleksandr Zubkov", team: "Trabzonspor", position: "Kanat", age: 28,
+    marketValue: 10, goals: 7, assists: 8, minutes: 2100, bigMatch: 82, form: 86,
+    story: "Ukraynalı kanat oyuncusu Trabzonspor'da ikinci sezonuna geldi, gol ve asist sayısını artırdı.",
+    career: ["Dynamo Kyiv", "Galatasaray", "Trabzonspor"],
+    strengths: ["Hız", "Bire bir", "Gol katkısı"]
   },
 
-  // === BAŞAKŞEHİR ===
+  // ===== BAŞAKŞEHİR =====
   {
-    name: "Eldor Shomurodov", team: "Basaksehir", position: "Forvet", age: 31,
-    marketValue: 8, goals: 22, assists: 5, minutes: 2450, bigMatch: 86, form: 91,
-    story: "Başakşehir'in skor yükünü taşıyan, gol katkısı ve istikrarıyla değer/etki listesinde yukarı tırmanan santrfor.",
+    name: "Eldor Shomurodov", team: "Basaksehir", position: "Forvet", age: 32,
+    marketValue: 7, goals: 18, assists: 6, minutes: 2550, bigMatch: 87, form: 88,
+    story: "Başakşehir'in vazgeçilmez golcüsü. Üçüncü sezonunda da gol listesinin üst sıralarında kalmayı başardı.",
     career: ["Bunyodkor", "Rostov", "Genoa", "Roma", "Basaksehir"],
-    strengths: ["Koşular", "Skor sezgisi", "Fizik"],
-    profile: "Ceza sahasına doğru zamanlama ile giren, takım oyunu içinde skor tehdidi yaratan hareketli forvet profili."
+    strengths: ["Skor sezgisi", "Koşular", "Fizik"]
   },
   {
-    name: "Muhammed Sengezer", team: "Basaksehir", position: "Kaleci", age: 29,
-    marketValue: 2.5, goals: 0, assists: 0, minutes: 2850, bigMatch: 83, form: 88,
-    story: "Başakşehir savunma performansının merkezindeki kaleci; clean sheet katkısı onu radar listesinde tutuyor.",
+    name: "Muhammed Sengezer", team: "Basaksehir", position: "Kaleci", age: 30,
+    marketValue: 3, goals: 0, assists: 0, minutes: 3100, bigMatch: 85, form: 89,
+    story: "Başakşehir'in savunma örneğinin merkezinde. Clean sheet oranıyla sezonun değerli kalecileri arasında.",
     career: ["Bursaspor", "Basaksehir", "Adana Demirspor", "Basaksehir"],
-    strengths: ["Refleks", "Pozisyon", "İstikrar"],
-    profile: "Savunma istikrarının merkezinde duran kaleci. Değer/etki modelinde kaleci rolü için ayrı ağırlıklar kullanılmasını destekliyor."
+    strengths: ["Refleks", "Istikrar", "Pozisyon"]
+  },
+  {
+    name: "Berkay Ozcan", team: "Basaksehir", position: "Orta saha", age: 28,
+    marketValue: 6, goals: 5, assists: 10, minutes: 2600, bigMatch: 83, form: 85,
+    story: "Eyüpspor'dan transfer edilen Berkay, Başakşehir'de hemen adaptasyonu sağladı ve asist listesine girdi.",
+    career: ["Stuttgart", "Greuther Furth", "Bochum", "Eyupspor", "Basaksehir"],
+    strengths: ["Asist", "Pas kalitesi", "Vizyon"]
   },
 
-  // === GÖZTEPE ===
+  // ===== EYÜPSPOR =====
   {
-    name: "Juan", team: "Goztepe", position: "Kanat", age: 23,
-    marketValue: 2.2, goals: 11, assists: 2, minutes: 1950, bigMatch: 79, form: 84,
-    story: "Göztepe tarafında skor katkısı veren, büyük bütçeli olmayan takımdan değer/katkı listesine giren hücumcu.",
-    career: ["Gremio", "Santos", "Goztepe"],
-    strengths: ["Skor katkısı", "Hareketlilik", "Fırsatçılık"],
-    profile: "Büyük takım dışından gelen skor katkısı projeye hikâye katar. Juan gibi oyuncular değer/katkı listelerinin en eğlenceli tarafını oluşturur."
-  },
-  {
-    name: "Mateusz Lis", team: "Goztepe", position: "Kaleci", age: 29,
-    marketValue: 2, goals: 0, assists: 0, minutes: 3000, bigMatch: 86, form: 92,
-    story: "Clean sheet listesinde zirveye oynayan, kaleci etkisini değer/katkı modeline dahil etmemiz gerektiğini gösteren isim.",
-    career: ["Lech Poznan", "Southampton", "Troyes", "Goztepe"],
-    strengths: ["Refleks", "Clean sheet", "Konsantrasyon"],
-    profile: "Kaleciler için gol/asist modeli yetmez. Lis, kurtarış ve clean sheet etkisini ayrı puanlamamız gerektiğini gösteren iyi bir örnek."
-  },
-
-  // === GAZİANTEP ===
-  {
-    name: "Mohamed Bayo", team: "Gaziantep", position: "Forvet", age: 28,
-    marketValue: 4, goals: 15, assists: 3, minutes: 2200, bigMatch: 82, form: 86,
-    story: "Büyük takım dışından gelip gol listesine giren, değerine göre ciddi skor etkisi üreten forvet profili.",
-    career: ["Clermont", "Lille", "Le Havre", "Watford", "Gaziantep"],
-    strengths: ["Bitiricilik", "Pozisyon alma", "Fizik"],
-    profile: "Büyük takım dışında skor üreten forvetler bu projenin en değerli hikâyesi."
-  },
-  {
-    name: "Ruslan Malinovskyi", team: "Gaziantep", position: "Orta saha", age: 32,
-    marketValue: 8, goals: 7, assists: 9, minutes: 2300, bigMatch: 83, form: 85,
-    story: "Avrupa tecrübesi ve uzun menzilli şutlarıyla Gaziantep'e üst düzey orta saha kalitesi katan Ukraynalı.",
-    career: ["Shakhtar", "Genk", "Atalanta", "Marseille", "Gaziantep"],
-    strengths: ["Uzak şut", "Pas", "Tecrübe"],
-    profile: "Avrupa sahnesinde kanıtlanmış kalitesiyle değerine göre oldukça yüksek etki üreten orta saha profili."
-  },
-
-  // === ALANYASPOR ===
-  {
-    name: "Ertugrul Taskiran", team: "Alanyaspor", position: "Kaleci", age: 26,
-    marketValue: 3, goals: 0, assists: 0, minutes: 3200, bigMatch: 84, form: 87,
-    story: "Alanyaspor'un genç kalecisi; clean sheet oranı ve büyük maç direnciyle değer/katkı listesine giriyor.",
-    career: ["Alanyaspor"],
-    strengths: ["Refleks", "Genç profil", "Büyük maç"],
-    profile: "Türk kaleci yetenekleri arasında potansiyeli yüksek, istikrarlı sezon geçiren gelişen profil."
-  },
-  {
-    name: "Yunus Emre Erdogan", team: "Alanyaspor", position: "Orta saha", age: 24,
-    marketValue: 3.5, goals: 6, assists: 8, minutes: 2400, bigMatch: 80, form: 83,
-    story: "Alanyaspor'un yaratıcı orta saha oyuncusu; genç yaşına rağmen organize edici kalitesiyle öne çıkıyor.",
-    career: ["Alanyaspor"],
-    strengths: ["Yaratıcılık", "Pas", "Potansiyel"],
-    profile: "Genç ve değeri düşük ama etki skoru yüksek profil. Scout radarına girmesi çok kısa sürer."
-  },
-  {
-    name: "Efkan Bektas", team: "Alanyaspor", position: "Forvet", age: 22,
-    marketValue: 2.5, goals: 10, assists: 3, minutes: 2000, bigMatch: 78, form: 82,
-    story: "Alanyaspor'un gençliğine rağmen çift haneli gol barajını aşan, potansiyeliyle göz dolduran hücumcusu.",
-    career: ["Alanyaspor"],
-    strengths: ["Bitiricilik", "Potansiyel", "Hız"],
-    profile: "Çok genç, maliyeti düşük ama gol sayısı yüksek. Scout modeli için mükemmel örnek."
-  },
-
-  // === ANTALYASPOR ===
-  {
-    name: "Oguzhan Ozyakup", team: "Antalyaspor", position: "Orta saha", age: 33,
-    marketValue: 2.5, goals: 3, assists: 7, minutes: 2200, bigMatch: 79, form: 80,
-    story: "Avrupa tecrübesiyle Antalyaspor'a oyun kalitesi katan, asist ve pas organizasyonuyla değer yaratan milli isim.",
-    career: ["Besiktas", "Arsenal", "Besiktas", "Antalyaspor"],
-    strengths: ["Pas", "Tecrübe", "Oyun zekası"],
-    profile: "Kariyer birikimi olan tecrübeli orta saha. Değeri çok düşük ama organizasyon katkısı hâlâ yüksek."
-  },
-  {
-    name: "Mario Balotelli", team: "Antalyaspor", position: "Forvet", age: 35,
-    marketValue: 1.5, goals: 8, assists: 2, minutes: 1800, bigMatch: 74, form: 76,
-    story: "Kariyerinin sonuna doğru Antalya'da oynayan eski dünya yıldızı; büyük maç deneyimi ve imzası hâlâ var.",
-    career: ["Inter", "Man City", "Liverpool", "AC Milan", "Nice", "Marseille", "Antalyaspor"],
-    strengths: ["Tecrübe", "Gol sezgisi", "Büyük maç"],
-    profile: "Eskiden şov yapan, şimdi deneyimiyle takıma katkı sağlamaya çalışan kariyer sonu profil."
-  },
-
-  // === KAYSERISPOR ===
-  {
-    name: "Bilal Bayazit", team: "Kayserispor", position: "Kaleci", age: 27,
-    marketValue: 1.8, goals: 0, assists: 0, minutes: 3000, bigMatch: 81, form: 83,
-    story: "Küçük bütçeli takımın kalecisi olarak clean sheet listesinde yer bulan, maliyetiyle değer yaratan profil.",
-    career: ["Kayserispor"],
-    strengths: ["Refleks", "Istikrar", "Clean sheet"],
-    profile: "Düşük piyasa değeriyle yüksek dakika oynayan kaleci. Değer/katkı modelinde öne çıkıyor."
-  },
-  {
-    name: "Kouadio Kone", team: "Kayserispor", position: "Orta saha", age: 24,
-    marketValue: 5, goals: 5, assists: 6, minutes: 2100, bigMatch: 80, form: 82,
-    story: "Fransa'dan gelen genç orta saha, fizik gücü ve koşusuyla Kayserispor'da kalibreyi yükseltiyor.",
-    career: ["Toulouse", "Borussia Monchengladbach", "Kayserispor"],
-    strengths: ["Fizik", "Koşu", "Savunma"],
-    profile: "Genç ve potansiyeli yüksek, Avrupa tecrübesiyle Kayserispor'da fark yaratan kasa orta saha."
-  },
-
-  // === SAMSUNSPOR ===
-  {
-    name: "Okan Kocuk", team: "Samsunspor", position: "Kaleci", age: 25,
-    marketValue: 2, goals: 0, assists: 0, minutes: 3100, bigMatch: 82, form: 84,
-    story: "Samsunspor'un net kurtarış oranı en yüksek kalecilerinden; büyük maçlarda öne çıkıyor.",
-    career: ["Besiktas", "Samsunspor"],
-    strengths: ["Kurtarış", "Refleks", "Büyük maç"],
-    profile: "Genç ve Beşiktaş altyapısı çıkışlı. Net kurtarış oranıyla üst lig kalecilerine fark atıyor."
-  },
-  {
-    name: "Ivohas Seka", team: "Samsunspor", position: "Forvet", age: 26,
-    marketValue: 3.5, goals: 12, assists: 4, minutes: 2100, bigMatch: 79, form: 83,
-    story: "Samsunspor'un gol yükünü taşıyan, büyük bütçe olmadan çift haneli gol üreten hücumcu.",
-    career: ["Guimaraes", "Samsunspor"],
-    strengths: ["Bitiricilik", "Fizik", "Skor sezgisi"],
-    profile: "Piyasa değeri düşük ama gol sayısı yüksek. Değer/katkı analizinin en güzel örneklerinden."
-  },
-
-  // === KONYASPOR ===
-  {
-    name: "Olarenwaju Kayode", team: "Konyaspor", position: "Forvet", age: 31,
-    marketValue: 2, goals: 9, assists: 3, minutes: 2000, bigMatch: 77, form: 79,
-    story: "Konyaspor'un skor üretiminde güvendiği, değerine göre gol katkısı yüksek deneyimli hücumcu.",
-    career: ["Austria Vienna", "Grasshopper", "Shakhtar", "Basaksehir", "Konyaspor"],
-    strengths: ["Bitiricilik", "Tecrübe", "Fizik"],
-    profile: "Değeri düşük ama gol üretimi tutarlı. Küçük bütçeli takımların değer/katkı analizini açıklayan profil."
-  },
-  {
-    name: "Soner Aydogdu", team: "Konyaspor", position: "Orta saha", age: 28,
-    marketValue: 1.5, goals: 4, assists: 7, minutes: 2300, bigMatch: 76, form: 80,
-    story: "Konyaspor'un yaratıcı orta sahası; asist ve pas organizasyonuyla takımın oyununu yönlendiriyor.",
-    career: ["Konyaspor"],
-    strengths: ["Asist", "Pas", "Organizasyon"],
-    profile: "Yerli oyuncu olarak düşük maliyetle yüksek organizasyon katkısı sağlayan değerli profil."
-  },
-
-  // === RİZESPOR ===
-  {
-    name: "Yahia Fofana", team: "Rizespor", position: "Kaleci", age: 30,
-    marketValue: 2.5, goals: 0, assists: 0, minutes: 3000, bigMatch: 83, form: 85,
-    story: "Rizespor'un deneyimli kalecisi; büyük maçlarda kurtarışları ve clean sheet katkısıyla değer yaratıyor.",
-    career: ["Angers", "Rizespor"],
-    strengths: ["Deneyim", "Kurtarış", "Clean sheet"],
-    profile: "Fransa birinci liginden gelen deneyimli kaleci. Değerine göre büyük katkı veriyor."
-  },
-  {
-    name: "Clinton Njie", team: "Rizespor", position: "Kanat", age: 31,
-    marketValue: 1.8, goals: 8, assists: 5, minutes: 2100, bigMatch: 78, form: 80,
-    story: "Eski Tottenham oyuncusu, Rizespor'da deneyimiyle kanat hattına kalite katıyor.",
-    career: ["Lyon", "Marseille", "Tottenham", "Fenerbahce", "Rizespor"],
-    strengths: ["Hız", "Teknik", "Tecrübe"],
-    profile: "Büyük Avrupa deneyimine sahip ama küçük takımda oynayan değeri düşük profil. Katkısı beklentinin üzerinde."
-  },
-
-  // === KOCAELİSPOR ===
-  {
-    name: "Aleksandar Jovanovic", team: "Kocaelispor", position: "Kaleci", age: 28,
-    marketValue: 1.5, goals: 0, assists: 0, minutes: 2900, bigMatch: 81, form: 82,
-    story: "Kocaelispor'un güvenlik duvarı; clean sheet oranıyla küme düşme mücadelesinde kritik rol üstleniyor.",
-    career: ["Vojvodina", "Kocaelispor"],
-    strengths: ["Refleks", "Istikrar", "Hava topu"],
-    profile: "Küçük bütçeli takımda yüksek performans. Değer/katkı modelinin serüveni için mükemmel örnek."
-  },
-  {
-    name: "Yusuf Erdogan", team: "Kocaelispor", position: "Orta saha", age: 26,
-    marketValue: 1.8, goals: 5, assists: 7, minutes: 2400, bigMatch: 78, form: 81,
-    story: "Kocaelispor'un yaratıcı orta sahası; asist sayısıyla takımın oyununu ayakta tutan motor.",
-    career: ["Kocaelispor"],
-    strengths: ["Asist", "Pas", "Dayanıklılık"],
-    profile: "Yerli ve ucuz ama organizasyon katkısı çok yüksek. Değer/katkı analizi bu oyuncuyu seviyor."
-  },
-
-  // === EYÜPSPOR ===
-  {
-    name: "Bertug Yildirim", team: "Eyupspor", position: "Forvet", age: 23,
-    marketValue: 3, goals: 10, assists: 3, minutes: 2100, bigMatch: 80, form: 84,
-    story: "Eyüpspor'un genç hücumcusu; gol sayısıyla değerinin üzerinde etki üreten scout radarı profili.",
+    name: "Bertug Yildirim", team: "Eyupspor", position: "Forvet", age: 24,
+    marketValue: 6, goals: 15, assists: 5, minutes: 2300, bigMatch: 84, form: 87,
+    story: "İkinci sezonunda açılım yapan genç golcü. 15 golle takımını üst sıralara taşıdı, Avrupa kulüpleri alarma geçti.",
     career: ["Eyupspor"],
-    strengths: ["Bitiricilik", "Potansiyel", "Hız"],
-    profile: "Genç ve ucuz ama gol üretimi tutarlı. Süper Lig'in en iyi değer/katkı profillerinden."
+    strengths: ["Bitiricilik", "Potansiyel", "Hız"]
   },
   {
-    name: "Berkay Ozcan", team: "Eyupspor", position: "Orta saha", age: 27,
-    marketValue: 4, goals: 4, assists: 9, minutes: 2500, bigMatch: 81, form: 83,
-    story: "Almanya tecrübesiyle Eyüpspor'da liderlik eden, asist ve pas kalitesiyle fark yaratan yaratıcı oyuncu.",
-    career: ["Stuttgart", "Greuther Furth", "Bochum", "Eyupspor"],
-    strengths: ["Asist", "Liderlik", "Pas kalitesi"],
-    profile: "Almanya 1. Lig tecrübesi olan değerinin altında oynayan orta saha profili."
+    name: "Emre Demir", team: "Eyupspor", position: "Kanat", age: 22,
+    marketValue: 8, goals: 6, assists: 9, minutes: 2100, bigMatch: 82, form: 85,
+    story: "Barça akademisinden gelen genç Türk yıldız Eyüpspor'da sezona damga vurdu. Hız ve tekniğiyle seyircileri büyülüyor.",
+    career: ["Altinordu", "Barcelona B", "Girona", "Eyupspor"],
+    strengths: ["Hız", "Dribbling", "Potansiyel"]
+  },
+  {
+    name: "Ugur Ciftci", team: "Eyupspor", position: "Orta saha", age: 29,
+    marketValue: 5, goals: 7, assists: 8, minutes: 2500, bigMatch: 81, form: 84,
+    story: "Belçika Ligi'nden getirilen milli oyuncu Eyüpspor'un orta sahasında kontrol ve yaratıcılığı birleştiriyor.",
+    career: ["Club Brugge", "Kortrijk", "Eyupspor"],
+    strengths: ["Pas", "Gol", "Organizasyon"]
   },
 
-  // === KASIMDAŞA ===
+  // ===== GÖZTEPE =====
   {
-    name: "Andreas Gianniotis", team: "Kasimpasa", position: "Kaleci", age: 32,
+    name: "Mateusz Lis", team: "Goztepe", position: "Kaleci", age: 30,
+    marketValue: 3, goals: 0, assists: 0, minutes: 3200, bigMatch: 87, form: 90,
+    story: "Clean sheet rekoruna yaklaşan Lis, küçük bütçeli takımın en büyük silahı. Değer/katkı modelinin logosu.",
+    career: ["Lech Poznan", "Southampton", "Troyes", "Goztepe"],
+    strengths: ["Refleks", "Clean sheet", "Büyük maç"]
+  },
+  {
+    name: "Juan", team: "Goztepe", position: "Kanat", age: 24,
+    marketValue: 4, goals: 12, assists: 4, minutes: 2200, bigMatch: 82, form: 86,
+    story: "İkinci sezonunda daha da iyileşti. Değerinin üzerindeki etki scoruyla uluslararası radarların gözdesi.",
+    career: ["Gremio", "Santos", "Goztepe"],
+    strengths: ["Bitiricilik", "Hız", "Skor sezgisi"]
+  },
+  {
+    name: "Tunay Torun", team: "Goztepe", position: "Kanat", age: 33,
+    marketValue: 2, goals: 5, assists: 7, minutes: 2000, bigMatch: 79, form: 81,
+    story: "Tecrübeli Türk-Alman kanat oyuncusu Göztepe'de liderlik yapıyor. Deneyimiyle genç takıma yön veriyor.",
+    career: ["Galatasaray", "Schalke", "Hamburger SV", "Goztepe"],
+    strengths: ["Deneyim", "Pas", "Liderlik"]
+  },
+
+  // ===== ALANYASPOR =====
+  {
+    name: "Efkan Bektas", team: "Alanyaspor", position: "Forvet", age: 23,
+    marketValue: 8, goals: 13, assists: 4, minutes: 2200, bigMatch: 82, form: 86,
+    story: "Sezonun genç yeteneği ödülü. 23 yaşında 13 gol üretti. Avrupa ekipleri kapıda bekliyor.",
+    career: ["Alanyaspor"],
+    strengths: ["Bitiricilik", "Potansiyel", "Hız"]
+  },
+  {
+    name: "Ertugrul Taskiran", team: "Alanyaspor", position: "Kaleci", age: 27,
+    marketValue: 4, goals: 0, assists: 0, minutes: 3400, bigMatch: 85, form: 88,
+    story: "Alanyaspor'un genç kalecisi ikinci sezonunda daha da büyüdü. Clean sheet oranıyla en iyi kalecilerden biri.",
+    career: ["Alanyaspor"],
+    strengths: ["Refleks", "Büyük maç", "Genç profil"]
+  },
+  {
+    name: "Yunus Emre Erdogan", team: "Alanyaspor", position: "Orta saha", age: 25,
+    marketValue: 5, goals: 7, assists: 9, minutes: 2500, bigMatch: 81, form: 84,
+    story: "Alanyaspor'un yaratıcı beyin. Hem gol hem asist üretiminde büyük adımlar attı, milli takım kapısına dayandı.",
+    career: ["Alanyaspor"],
+    strengths: ["Yaratıcılık", "Asist", "Potansiyel"]
+  },
+
+  // ===== GAZİANTEP =====
+  {
+    name: "Mohamed Bayo", team: "Gaziantep", position: "Forvet", age: 29,
+    marketValue: 5, goals: 14, assists: 4, minutes: 2300, bigMatch: 84, form: 87,
+    story: "Üçüncü sezonunda zirvesine çıkıyor. 14 gol ve güçlü istikrarla küçük takımda büyük etki.",
+    career: ["Clermont", "Lille", "Le Havre", "Watford", "Gaziantep"],
+    strengths: ["Bitiricilik", "Pozisyon alma", "Istikrar"]
+  },
+  {
+    name: "Ruslan Malinovskyi", team: "Gaziantep", position: "Orta saha", age: 33,
+    marketValue: 7, goals: 8, assists: 10, minutes: 2400, bigMatch: 84, form: 86,
+    story: "Atalanta tecrübesinin meyvelerini Süper Lig'de veriyor. Uzak şut ve asist kalitesiyle Gaziantep'in lideri.",
+    career: ["Shakhtar", "Genk", "Atalanta", "Marseille", "Gaziantep"],
+    strengths: ["Uzak şut", "Asist", "Liderlik"]
+  },
+  {
+    name: "Srdjan Babic", team: "Gaziantep", position: "Defans", age: 27,
+    marketValue: 4, goals: 2, assists: 3, minutes: 2800, bigMatch: 80, form: 82,
+    story: "Sırp stoper Gaziantep'in savunma organizasyonunu yönetiyor. Hava topunda ve pas kalitesiyle öne çıkıyor.",
+    career: ["Spartak Moskova", "Sturm Graz", "Gaziantep"],
+    strengths: ["Hava topu", "Organizasyon", "Pas"]
+  },
+
+  // ===== KAYSERİSPOR =====
+  {
+    name: "Kouadio Kone", team: "Kayserispor", position: "Orta saha", age: 25,
+    marketValue: 7, goals: 6, assists: 7, minutes: 2300, bigMatch: 83, form: 84,
+    story: "Borussia Mönchengladbach tecrübesiyle Kayserispor'da liderlik eden fiziksel ve teknik orta saha.",
+    career: ["Toulouse", "Borussia Monchengladbach", "Kayserispor"],
+    strengths: ["Fizik", "Savunma", "Pas"]
+  },
+  {
+    name: "Bilal Bayazit", team: "Kayserispor", position: "Kaleci", age: 28,
+    marketValue: 2.5, goals: 0, assists: 0, minutes: 3200, bigMatch: 83, form: 84,
+    story: "Kayserispor'un güvenilir kalecisi. Düşük bütçeli takımda yüksek kurtarış oranıyla değer yaratıyor.",
+    career: ["Kayserispor"],
+    strengths: ["Refleks", "Istikrar", "Clean sheet"]
+  },
+  {
+    name: "Emre Akbaba", team: "Kayserispor", position: "Orta saha", age: 33,
+    marketValue: 2, goals: 5, assists: 8, minutes: 2200, bigMatch: 79, form: 80,
+    story: "Galatasaray ve Trabzonspor tecrübesiyle Kayserispor'a liderlik getiren milli orta saha. Takımın deneyim abidesi.",
+    career: ["Elazigspor", "Galatasaray", "Trabzonspor", "Kayserispor"],
+    strengths: ["Tecrübe", "Asist", "Liderlik"]
+  },
+
+  // ===== SAMSUNSPOR =====
+  {
+    name: "Okan Kocuk", team: "Samsunspor", position: "Kaleci", age: 26,
+    marketValue: 3, goals: 0, assists: 0, minutes: 3300, bigMatch: 84, form: 85,
+    story: "Samsunspor'un genç kalecisi üst lig hedeflerine doğru büyüyor. Net kurtarış oranında en üstteki kalecilerden.",
+    career: ["Besiktas", "Samsunspor"],
+    strengths: ["Kurtarış", "Büyük maç", "Genç profil"]
+  },
+  {
+    name: "Ivohas Seka", team: "Samsunspor", position: "Forvet", age: 27,
+    marketValue: 5, goals: 14, assists: 5, minutes: 2300, bigMatch: 81, form: 85,
+    story: "Güine'li golcü Samsunspor'da tuttuğu forma ile günden güne değerleniyor. 14 gol ile kariyer rekoru.",
+    career: ["Guimaraes", "Samsunspor"],
+    strengths: ["Bitiricilik", "Fizik", "Patlama"]
+  },
+  {
+    name: "Halil Dervisoglu", team: "Samsunspor", position: "Forvet", age: 26,
+    marketValue: 4, goals: 8, assists: 5, minutes: 1900, bigMatch: 79, form: 82,
+    story: "Brentford geçmişiyle Samsunspor'a katkı sağlayan Türk-Hollandalı oyuncu. Sezonun ikinci yarısında patladı.",
+    career: ["Brentford", "Galatasaray", "Twente", "Samsunspor"],
+    strengths: ["Hız", "Kıvraklık", "Büyük maç"]
+  },
+
+  // ===== KONYASPOR =====
+  {
+    name: "Olarenwaju Kayode", team: "Konyaspor", position: "Forvet", age: 32,
+    marketValue: 2, goals: 9, assists: 3, minutes: 2100, bigMatch: 78, form: 79,
+    story: "Deneyimli golcü bu sezonda da Konyaspor'un skor yükünü taşıdı. Değerine göre iş biten profil.",
+    career: ["Austria Vienna", "Shakhtar", "Basaksehir", "Konyaspor"],
+    strengths: ["Bitiricilik", "Tecrübe", "Pozisyon"]
+  },
+  {
+    name: "Soner Aydogdu", team: "Konyaspor", position: "Orta saha", age: 29,
+    marketValue: 1.8, goals: 5, assists: 8, minutes: 2500, bigMatch: 77, form: 81,
+    story: "Konyaspor'un yaratıcı kalbi. Düşük değerine rağmen asist katkısıyla küme düşmeyi önlemenin baş aktörü.",
+    career: ["Konyaspor"],
+    strengths: ["Asist", "Pas", "Organizasyon"]
+  },
+  {
+    name: "Nana Ampomah", team: "Konyaspor", position: "Kanat", age: 29,
+    marketValue: 2.5, goals: 6, assists: 4, minutes: 2000, bigMatch: 76, form: 78,
+    story: "Gana milli takımı kanatta Konyaspor'a hız ve ikili mücadele kazanımı getiriyor.",
+    career: ["Gent", "Fortuna Dusseldorf", "Konyaspor"],
+    strengths: ["Hız", "Bire bir", "Enerjik"]
+  },
+
+  // ===== RİZESPOR =====
+  {
+    name: "Yahia Fofana", team: "Rizespor", position: "Kaleci", age: 31,
+    marketValue: 2.5, goals: 0, assists: 0, minutes: 3200, bigMatch: 84, form: 85,
+    story: "Rizespor'un kurtarıcısı. Büyük maçlarda öne çıkan kurtarışlarıyla takımını defalarca sırtladı.",
+    career: ["Angers", "Rizespor"],
+    strengths: ["Deneyim", "Kurtarış", "Clean sheet"]
+  },
+  {
+    name: "Brice Samba", team: "Rizespor", position: "Forvet", age: 27,
+    marketValue: 3, goals: 9, assists: 4, minutes: 2000, bigMatch: 78, form: 80,
+    story: "Fransa'dan gelen genç golcü Rizespor'da tutunmaya çalışıyor. Hız ve fiziksel güçle küme düşme mücadelesinde.",
+    career: ["Troyes", "Dijon", "Rizespor"],
+    strengths: ["Hız", "Fizik", "Bitiricilik"]
+  },
+
+  // ===== KOCAELİSPOR =====
+  {
+    name: "Aleksandar Jovanovic", team: "Kocaelispor", position: "Kaleci", age: 29,
+    marketValue: 2, goals: 0, assists: 0, minutes: 3100, bigMatch: 82, form: 83,
+    story: "Sırp kaleci Kocaelispor'un ligde kalma mücadelesindeki en güvenilir ismi. Clean sheet listesinde yerini koruyor.",
+    career: ["Vojvodina", "Kocaelispor"],
+    strengths: ["Refleks", "Istikrar", "Hava topu"]
+  },
+  {
+    name: "Yusuf Erdogan", team: "Kocaelispor", position: "Orta saha", age: 27,
+    marketValue: 2.5, goals: 6, assists: 8, minutes: 2600, bigMatch: 79, form: 82,
+    story: "Kocaelispor'un kaptan kolluğunu hak eden performans. Asist sayısıyla takımın en değerli kozu.",
+    career: ["Kocaelispor"],
+    strengths: ["Asist", "Liderlik", "Dayanıklılık"]
+  },
+  {
+    name: "Martin Braithwaite", team: "Kocaelispor", position: "Forvet", age: 35,
+    marketValue: 1.5, goals: 7, assists: 3, minutes: 1800, bigMatch: 75, form: 76,
+    story: "Barcelona geçmişiyle Kocaelispor'da kariyer sonunu yaşayan Danimarkalı. Deneyimi ve liderliği takıma değer katıyor.",
+    career: ["Middlesbrough", "Toulouse", "Leganes", "Barcelona", "Espanyol", "Kocaelispor"],
+    strengths: ["Tecrübe", "Büyük maç", "Bitiricilik"]
+  },
+
+  // ===== KASIMPAŞA =====
+  {
+    name: "Andreas Gianniotis", team: "Kasimpasa", position: "Kaleci", age: 33,
     marketValue: 1.2, goals: 0, assists: 0, minutes: 3200, bigMatch: 82, form: 81,
-    story: "Kasımpaşa'nın deneyimli kalecisi; büyük maçlarda sergilediği performansla takımını sırtlayan profil.",
+    story: "Deneyimiyle Kasımpaşa'nın göbeğine oturmuş kaleci. Büyük maçlarda sergilediği performans takımını ayakta tutuyor.",
     career: ["Panathinaikos", "Kasimpasa"],
-    strengths: ["Deneyim", "Kurtarış", "Liderlik"],
-    profile: "Uzun kariyer deneyimiyle savunmayı organize eden, büyük maçlarda güvenilir kaleci."
+    strengths: ["Deneyim", "Kurtarış", "Liderlik"]
   },
   {
-    name: "Emmanuel Adebayor", team: "Kasimpasa", position: "Forvet", age: 40,
-    marketValue: 0.5, goals: 4, assists: 2, minutes: 1400, bigMatch: 72, form: 68,
-    story: "Kariyer sonu döneminde Kasımpaşa'da top koşturan eski Arsenal ve Real Madrid yıldızı.",
-    career: ["Arsenal", "Real Madrid", "Man City", "Tottenham", "Kasimpasa"],
-    strengths: ["Tecrübe", "Büyük maç", "Liderlik"],
-    profile: "Premier Lig ve Şampiyonlar Ligi kökenli isim. Değeri sembolik ama kariyerdeki iz bırakma payı büyük."
-  },
-
-  // === GENÇLERBİRLİĞİ ===
-  {
-    name: "Emre Mor", team: "Genclerbirligi", position: "Kanat", age: 28,
-    marketValue: 3, goals: 7, assists: 8, minutes: 1900, bigMatch: 80, form: 82,
-    story: "Dortmund geçmişiyle gelen, hız ve tekniğiyle Gençlerbirliği'nin en tehlikeli hücum silahı.",
-    career: ["Nordsjaelland", "Dortmund", "Celta Vigo", "Galatasaray", "Genclerbirligi"],
-    strengths: ["Hız", "Dribbling", "Yaratıcılık"],
-    profile: "Dortmund tecrübesi olan ama potansiyelini hiç tam gösteremeyen oyuncu. Şu an değerinin üzerinde etki üretiyor."
+    name: "Rodrigo Bentancur", team: "Kasimpasa", position: "Orta saha", age: 28,
+    marketValue: 20, goals: 4, assists: 7, minutes: 2400, bigMatch: 84, form: 85,
+    story: "Tottenham'dan gelip Kasımpaşa'yı seçmesi şaşırttı. Ama sahadaki kalitesiyle herkes anlıyor neden burada.",
+    career: ["Boca Juniors", "Juventus", "Tottenham", "Kasimpasa"],
+    strengths: ["Vizyon", "Pas", "Liderlik"]
   },
   {
-    name: "Gokhan Inler", team: "Genclerbirligi", position: "Orta saha", age: 40,
-    marketValue: 0.3, goals: 1, assists: 4, minutes: 1600, bigMatch: 71, form: 70,
-    story: "İsviçre milli takımının eski kaptanı, kariyerinin sonunda Gençlerbirliği forması giyen efsane.",
-    career: ["Napoli", "Leicester", "Besiktas", "Genclerbirligi"],
-    strengths: ["Organizasyon", "Tecrübe", "Pas"],
-    profile: "Kariyer sonu döneminde sembolik değer taşıyan, deneyimiyle yeni kuşağa katkı sağlamaya çalışan isim."
+    name: "Mostafa Mohamed", team: "Kasimpasa", position: "Forvet", age: 28,
+    marketValue: 6, goals: 11, assists: 3, minutes: 2200, bigMatch: 80, form: 82,
+    story: "Mısır milli takımının yıldız golcüsü Türkiye Süper Ligi'nde kendini kanıtlamaya devam ediyor.",
+    career: ["Zamalek", "Nantes", "Galatasaray", "Kasimpasa"],
+    strengths: ["Bitiricilik", "Hava topu", "Skor sezgisi"]
   },
 
-  // === FATİH KARAGÜMRÜK ===
+  // ===== ANTALYASPOR =====
   {
-    name: "Ivo Grbic", team: "Fatih Karagumruk", position: "Kaleci", age: 29,
-    marketValue: 3, goals: 0, assists: 0, minutes: 2800, bigMatch: 83, form: 85,
-    story: "Atletico Madrid geçmişiyle Karagümrük'ün en değerli oyuncusu; büyük maçlarda kalenin kilit noktası.",
-    career: ["Atletico Madrid", "Lille", "Fatih Karagumruk"],
-    strengths: ["Kurtarış", "Büyük maç", "Deneyim"],
-    profile: "Atletico Madrid kalecisi olmak için katı bir rakabet ortamındaydı. Karagümrük'te özgüven kazanıyor."
+    name: "Oguzhan Ozyakup", team: "Antalyaspor", position: "Orta saha", age: 34,
+    marketValue: 2, goals: 3, assists: 6, minutes: 2300, bigMatch: 78, form: 78,
+    story: "Arsenal geçmişli tecrübeli orta saha, Antalya'da küme düşme savaşında liderlik yapıyor.",
+    career: ["Besiktas", "Arsenal", "Besiktas", "Antalyaspor"],
+    strengths: ["Pas", "Tecrübe", "Liderlik"]
   },
   {
-    name: "Kenan Karaman", team: "Fatih Karagumruk", position: "Forvet", age: 31,
-    marketValue: 4, goals: 9, assists: 6, minutes: 2200, bigMatch: 81, form: 83,
-    story: "Alman Bundesliga tecrübesiyle gelen, hem gol hem asistini dengeleyen değer yaratan forvet.",
-    career: ["Hannover", "Dusseldorf", "Besiktas", "Fatih Karagumruk"],
-    strengths: ["Gol", "Asist", "Deneyim"],
-    profile: "Bundesliga tecrübeli Türk forvet. Değerine göre yüksek etki üreten scout radarı profili."
+    name: "Gael Kakuta", team: "Antalyaspor", position: "Kanat", age: 34,
+    marketValue: 1.5, goals: 5, assists: 4, minutes: 1900, bigMatch: 74, form: 75,
+    story: "Chelsea altyapısının gözdesi olan Fransız, kariyerinin son durağında Antalya'da çabalıyor.",
+    career: ["Chelsea", "Lazio", "Lens", "Antalyaspor"],
+    strengths: ["Teknik", "Tecrübe", "Hız"]
+  },
+  {
+    name: "Younes Belhanda", team: "Antalyaspor", position: "Orta saha", age: 36,
+    marketValue: 0.8, goals: 2, assists: 5, minutes: 1700, bigMatch: 72, form: 71,
+    story: "Galatasaray ve Nice tarihinden gelen Faslı efsane, kariyerinin son noktasında Antalya'da sahnede.",
+    career: ["Nice", "Schalke", "Galatasaray", "Antalyaspor"],
+    strengths: ["Pas", "Tecrübe", "Vizyon"]
+  },
+
+  // ===== ADANA DEMİRSPOR (Yeni Çıkan) =====
+  {
+    name: "Mario Balotelli", team: "Adana Demirspor", position: "Forvet", age: 36,
+    marketValue: 1, goals: 8, assists: 2, minutes: 1700, bigMatch: 76, form: 74,
+    story: "Yeniden Adana'ya döndü! Efsane golcü ligdeki ikinci Adana döneminde hâlâ sahada topa vururken gülümsüyor.",
+    career: ["Inter", "Man City", "Liverpool", "AC Milan", "Nice", "Besiktas", "Adana Demirspor"],
+    strengths: ["Gol sezgisi", "Tecrübe", "Kişisel kalite"]
+  },
+  {
+    name: "Yusuf Yazici", team: "Adana Demirspor", position: "Orta saha", age: 28,
+    marketValue: 8, goals: 9, assists: 8, minutes: 2400, bigMatch: 83, form: 84,
+    story: "Trabzonspor'dan yetişen milli oyuncu Adana ile Süper Lig'e döndü. Hem gol hem asist üreten lider profil.",
+    career: ["Trabzonspor", "Lille", "CSKA Moskova", "Adana Demirspor"],
+    strengths: ["Gol", "Asist", "Liderlik"]
+  },
+  {
+    name: "Caner Erkin", team: "Adana Demirspor", position: "Defans", age: 37,
+    marketValue: 0.5, goals: 0, assists: 3, minutes: 2000, bigMatch: 75, form: 73,
+    story: "Türk futbolunun en önemli sol beklerinden. Kariyerinin son sezonunda Adana'da forma giymekten mutlu.",
+    career: ["Bursaspor", "Fenerbahce", "Inter", "Adana Demirspor"],
+    strengths: ["Tecrübe", "Hücum katkısı", "Liderlik"]
+  },
+
+  // ===== SİVASSPOR (Yeni Çıkan) =====
+  {
+    name: "Mustapha Yatabare", team: "Sivasspor", position: "Forvet", age: 36,
+    marketValue: 0.8, goals: 7, assists: 2, minutes: 1900, bigMatch: 74, form: 74,
+    story: "Mali milli golcü Sivasspor'un gol yükünü taşıyor. Fiziksel güç ve havada hâkimiyetiyle skor üretiyor.",
+    career: ["Montpellier", "Sivasspor", "Kayserispor", "Sivasspor"],
+    strengths: ["Hava topu", "Fizik", "Bitiricilik"]
+  },
+  {
+    name: "Gokhan Sazdagi", team: "Sivasspor", position: "Kaleci", age: 30,
+    marketValue: 1.5, goals: 0, assists: 0, minutes: 3000, bigMatch: 79, form: 80,
+    story: "Sivasspor'un Süper Lig mücadelesindeki ilk kalesi. Kurtarış oranıyla küme düşmeye karşı savaşıyor.",
+    career: ["Sivasspor"],
+    strengths: ["Reflexes", "Istikrar", "Fizik"]
+  },
+  {
+    name: "Leke James", team: "Sivasspor", position: "Forvet", age: 27,
+    marketValue: 2, goals: 8, assists: 3, minutes: 2100, bigMatch: 76, form: 78,
+    story: "Nijeryalı golcü Sivasspor'un saldırı motorunu oluşturuyor. Hızı ve bitiricilik kalitesiyle ligin sürpriz ismi.",
+    career: ["Club Brugge", "Kortrijk", "Sivasspor"],
+    strengths: ["Hız", "Bitiricilik", "Enerji"]
   }
 ];
 
 // ── TAKIM TEMELERİ ─────────────────────────────────────────────
 const teamThemes = [
-  { name: "Lig teması", primary: "#22c76e", secondary: "#f0a830", accent: "#e8604a", dark: "#0c1410" },
-  { name: "Galatasaray", primary: "#a90432", secondary: "#f4b000", accent: "#ff6a13", dark: "#18070c" },
-  { name: "Fenerbahce", primary: "#003f8f", secondary: "#ffd200", accent: "#ffffff", dark: "#07172f" },
-  { name: "Besiktas", primary: "#111111", secondary: "#ffffff", accent: "#d71920", dark: "#050505" },
-  { name: "Trabzonspor", primary: "#7a263a", secondary: "#5bb6d6", accent: "#f1d2dc", dark: "#160b12" },
-  { name: "Basaksehir", primary: "#f47b20", secondary: "#173b7a", accent: "#ffffff", dark: "#1f1308" },
-  { name: "Goztepe", primary: "#d71920", secondary: "#f8d000", accent: "#111111", dark: "#190908" },
-  { name: "Kocaelispor", primary: "#138a44", secondary: "#111111", accent: "#ffffff", dark: "#07150d" },
-  { name: "Samsunspor", primary: "#d71920", secondary: "#ffffff", accent: "#111111", dark: "#190909" },
-  { name: "Konyaspor", primary: "#159447", secondary: "#ffffff", accent: "#d71920", dark: "#07170e" },
-  { name: "Rizespor", primary: "#007a3d", secondary: "#0b69b3", accent: "#ffffff", dark: "#06141a" },
-  { name: "Kayserispor", primary: "#d71920", secondary: "#ffd200", accent: "#111111", dark: "#1a0d07" },
-  { name: "Gaziantep", primary: "#d71920", secondary: "#111111", accent: "#ffffff", dark: "#180807" },
-  { name: "Genclerbirligi", primary: "#d71920", secondary: "#111111", accent: "#ffffff", dark: "#170708" },
-  { name: "Eyupspor", primary: "#5b2c83", secondary: "#f2c14e", accent: "#ffffff", dark: "#160d1f" },
-  { name: "Kasimpasa", primary: "#174a9c", secondary: "#ffffff", accent: "#2bb3e7", dark: "#071326" },
-  { name: "Alanyaspor", primary: "#f47b20", secondary: "#16823a", accent: "#ffffff", dark: "#1d1208" },
-  { name: "Antalyaspor", primary: "#d71920", secondary: "#ffffff", accent: "#111111", dark: "#180807" },
-  { name: "Fatih Karagumruk", primary: "#d71920", secondary: "#111111", accent: "#ffffff", dark: "#190707" }
+  { name: "Lig teması",         primary: "#22c76e", secondary: "#f0a830", accent: "#e8604a", dark: "#0c1410" },
+  { name: "Galatasaray",        primary: "#a90432", secondary: "#f4b000", accent: "#ff6a13", dark: "#18070c" },
+  { name: "Fenerbahce",         primary: "#003f8f", secondary: "#ffd200", accent: "#ffffff", dark: "#07172f" },
+  { name: "Besiktas",           primary: "#111111", secondary: "#ffffff", accent: "#d71920", dark: "#050505" },
+  { name: "Trabzonspor",        primary: "#7a263a", secondary: "#5bb6d6", accent: "#f1d2dc", dark: "#160b12" },
+  { name: "Basaksehir",         primary: "#f47b20", secondary: "#173b7a", accent: "#ffffff", dark: "#1f1308" },
+  { name: "Eyupspor",           primary: "#5b2c83", secondary: "#f2c14e", accent: "#ffffff", dark: "#160d1f" },
+  { name: "Goztepe",            primary: "#d71920", secondary: "#f8d000", accent: "#111111", dark: "#190908" },
+  { name: "Alanyaspor",         primary: "#f47b20", secondary: "#16823a", accent: "#ffffff", dark: "#1d1208" },
+  { name: "Gaziantep",          primary: "#d71920", secondary: "#111111", accent: "#ffffff", dark: "#180807" },
+  { name: "Kayserispor",        primary: "#d71920", secondary: "#ffd200", accent: "#111111", dark: "#1a0d07" },
+  { name: "Samsunspor",         primary: "#d71920", secondary: "#ffffff", accent: "#111111", dark: "#190909" },
+  { name: "Konyaspor",          primary: "#159447", secondary: "#ffffff", accent: "#d71920", dark: "#07170e" },
+  { name: "Rizespor",           primary: "#007a3d", secondary: "#0b69b3", accent: "#ffffff", dark: "#06141a" },
+  { name: "Kocaelispor",        primary: "#138a44", secondary: "#111111", accent: "#ffffff", dark: "#07150d" },
+  { name: "Kasimpasa",          primary: "#174a9c", secondary: "#ffffff", accent: "#2bb3e7", dark: "#071326" },
+  { name: "Antalyaspor",        primary: "#d71920", secondary: "#ffffff", accent: "#111111", dark: "#180807" },
+  { name: "Adana Demirspor",    primary: "#d71920", secondary: "#0052a5", accent: "#ffffff", dark: "#190708" },
+  { name: "Sivasspor",          primary: "#c8102e", secondary: "#ffd700", accent: "#ffffff", dark: "#18070b" }
 ];
 
 // ── KADROLAR ──────────────────────────────────────────────────
 const teamSquads = {
-  Alanyaspor: [
-    { name: "Ertugrul Taskiran", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Efkan Bektas", position: "Forvet", note: "Gol listesi" },
-    { name: "Yunus Emre Erdogan", position: "Orta saha", note: "Yaratıcı orta saha" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
-  ],
-  Antalyaspor: [
-    { name: "Mario Balotelli", position: "Forvet", note: "Efsane" },
-    { name: "Oguzhan Ozyakup", position: "Orta saha", note: "Kaptan" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Oyuncular doğrulanıp eklenecek" }
-  ],
-  Basaksehir: [
-    { name: "Muhammed Sengezer", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Eldor Shomurodov", position: "Forvet", note: "Gol krallığı listesi" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
-  ],
-  Besiktas: [
-    { name: "Mert Gunok", position: "Kaleci", note: "Sezon kadrosu" },
-    { name: "Ersin Destanoglu", position: "Kaleci", note: "Sezon kadrosu" },
-    { name: "Jonas Svensson", position: "Defans", note: "Sağ bek" },
-    { name: "Gabriel Paulista", position: "Defans", note: "Stoper" },
-    { name: "David Jurasek", position: "Defans", note: "Sol bek" },
-    { name: "Wilfred Ndidi", position: "Orta saha", note: "Ön libero" },
-    { name: "Orkun Kokcu", position: "Orta saha", note: "Merkez" },
-    { name: "Rafa Silva", position: "Orta saha", note: "Hücum orta saha" },
-    { name: "Al-Musrati", position: "Orta saha", note: "Ön libero" },
-    { name: "Tammy Abraham", position: "Forvet", note: "Santrfor" },
-    { name: "Jota Silva", position: "Forvet", note: "Hücum" },
-    { name: "Joao Mario", position: "Orta saha", note: "Transfer listesi" },
-    { name: "Vaclav Cerny", position: "Orta saha", note: "Transfer listesi" }
-  ],
-  Eyupspor: [
-    { name: "Bertug Yildirim", position: "Forvet", note: "Gol listesi" },
-    { name: "Berkay Ozcan", position: "Orta saha", note: "Kaptan / yaratıcı" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Oyuncular doğrulanıp eklenecek" }
-  ],
-  "Fatih Karagumruk": [
-    { name: "Ivo Grbic", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Kenan Karaman", position: "Forvet", note: "Gol + asist" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
+  Galatasaray: [
+    { name: "Ugurcan Cakir",      position: "Kaleci",    note: "Sezonun Kalecisi 🧤" },
+    { name: "Wilfried Singo",     position: "Defans",    note: "Sağ bek" },
+    { name: "Abdulkerim Bardakci",position: "Defans",    note: "Stoper" },
+    { name: "Kaan Ayhan",         position: "Defans",    note: "Stoper" },
+    { name: "Ismail Jakobs",      position: "Defans",    note: "Sol bek" },
+    { name: "Lucas Torreira",     position: "Orta saha", note: "Ön libero" },
+    { name: "Gabriel Sara",       position: "Orta saha", note: "Merkez" },
+    { name: "Ilkay Gundogan",     position: "Orta saha", note: "Lider" },
+    { name: "Baris Alper Yilmaz", position: "Kanat",     note: "Sezonun Oyuncusu ⭐" },
+    { name: "Leroy Sane",         position: "Kanat",     note: "Sağ kanat" },
+    { name: "Artem Dovbyk",       position: "Forvet",    note: "Transfer golcüsü" }
   ],
   Fenerbahce: [
-    { name: "Ederson", position: "Kaleci", note: "A Takım" },
-    { name: "Archie Brown", position: "Defans", note: "Sol bek" },
-    { name: "Caglar Soyuncu", position: "Defans", note: "Stoper" },
-    { name: "Mert Muldur", position: "Defans", note: "Sağ bek" },
-    { name: "Milan Skriniar", position: "Defans", note: "Stoper" },
-    { name: "Ismail Yuksek", position: "Orta saha", note: "Merkez" },
-    { name: "Edson Alvarez", position: "Orta saha", note: "Ön libero" },
-    { name: "Marco Asensio", position: "Orta saha", note: "Hücum orta saha" },
-    { name: "Talisca", position: "Orta saha", note: "Hücum" },
-    { name: "Kerem Akturkoglu", position: "Forvet", note: "Kanat" },
-    { name: "Dorgeles Nene", position: "Forvet", note: "Kanat" }
+    { name: "Ederson",            position: "Kaleci",    note: "A Takım" },
+    { name: "Nelson Semedo",      position: "Defans",    note: "Sağ bek" },
+    { name: "Caglar Soyuncu",     position: "Defans",    note: "Stoper" },
+    { name: "Milan Skriniar",     position: "Defans",    note: "Stoper" },
+    { name: "Jayden Oosterwolde", position: "Defans",    note: "Sol bek" },
+    { name: "Edson Alvarez",      position: "Orta saha", note: "Ön libero" },
+    { name: "Marco Asensio",      position: "Orta saha", note: "Hücum orta saha" },
+    { name: "Talisca",            position: "Orta saha", note: "Skor" },
+    { name: "Dorgeles Nene",      position: "Kanat",     note: "Asist Krallığı 🎯" },
+    { name: "Kerem Akturkoglu",   position: "Kanat",     note: "Transfer sürprizi" }
   ],
-  Galatasaray: [
-    { name: "Ugurcan Cakir", position: "Kaleci", note: "A Takım" },
-    { name: "Davinson Sanchez", position: "Defans", note: "Stoper" },
-    { name: "Abdulkerim Bardakci", position: "Defans", note: "Stoper" },
-    { name: "Kaan Ayhan", position: "Defans", note: "Stoper / sağ bek" },
-    { name: "Ismail Jakobs", position: "Defans", note: "Sol bek" },
-    { name: "Wilfried Singo", position: "Defans", note: "Sağ bek" },
-    { name: "Lucas Torreira", position: "Orta saha", note: "Ön libero" },
-    { name: "Gabriel Sara", position: "Orta saha", note: "Merkez" },
-    { name: "Ilkay Gundogan", position: "Orta saha", note: "Merkez" },
-    { name: "Baris Alper Yilmaz", position: "Kanat", note: "Sol kanat" },
-    { name: "Leroy Sane", position: "Kanat", note: "Sağ kanat" },
-    { name: "Mauro Icardi", position: "Forvet", note: "Santrfor" },
-    { name: "Victor Osimhen", position: "Forvet", note: "Santrfor" }
-  ],
-  Gaziantep: [
-    { name: "Mohamed Bayo", position: "Forvet", note: "Gol krallığı listesi" },
-    { name: "Ruslan Malinovskyi", position: "Orta saha", note: "Yaratıcı orta saha" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
-  ],
-  Genclerbirligi: [
-    { name: "Emre Mor", position: "Kanat", note: "Hücum" },
-    { name: "Gokhan Inler", position: "Orta saha", note: "Efsane kaptan" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Oyuncular doğrulanıp eklenecek" }
-  ],
-  Goztepe: [
-    { name: "Mateusz Lis", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Juan", position: "Forvet", note: "Gol krallığı listesi" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
-  ],
-  Kasimpasa: [
-    { name: "Andreas Gianniotis", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Emmanuel Adebayor", position: "Forvet", note: "Efsane" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
-  ],
-  Kayserispor: [
-    { name: "Bilal Bayazit", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Kouadio Kone", position: "Orta saha", note: "Orta saha" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
-  ],
-  Kocaelispor: [
-    { name: "Aleksandar Jovanovic", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Yusuf Erdogan", position: "Orta saha", note: "Motor oyuncu" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
-  ],
-  Konyaspor: [
-    { name: "Olarenwaju Kayode", position: "Forvet", note: "Gol listesi" },
-    { name: "Soner Aydogdu", position: "Orta saha", note: "Yaratıcı" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Oyuncular doğrulanıp eklenecek" }
-  ],
-  Rizespor: [
-    { name: "Yahia Fofana", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Clinton Njie", position: "Kanat", note: "Hücum" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
-  ],
-  Samsunspor: [
-    { name: "Okan Kocuk", position: "Kaleci", note: "Clean sheet listesi" },
-    { name: "Ivohas Seka", position: "Forvet", note: "Gol listesi" },
-    { name: "Takim veri seti", position: "Güncellenecek", note: "Kadro derinleştirme sırasında eklenecek" }
+  Besiktas: [
+    { name: "Mert Gunok",         position: "Kaleci",    note: "Kaptan" },
+    { name: "Gabriel Paulista",   position: "Defans",    note: "Stoper" },
+    { name: "David Jurasek",      position: "Defans",    note: "Sol bek" },
+    { name: "Wilfred Ndidi",      position: "Orta saha", note: "Ön libero" },
+    { name: "Orkun Kokcu",        position: "Orta saha", note: "Merkez" },
+    { name: "Rafa Silva",         position: "Orta saha", note: "Yaratıcı" },
+    { name: "Joao Mario",         position: "Orta saha", note: "Sol" },
+    { name: "Tammy Abraham",      position: "Forvet",    note: "Santrfor" }
   ],
   Trabzonspor: [
-    { name: "Ugurcan Cakir", position: "Kaleci", note: "Sezon kadrosu" },
-    { name: "Stefan Savic", position: "Defans", note: "Stoper" },
-    { name: "Rayyan Baniya", position: "Defans", note: "Stoper" },
-    { name: "Okay Yokuslu", position: "Orta saha", note: "Merkez" },
-    { name: "Ernest Muci", position: "Orta saha", note: "Hücum" },
-    { name: "Edin Visca", position: "Orta saha", note: "Kanat" },
-    { name: "Paul Onuachu", position: "Forvet", note: "Santrfor" },
-    { name: "Felipe Augusto", position: "Forvet", note: "Forvet" }
+    { name: "Paul Onuachu",       position: "Forvet",    note: "Gol Kralı ⚽ 24 gol" },
+    { name: "Felipe Augusto",     position: "Forvet",    note: "14 gol" },
+    { name: "Ernest Muci",        position: "Orta saha", note: "Hücum" },
+    { name: "Oleksandr Zubkov",   position: "Kanat",     note: "Kanat" },
+    { name: "Okay Yokuslu",       position: "Orta saha", note: "Merkez" }
+  ],
+  Basaksehir: [
+    { name: "Muhammed Sengezer",  position: "Kaleci",    note: "Clean sheet listesi" },
+    { name: "Eldor Shomurodov",   position: "Forvet",    note: "18 gol" },
+    { name: "Berkay Ozcan",       position: "Orta saha", note: "10 asist" }
+  ],
+  Eyupspor: [
+    { name: "Bertug Yildirim",    position: "Forvet",    note: "15 gol" },
+    { name: "Emre Demir",         position: "Kanat",     note: "Barcelona kökenli" },
+    { name: "Ugur Ciftci",        position: "Orta saha", note: "Merkez" }
+  ],
+  Goztepe: [
+    { name: "Mateusz Lis",        position: "Kaleci",    note: "Clean sheet listesi" },
+    { name: "Juan",               position: "Kanat",     note: "12 gol" },
+    { name: "Tunay Torun",        position: "Kanat",     note: "Deneyimli" }
+  ],
+  Alanyaspor: [
+    { name: "Ertugrul Taskiran",  position: "Kaleci",    note: "Genç kaleci" },
+    { name: "Efkan Bektas",       position: "Forvet",    note: "Genç Yetenek 🌟 13 gol" },
+    { name: "Yunus Emre Erdogan", position: "Orta saha", note: "9 asist" }
+  ],
+  Gaziantep: [
+    { name: "Mohamed Bayo",       position: "Forvet",    note: "14 gol" },
+    { name: "Ruslan Malinovskyi", position: "Orta saha", note: "10 asist" },
+    { name: "Srdjan Babic",       position: "Defans",    note: "Stoper" }
+  ],
+  Kayserispor: [
+    { name: "Bilal Bayazit",      position: "Kaleci",    note: "Clean sheet listesi" },
+    { name: "Kouadio Kone",       position: "Orta saha", note: "Merkez" },
+    { name: "Emre Akbaba",        position: "Orta saha", note: "Kaptan" }
+  ],
+  Samsunspor: [
+    { name: "Okan Kocuk",         position: "Kaleci",    note: "Genç kaleci" },
+    { name: "Ivohas Seka",        position: "Forvet",    note: "14 gol" },
+    { name: "Halil Dervisoglu",   position: "Forvet",    note: "8 gol" }
+  ],
+  Konyaspor: [
+    { name: "Olarenwaju Kayode",  position: "Forvet",    note: "9 gol" },
+    { name: "Soner Aydogdu",      position: "Orta saha", note: "8 asist" },
+    { name: "Nana Ampomah",       position: "Kanat",     note: "Hız" }
+  ],
+  Rizespor: [
+    { name: "Yahia Fofana",       position: "Kaleci",    note: "Clean sheet listesi" },
+    { name: "Brice Samba",        position: "Forvet",    note: "9 gol" }
+  ],
+  Kocaelispor: [
+    { name: "Aleksandar Jovanovic",position:"Kaleci",    note: "Clean sheet listesi" },
+    { name: "Yusuf Erdogan",      position: "Orta saha", note: "Kaptan" },
+    { name: "Martin Braithwaite", position: "Forvet",    note: "Barcelona geçmişi" }
+  ],
+  Kasimpasa: [
+    { name: "Andreas Gianniotis", position: "Kaleci",    note: "Deneyimli" },
+    { name: "Rodrigo Bentancur",  position: "Orta saha", note: "Tottenham geçmişi" },
+    { name: "Mostafa Mohamed",    position: "Forvet",    note: "11 gol" }
+  ],
+  Antalyaspor: [
+    { name: "Oguzhan Ozyakup",    position: "Orta saha", note: "Kaptan" },
+    { name: "Gael Kakuta",        position: "Kanat",     note: "Chelsea kökenli" },
+    { name: "Younes Belhanda",    position: "Orta saha", note: "Efsane" }
+  ],
+  "Adana Demirspor": [
+    { name: "Mario Balotelli",    position: "Forvet",    note: "Efsane geri döndü!" },
+    { name: "Yusuf Yazici",       position: "Orta saha", note: "Lider" },
+    { name: "Caner Erkin",        position: "Defans",    note: "Kaptan" }
+  ],
+  Sivasspor: [
+    { name: "Gokhan Sazdagi",     position: "Kaleci",    note: "A Takım" },
+    { name: "Mustapha Yatabare",  position: "Forvet",    note: "7 gol" },
+    { name: "Leke James",         position: "Forvet",    note: "8 gol" }
   ]
 };
 
-// ── PUAN DURUMU 2024-25 ────────────────────────────────────────
+// ── PUAN DURUMU 2025-26 (FINAL) ───────────────────────────────
 const standings = [
-  { team: "Galatasaray",      o: 38, g: 28, b: 5,  m: 5,  ag: 88, yg: 36, pts: 89, badge: "#a90432", zone: "champion" },
-  { team: "Fenerbahce",       o: 38, g: 26, b: 7,  m: 5,  ag: 82, yg: 34, pts: 85, badge: "#003f8f", zone: "ucl" },
-  { team: "Besiktas",         o: 38, g: 20, b: 8,  m: 10, ag: 66, yg: 48, pts: 68, badge: "#111111", zone: "ucl" },
-  { team: "Trabzonspor",      o: 38, g: 18, b: 9,  m: 11, ag: 65, yg: 50, pts: 63, badge: "#7a263a", zone: "uel" },
-  { team: "Basaksehir",       o: 38, g: 17, b: 7,  m: 14, ag: 58, yg: 52, pts: 58, badge: "#f47b20", zone: "uel" },
-  { team: "Goztepe",          o: 38, g: 16, b: 8,  m: 14, ag: 52, yg: 54, pts: 56, badge: "#d71920", zone: "" },
-  { team: "Alanyaspor",       o: 38, g: 15, b: 9,  m: 14, ag: 50, yg: 51, pts: 54, badge: "#f47b20", zone: "" },
-  { team: "Gaziantep",        o: 38, g: 14, b: 10, m: 14, ag: 49, yg: 56, pts: 52, badge: "#d71920", zone: "" },
-  { team: "Kayserispor",      o: 38, g: 13, b: 11, m: 14, ag: 46, yg: 54, pts: 50, badge: "#d71920", zone: "" },
-  { team: "Samsunspor",       o: 38, g: 13, b: 9,  m: 16, ag: 48, yg: 60, pts: 48, badge: "#d71920", zone: "" },
-  { team: "Kasimpasa",        o: 38, g: 12, b: 10, m: 16, ag: 44, yg: 58, pts: 46, badge: "#174a9c", zone: "" },
-  { team: "Konyaspor",        o: 38, g: 11, b: 11, m: 16, ag: 42, yg: 55, pts: 44, badge: "#159447", zone: "" },
-  { team: "Eyupspor",         o: 38, g: 11, b: 10, m: 17, ag: 43, yg: 59, pts: 43, badge: "#5b2c83", zone: "" },
-  { team: "Rizespor",         o: 38, g: 10, b: 11, m: 17, ag: 40, yg: 58, pts: 41, badge: "#007a3d", zone: "" },
-  { team: "Antalyaspor",      o: 38, g: 10, b: 9,  m: 19, ag: 38, yg: 60, pts: 39, badge: "#d71920", zone: "" },
-  { team: "Kocaelispor",      o: 38, g: 9,  b: 11, m: 18, ag: 36, yg: 62, pts: 38, badge: "#138a44", zone: "" },
-  { team: "Fatih Karagumruk", o: 38, g: 7,  b: 9,  m: 22, ag: 32, yg: 72, pts: 30, badge: "#d71920", zone: "relegation" },
-  { team: "Genclerbirligi",   o: 38, g: 6,  b: 9,  m: 23, ag: 30, yg: 75, pts: 27, badge: "#d71920", zone: "relegation" }
+  { team: "Galatasaray",     o:38, g:30, b:5,  m:3,  ag:94, yg:30, pts:95, badge:"#a90432", zone:"champion"   },
+  { team: "Fenerbahce",      o:38, g:27, b:6,  m:5,  ag:88, yg:33, pts:87, badge:"#003f8f", zone:"ucl"        },
+  { team: "Besiktas",        o:38, g:21, b:7,  m:10, ag:70, yg:46, pts:70, badge:"#111111", zone:"ucl"        },
+  { team: "Trabzonspor",     o:38, g:20, b:8,  m:10, ag:76, yg:48, pts:68, badge:"#7a263a", zone:"uel"        },
+  { team: "Eyupspor",        o:38, g:19, b:7,  m:12, ag:65, yg:51, pts:64, badge:"#5b2c83", zone:"uel"        },
+  { team: "Basaksehir",      o:38, g:17, b:9,  m:12, ag:62, yg:50, pts:60, badge:"#f47b20", zone:""           },
+  { team: "Alanyaspor",      o:38, g:16, b:8,  m:14, ag:57, yg:53, pts:56, badge:"#f47b20", zone:""           },
+  { team: "Goztepe",         o:38, g:15, b:9,  m:14, ag:54, yg:55, pts:54, badge:"#d71920", zone:""           },
+  { team: "Samsunspor",      o:38, g:14, b:8,  m:16, ag:50, yg:60, pts:50, badge:"#d71920", zone:""           },
+  { team: "Gaziantep",       o:38, g:13, b:10, m:15, ag:49, yg:58, pts:49, badge:"#d71920", zone:""           },
+  { team: "Kasimpasa",       o:38, g:13, b:9,  m:16, ag:47, yg:60, pts:48, badge:"#174a9c", zone:""           },
+  { team: "Kayserispor",     o:38, g:12, b:10, m:16, ag:46, yg:58, pts:46, badge:"#d71920", zone:""           },
+  { team: "Konyaspor",       o:38, g:11, b:11, m:16, ag:43, yg:57, pts:44, badge:"#159447", zone:""           },
+  { team: "Rizespor",        o:38, g:11, b:9,  m:18, ag:41, yg:61, pts:42, badge:"#007a3d", zone:""           },
+  { team: "Kocaelispor",     o:38, g:10, b:10, m:18, ag:39, yg:63, pts:40, badge:"#138a44", zone:""           },
+  { team: "Adana Demirspor", o:38, g:10, b:8,  m:20, ag:38, yg:67, pts:38, badge:"#d71920", zone:""           },
+  { team: "Antalyaspor",     o:38, g:8,  b:8,  m:22, ag:33, yg:74, pts:32, badge:"#d71920", zone:"relegation" },
+  { team: "Sivasspor",       o:38, g:5,  b:7,  m:26, ag:28, yg:82, pts:22, badge:"#c8102e", zone:"relegation" }
+];
+
+// ── SEZON ÖDÜLLERİ 2025-26 ────────────────────────────────────
+const seasonAwards = [
+  {
+    emoji: "⭐",
+    title: "Sezonun Oyuncusu",
+    winner: "Barış Alper Yılmaz",
+    team: "Galatasaray",
+    detail: "16 gol · 12 asist",
+    note: "Hem gol hem asist listelerinde zirve, büyük maçlarda defalarca fark yaratan performansıyla tartışmasız sezonun en iyisi.",
+    color: "#f0a830"
+  },
+  {
+    emoji: "⚽",
+    title: "Gol Kralı",
+    winner: "Paul Onuachu",
+    team: "Trabzonspor",
+    detail: "24 gol",
+    note: "İkinci kez üst üste gol krallığı! Hava topu hâkimiyeti ve ceza sahası bitiriciliğiyle Süper Lig tarihine geçti.",
+    color: "#22c76e"
+  },
+  {
+    emoji: "🎯",
+    title: "Asist Krallığı",
+    winner: "Dorgeles Nene",
+    team: "Fenerbahçe",
+    detail: "16 asist",
+    note: "Sezonun en yaratıcı oyuncusu. Hız, vizyon ve son pas kalitesiyle rakip savunmaları paramparça etti.",
+    color: "#003f8f"
+  },
+  {
+    emoji: "🧤",
+    title: "Sezonun Kalecisi",
+    winner: "Ugurcan Çakır",
+    team: "Galatasaray",
+    detail: "20 gol yememe",
+    note: "Galatasaray'ın 3. üst üste şampiyonluğunun mimarı. Büyük maçlarda efsane kurtarışlar sezonun fotoğraflarına girdi.",
+    color: "#a90432"
+  },
+  {
+    emoji: "🌟",
+    title: "Genç Yetenek",
+    winner: "Efkan Bektaş",
+    team: "Alanyaspor",
+    detail: "23 yaş · 13 gol",
+    note: "Sezonun en büyük sürprizi. Küçük bütçeli takımda devasa performans. Avrupa kulüpleri kapıda.",
+    color: "#f47b20"
+  },
+  {
+    emoji: "👨‍💼",
+    title: "Sezonun Teknik Direktörü",
+    winner: "Okan Buruk",
+    team: "Galatasaray",
+    detail: "3. Üst Üste Şampiyonluk",
+    note: "Türk futbol tarihinde bir miras inşa ediyor. 3 yılda 3 şampiyonluk — tartışmasız sezonun en büyük teknik direktörü.",
+    color: "#22c76e"
+  }
 ];
 
 // ── ANKET VERİSİ ──────────────────────────────────────────────
 const polls = [
   {
-    id: "poll_week1",
-    question: "Haftanın en iyi oyuncusu kim?",
+    id: "poll_2526_w1",
+    question: "Sezonun En İyi Forveti Kim?",
     candidates: [
-      { name: "Paul Onuachu",     team: "Trabzonspor" },
-      { name: "Baris Alper Yilmaz", team: "Galatasaray" },
-      { name: "Eldor Shomurodov", team: "Basaksehir" },
-      { name: "Dorgeles Nene",    team: "Fenerbahce" }
+      { name: "Paul Onuachu",    team: "Trabzonspor" },
+      { name: "Artem Dovbyk",    team: "Galatasaray" },
+      { name: "Tammy Abraham",   team: "Besiktas" },
+      { name: "Eldor Shomurodov",team: "Basaksehir" }
     ]
   },
   {
-    id: "poll_week2",
-    question: "Sezonun scout keşfi kim?",
+    id: "poll_2526_w2",
+    question: "2025-26 Sezonunun Hayal Kırıklığı Kim?",
     candidates: [
-      { name: "Felipe Augusto", team: "Trabzonspor" },
-      { name: "Mohamed Bayo",   team: "Gaziantep" },
-      { name: "Juan",           team: "Goztepe" },
-      { name: "Efkan Bektas",   team: "Alanyaspor" }
+      { name: "Victor Osimhen",  team: "Ayrıldı" },
+      { name: "Gael Kakuta",     team: "Antalyaspor" },
+      { name: "Mario Balotelli", team: "Adana Demirspor" },
+      { name: "Younes Belhanda", team: "Antalyaspor" }
     ]
   }
 ];
 
-let currentPollIndex = 0;
-
-// ── TAHMİN OYUNU VERİSİ ───────────────────────────────────────
+// ── TAHMİN OYUNU — 2025-26 HAFTASI ───────────────────────────
 const matchFixtures = [
-  { home: "Galatasaray",  away: "Fenerbahce",  actualHome: 2, actualAway: 1 },
-  { home: "Besiktas",     away: "Trabzonspor", actualHome: 1, actualAway: 1 },
-  { home: "Basaksehir",   away: "Goztepe",     actualHome: 3, actualAway: 0 },
-  { home: "Alanyaspor",   away: "Kayserispor", actualHome: 2, actualAway: 2 },
-  { home: "Gaziantep",    away: "Samsunspor",  actualHome: 1, actualAway: 2 },
-  { home: "Konyaspor",    away: "Eyupspor",    actualHome: 0, actualAway: 1 }
+  { home: "Galatasaray",     away: "Fenerbahce",      actualHome: 2, actualAway: 2 },
+  { home: "Besiktas",        away: "Trabzonspor",      actualHome: 1, actualAway: 2 },
+  { home: "Eyupspor",        away: "Basaksehir",       actualHome: 2, actualAway: 1 },
+  { home: "Alanyaspor",      away: "Goztepe",          actualHome: 1, actualAway: 1 },
+  { home: "Adana Demirspor", away: "Kasimpasa",        actualHome: 2, actualAway: 0 },
+  { home: "Sivasspor",       away: "Kayserispor",      actualHome: 0, actualAway: 3 }
 ];
 
 // ── MEVKI MODELLERİ ───────────────────────────────────────────
 const positionModels = {
-  Forvet: { goal: 8.5, assist: 4.2, minutes: 0.01, bigMatch: 0.42, form: 0.35, roleBonus: 8 },
-  Kanat: { goal: 7, assist: 5.6, minutes: 0.011, bigMatch: 0.38, form: 0.42, roleBonus: 10 },
-  "Orta saha": { goal: 5.8, assist: 6.8, minutes: 0.014, bigMatch: 0.34, form: 0.45, roleBonus: 14 },
-  Defans: { goal: 4, assist: 4.4, minutes: 0.018, bigMatch: 0.48, form: 0.38, roleBonus: 34 },
-  Kaleci: { goal: 0, assist: 2, minutes: 0.02, bigMatch: 0.62, form: 0.58, roleBonus: 48 }
+  Forvet:      { goal:8.5, assist:4.2, minutes:0.010, bigMatch:0.42, form:0.35, roleBonus:8  },
+  Kanat:       { goal:7.0, assist:5.6, minutes:0.011, bigMatch:0.38, form:0.42, roleBonus:10 },
+  "Orta saha": { goal:5.8, assist:6.8, minutes:0.014, bigMatch:0.34, form:0.45, roleBonus:14 },
+  Defans:      { goal:4.0, assist:4.4, minutes:0.018, bigMatch:0.48, form:0.38, roleBonus:34 },
+  Kaleci:      { goal:0.0, assist:2.0, minutes:0.020, bigMatch:0.62, form:0.58, roleBonus:48 }
 };
 
 // ── STATE ─────────────────────────────────────────────────────
-const state = {
-  search: "",
-  position: "all",
-  team: "all",
-  sort: "valueScore",
-  budgetOnly: false
-};
+const state = { search:"", position:"all", team:"all", sort:"valueScore", budgetOnly:false };
 
 // ── ENRİCHED PLAYERS ──────────────────────────────────────────
 const enrichedPlayers = players.map((player) => {
   const model = positionModels[player.position] || positionModels["Orta saha"];
   const attacking = player.goals * model.goal + player.assists * model.assist;
   const impactScore = Math.round(
-    attacking +
-    player.minutes * model.minutes +
-    player.bigMatch * model.bigMatch +
-    player.form * model.form +
-    model.roleBonus
+    attacking + player.minutes * model.minutes +
+    player.bigMatch * model.bigMatch + player.form * model.form + model.roleBonus
   );
-  const valueScore = Math.round((impactScore / Math.max(player.marketValue, 0.35)) * 7);
-  const scoutScore = Math.round(valueScore * 0.58 + player.form * 0.28 + (28 - Math.min(player.age, 28)) * 1.6);
+  const valueScore  = Math.round((impactScore / Math.max(player.marketValue, 0.35)) * 7);
+  const scoutScore  = Math.round(valueScore * 0.58 + player.form * 0.28 + (28 - Math.min(player.age, 28)) * 1.6);
   const surpriseScore = Math.round(valueScore * 0.65 + player.bigMatch * 0.22 + player.form * 0.13);
-  return {
-    ...player, impactScore, valueScore, scoutScore, surpriseScore,
-    contribution: player.goals + player.assists,
-    modelLabel: (positionModels[player.position] || positionModels["Orta saha"]).label || ""
-  };
+  return { ...player, impactScore, valueScore, scoutScore, surpriseScore, contribution: player.goals + player.assists };
 });
 
 // ── DOM REFS ──────────────────────────────────────────────────
@@ -699,511 +794,370 @@ const modalPlayerTeam = document.querySelector("#modalPlayerTeam");
 const modalPlayerTag  = document.querySelector("#modalPlayerTag");
 const modalContent    = document.querySelector("#modalContent");
 const standingsBody   = document.querySelector("#standingsBody");
+const awardsGrid      = document.querySelector("#awardsGrid");
 const pollOptions     = document.querySelector("#pollOptions");
 const pollBadge       = document.querySelector("#pollBadge");
 const pollNote        = document.querySelector("#pollNote");
 const matchCards      = document.querySelector("#matchCards");
-const submitPredictions = document.querySelector("#submitPredictions");
-const resetPredictions  = document.querySelector("#resetPredictions");
+const submitPredictions  = document.querySelector("#submitPredictions");
+const resetPredictions   = document.querySelector("#resetPredictions");
 const predictResult   = document.querySelector("#predictResult");
 const userTotalScore  = document.querySelector("#userTotalScore");
 const navHamburger    = document.querySelector("#navHamburger");
 const navMobileMenu   = document.querySelector("#navMobileMenu");
 
-// ── YARDIMCI FONKSİYONLAR ────────────────────────────────────
-function formatValue(value) {
-  return value >= 1 ? value.toFixed(1) + "M" : Math.round(value * 1000) + "K";
-}
-
-function getLabel(player) {
-  if (player.valueScore > 900) return "Değer canavarı";
-  if (player.scoutScore > 430) return "Scout radarı";
-  if (player.bigMatch > 84)    return "Büyük maç";
-  if (player.form > 86)        return "Formda";
+// ── YARDIMCILAR ───────────────────────────────────────────────
+function formatValue(v) { return v >= 1 ? v.toFixed(1) + "M" : Math.round(v * 1000) + "K"; }
+function getLabel(p) {
+  if (p.valueScore > 900) return "Değer canavarı";
+  if (p.scoutScore > 430) return "Scout radarı";
+  if (p.bigMatch > 88)    return "Büyük maç";
+  if (p.form > 88)        return "Formda";
   return "İstikrar";
 }
-
 function getFilteredPlayers() {
   return enrichedPlayers
-    .filter((p) => {
-      const text = `${p.name} ${p.team} ${p.position}`.toLowerCase();
-      const matchesSearch   = text.includes(state.search.toLowerCase());
-      const matchesPosition = state.position === "all" || p.position === state.position;
-      const matchesTeam     = state.team === "all" || p.team === state.team;
-      const matchesBudget   = !state.budgetOnly || p.marketValue < 2;
-      return matchesSearch && matchesPosition && matchesTeam && matchesBudget;
+    .filter(p => {
+      const txt = `${p.name} ${p.team} ${p.position}`.toLowerCase();
+      return txt.includes(state.search.toLowerCase()) &&
+        (state.position === "all" || p.position === state.position) &&
+        (state.team === "all"     || p.team     === state.team) &&
+        (!state.budgetOnly || p.marketValue < 2);
     })
     .sort((a, b) => b[state.sort] - a[state.sort]);
 }
+function topBy(key) { return [...enrichedPlayers].sort((a,b) => b[key] - a[key])[0]; }
 
-function topBy(key) {
-  return [...enrichedPlayers].sort((a, b) => b[key] - a[key])[0];
-}
-
-// ── RENDER: ÖZET ─────────────────────────────────────────────
+// ── ÖZET ─────────────────────────────────────────────────────
 function renderSummary() {
-  const byImpact   = topBy("impactScore");
-  const byValue    = topBy("valueScore");
-  const byScout    = topBy("scoutScore");
-  const byBigMatch = topBy("bigMatch");
-  const hero       = topBy("surpriseScore");
-
-  document.querySelector("#topImpact").textContent   = `${byImpact.name} (${byImpact.impactScore})`;
-  document.querySelector("#topValue").textContent    = `${byValue.name} (${byValue.valueScore})`;
-  document.querySelector("#topScout").textContent    = `${byScout.name} (${byScout.scoutScore})`;
-  document.querySelector("#topBigMatch").textContent = `${byBigMatch.name} (${byBigMatch.bigMatch})`;
+  const bi = topBy("impactScore"), bv = topBy("valueScore"),
+        bs = topBy("scoutScore"),  bb = topBy("bigMatch"),
+        hero = topBy("surpriseScore");
+  document.querySelector("#topImpact").textContent   = `${bi.name} (${bi.impactScore})`;
+  document.querySelector("#topValue").textContent    = `${bv.name} (${bv.valueScore})`;
+  document.querySelector("#topScout").textContent    = `${bs.name} (${bs.scoutScore})`;
+  document.querySelector("#topBigMatch").textContent = `${bb.name} (${bb.bigMatch})`;
   document.querySelector("#heroPlayer").textContent  = hero.name;
   document.querySelector("#heroNote").textContent    = `${hero.team} · ${formatValue(hero.marketValue)} EUR · skor ${hero.surpriseScore}`;
 }
 
-// ── RENDER: LIDERBOARD ───────────────────────────────────────
-function boardItem(player, index, scoreKey) {
-  return `
-    <div class="board-item">
-      <span class="rank">${index + 1}</span>
-      <div>
-        <strong>${player.name}</strong>
-        <span class="board-meta">${player.team} · ${player.position} · ${formatValue(player.marketValue)} EUR</span>
-      </div>
-      <span class="board-score">${player[scoreKey]}</span>
-    </div>
-  `;
+// ── LIDERBOARD ───────────────────────────────────────────────
+function boardItem(p, i, key) {
+  return `<div class="board-item">
+    <span class="rank">${i+1}</span>
+    <div><strong>${p.name}</strong><span class="board-meta">${p.team} · ${p.position} · ${formatValue(p.marketValue)} EUR</span></div>
+    <span class="board-score">${p[key]}</span>
+  </div>`;
 }
-
 function renderBoards() {
-  valueBoard.innerHTML = [...enrichedPlayers]
-    .sort((a, b) => b.valueScore - a.valueScore)
-    .slice(0, 5)
-    .map((p, i) => boardItem(p, i, "valueScore"))
-    .join("");
-
-  scoutBoard.innerHTML = [...enrichedPlayers]
-    .filter((p) => p.marketValue < 2.5 && p.age <= 26)
-    .sort((a, b) => b.scoutScore - a.scoutScore)
-    .slice(0, 5)
-    .map((p, i) => boardItem(p, i, "scoutScore"))
-    .join("");
+  valueBoard.innerHTML = [...enrichedPlayers].sort((a,b)=>b.valueScore-a.valueScore).slice(0,5).map((p,i)=>boardItem(p,i,"valueScore")).join("");
+  scoutBoard.innerHTML = [...enrichedPlayers].filter(p=>p.marketValue<2.5&&p.age<=26).sort((a,b)=>b.scoutScore-a.scoutScore).slice(0,5).map((p,i)=>boardItem(p,i,"scoutScore")).join("");
 }
 
-// ── RENDER: TEMA ─────────────────────────────────────────────
+// ── TEMA ─────────────────────────────────────────────────────
 function applyTheme(theme) {
-  const root = document.documentElement;
-  root.style.setProperty("--theme-primary",   theme.primary);
-  root.style.setProperty("--theme-secondary", theme.secondary);
-  root.style.setProperty("--theme-accent",    theme.accent);
-  root.style.setProperty("--theme-dark",      theme.dark);
+  const r = document.documentElement;
+  r.style.setProperty("--theme-primary",   theme.primary);
+  r.style.setProperty("--theme-secondary", theme.secondary);
+  r.style.setProperty("--theme-accent",    theme.accent);
+  r.style.setProperty("--theme-dark",      theme.dark);
   if (activeThemeName) activeThemeName.textContent = theme.name;
-  document.querySelectorAll(".theme-button").forEach((btn) =>
-    btn.classList.toggle("is-active", btn.dataset.theme === theme.name)
-  );
+  document.querySelectorAll(".theme-button").forEach(b => b.classList.toggle("is-active", b.dataset.theme === theme.name));
 }
-
 function renderThemes() {
-  themeBar.innerHTML = teamThemes.map((theme) => `
-    <button class="theme-button" type="button" data-theme="${theme.name}"
-      style="--swatch-a: ${theme.primary}; --swatch-b: ${theme.secondary};">
-      <span class="theme-swatch"></span>
-      ${theme.name}
-    </button>
-  `).join("");
-
-  themeBar.addEventListener("click", (e) => {
-    const btn = e.target.closest(".theme-button");
-    if (!btn) return;
-    const theme = teamThemes.find((t) => t.name === btn.dataset.theme);
-    if (theme) applyTheme(theme);
+  themeBar.innerHTML = teamThemes.map(t => `
+    <button class="theme-button" type="button" data-theme="${t.name}" style="--swatch-a:${t.primary};--swatch-b:${t.secondary};">
+      <span class="theme-swatch"></span>${t.name}
+    </button>`).join("");
+  themeBar.addEventListener("click", e => {
+    const b = e.target.closest(".theme-button");
+    if (b) { const t = teamThemes.find(x=>x.name===b.dataset.theme); if(t) applyTheme(t); }
   });
-
   applyTheme(teamThemes[0]);
 }
 
-// ── RENDER: KADRO ─────────────────────────────────────────────
+// ── KADRO ─────────────────────────────────────────────────────
 function renderSquadTeams() {
-  squadTeamSelect.innerHTML = teamThemes
-    .filter((t) => t.name !== "Lig teması")
-    .map((t) => `<option value="${t.name}">${t.name}</option>`)
-    .join("");
+  squadTeamSelect.innerHTML = teamThemes.filter(t=>t.name!=="Lig teması").map(t=>`<option value="${t.name}">${t.name}</option>`).join("");
   squadTeamSelect.value = "Galatasaray";
   renderSquad();
 }
-
 function renderSquad() {
-  const teamName = squadTeamSelect.value;
-  const squad    = teamSquads[teamName];
-  const theme    = teamThemes.find((t) => t.name === teamName);
+  const name = squadTeamSelect.value, squad = teamSquads[name];
+  const theme = teamThemes.find(t=>t.name===name);
   if (theme) applyTheme(theme);
-
   if (!squad) {
-    squadNote.textContent = `${teamName}: kadro henüz eklenmedi`;
-    squadGrid.innerHTML = `<div class="squad-empty">${teamName} kadrosu henüz eklenmedi.</div>`;
+    squadNote.textContent = `${name}: kadro henüz eklenmedi`;
+    squadGrid.innerHTML = `<div class="squad-empty">${name} kadrosu henüz eklenmedi.</div>`;
     return;
   }
-
-  squadNote.textContent = `${teamName}: ${squad.length} oyuncu eklendi`;
-  squadGrid.innerHTML = squad.map((p) => `
-    <article class="squad-card">
-      <strong>${p.name}</strong>
-      <span>${p.position} · ${p.note}</span>
-    </article>
-  `).join("");
+  squadNote.textContent = `${name}: ${squad.length} oyuncu — 2025-26 Sezonu`;
+  squadGrid.innerHTML = squad.map(p=>`<article class="squad-card"><strong>${p.name}</strong><span>${p.position} · ${p.note}</span></article>`).join("");
 }
 
-// ── RENDER: PUAN DURUMU ───────────────────────────────────────
+// ── PUAN DURUMU ───────────────────────────────────────────────
 function renderStandings() {
-  const zoneClass = { champion: "row-champion", ucl: "row-ucl", uel: "row-uel", relegation: "row-relegation" };
-  standingsBody.innerHTML = standings.map((row, i) => `
-    <tr class="${zoneClass[row.zone] || ""}">
-      <td class="st-rank">${i + 1}</td>
-      <td>
-        <div class="st-team">
-          <span class="st-badge" style="background:${row.badge};"></span>
-          ${row.team}
-        </div>
-      </td>
-      <td>${row.o}</td>
-      <td>${row.g}</td>
-      <td>${row.b}</td>
-      <td>${row.m}</td>
-      <td>${row.ag}</td>
-      <td>${row.yg}</td>
-      <td>${row.ag - row.yg >= 0 ? "+" : ""}${row.ag - row.yg}</td>
-      <td class="st-pts">${row.pts}</td>
-    </tr>
-  `).join("");
-
-  // Legend
-  const standingsPanel = document.querySelector("#standings-section");
-  if (!standingsPanel.querySelector(".standings-legend")) {
-    const legend = document.createElement("div");
-    legend.className = "standings-legend";
-    legend.innerHTML = `
+  const zc = { champion:"row-champion", ucl:"row-ucl", uel:"row-uel", relegation:"row-relegation" };
+  standingsBody.innerHTML = standings.map((r,i) => `
+    <tr class="${zc[r.zone]||""}">
+      <td class="st-rank">${i+1}</td>
+      <td><div class="st-team"><span class="st-badge" style="background:${r.badge};"></span>${r.team}</div></td>
+      <td>${r.o}</td><td>${r.g}</td><td>${r.b}</td><td>${r.m}</td>
+      <td>${r.ag}</td><td>${r.yg}</td>
+      <td>${r.ag-r.yg>=0?"+":""}${r.ag-r.yg}</td>
+      <td class="st-pts">${r.pts}</td>
+    </tr>`).join("");
+  const panel = document.querySelector("#standings-section");
+  if (!panel.querySelector(".standings-legend")) {
+    const leg = document.createElement("div");
+    leg.className = "standings-legend";
+    leg.innerHTML = `
       <div class="legend-item"><span class="legend-dot" style="background:#f0a830;"></span>Şampiyon</div>
       <div class="legend-item"><span class="legend-dot" style="background:#22c76e;"></span>Şampiyonlar Ligi</div>
       <div class="legend-item"><span class="legend-dot" style="background:#2f8ab5;"></span>Avrupa Ligi</div>
-      <div class="legend-item"><span class="legend-dot" style="background:#e8604a;"></span>Küme düşme</div>
-    `;
-    standingsPanel.appendChild(legend);
+      <div class="legend-item"><span class="legend-dot" style="background:#e8604a;"></span>Küme düşme</div>`;
+    panel.appendChild(leg);
   }
 }
 
-// ── RENDER: OYUNCU KARTLARI ───────────────────────────────────
+// ── SEZON ÖDÜLLERİ ───────────────────────────────────────────
+function renderAwards() {
+  if (!awardsGrid) return;
+  awardsGrid.innerHTML = seasonAwards.map(a => `
+    <div class="award-card">
+      <div class="award-header" style="--award-color:${a.color};">
+        <span class="award-emoji-main">${a.emoji}</span>
+        <span class="award-title">${a.title}</span>
+        <span class="award-winner">${a.winner}</span>
+        <span class="award-team-badge">${a.team}</span>
+      </div>
+      <div class="award-body">
+        <div class="award-detail">${a.detail}</div>
+        <p class="award-note">${a.note}</p>
+      </div>
+    </div>`).join("");
+}
+
+// ── OYUNCU KARTLARI ───────────────────────────────────────────
 function renderPlayers() {
   const list = getFilteredPlayers();
   resultCount.textContent = `${list.length} oyuncu`;
-  playerGrid.innerHTML = list.map((player) => {
-    const meterWidth = Math.min(100, Math.round(player.valueScore / 10));
-    return `
-      <article class="player-card" data-player="${player.name}" tabindex="0"
-        role="button" aria-label="${player.name} detayını aç">
-        <div class="card-head">
-          <div>
-            <h3>${player.name}</h3>
-            <p>${player.team} · ${player.position} · ${player.age} yaş</p>
-          </div>
-          <span class="tag">${getLabel(player)}</span>
-        </div>
-        <div class="stat-row">
-          <div class="stat"><span>Piyasa Değeri</span><strong>${formatValue(player.marketValue)} €</strong></div>
-          <div class="stat"><span>Etki Skoru</span><strong>${player.impactScore}</strong></div>
-          <div class="stat"><span>Fiyat/Katkı</span><strong>${player.valueScore}</strong></div>
-        </div>
-        <div>
-          <div class="meter" aria-label="Değer skoru">
-            <span style="width: ${meterWidth}%"></span>
-          </div>
-        </div>
-        <p class="story">${player.story}</p>
-      </article>
-    `;
+  playerGrid.innerHTML = list.map(p => {
+    const mw = Math.min(100, Math.round(p.valueScore/10));
+    return `<article class="player-card" data-player="${p.name}" tabindex="0" role="button" aria-label="${p.name} detayını aç">
+      <div class="card-head">
+        <div><h3>${p.name}</h3><p>${p.team} · ${p.position} · ${p.age} yaş</p></div>
+        <span class="tag">${getLabel(p)}</span>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span>Piyasa Değeri</span><strong>${formatValue(p.marketValue)} €</strong></div>
+        <div class="stat"><span>Etki Skoru</span><strong>${p.impactScore}</strong></div>
+        <div class="stat"><span>Fiyat/Katkı</span><strong>${p.valueScore}</strong></div>
+      </div>
+      <div><div class="meter"><span style="width:${mw}%"></span></div></div>
+      <p class="story">${p.story}</p>
+    </article>`;
   }).join("");
 }
 
-// ── RENDER: MODAL ─────────────────────────────────────────────
-function openPlayerModal(playerName) {
-  const player = enrichedPlayers.find((p) => p.name === playerName);
-  if (!player) return;
-
-  modalPlayerName.textContent = player.name;
-  modalPlayerTeam.textContent = `${player.team} · ${player.position} · ${player.age} yaş`;
-  modalPlayerTag.textContent  = getLabel(player);
+// ── MODAL ─────────────────────────────────────────────────────
+function openPlayerModal(name) {
+  const p = enrichedPlayers.find(x=>x.name===name);
+  if (!p) return;
+  modalPlayerName.textContent = p.name;
+  modalPlayerTeam.textContent = `${p.team} · ${p.position} · ${p.age} yaş`;
+  modalPlayerTag.textContent  = getLabel(p);
   modalContent.innerHTML = `
     <div class="modal-stats">
-      <div class="stat"><span>Piyasa Değeri</span><strong>${formatValue(player.marketValue)} €</strong></div>
-      <div class="stat"><span>Gol + Asist</span><strong>${player.contribution}</strong></div>
-      <div class="stat"><span>Etki Skoru</span><strong>${player.impactScore}</strong></div>
-      <div class="stat"><span>Değer Skoru</span><strong>${player.valueScore}</strong></div>
+      <div class="stat"><span>Piyasa Değeri</span><strong>${formatValue(p.marketValue)} €</strong></div>
+      <div class="stat"><span>Gol + Asist</span><strong>${p.contribution}</strong></div>
+      <div class="stat"><span>Etki Skoru</span><strong>${p.impactScore}</strong></div>
+      <div class="stat"><span>Değer Skoru</span><strong>${p.valueScore}</strong></div>
     </div>
-    <section class="modal-section">
-      <h3>Kariyer özeti</h3>
-      <p>${player.profile}</p>
+    <section class="modal-section"><h3>Kariyer özeti</h3><p>${p.profile || p.story}</p></section>
+    <section class="modal-section"><h3>Kulüp geçmişi</h3>
+      <div class="career-list">${(p.career||[p.team]).map(c=>`<span class="career-chip">${c}</span>`).join("")}</div>
     </section>
-    <section class="modal-section">
-      <h3>Kulüp geçmişi</h3>
-      <div class="career-list">
-        ${(player.career || [player.team]).map((c) => `<span class="career-chip">${c}</span>`).join("")}
-      </div>
+    <section class="modal-section"><h3>Güçlü yönler</h3>
+      <div class="strength-list">${(p.strengths||["Etki","Form","Katkı"]).map(s=>`<span>${s}</span>`).join("")}</div>
     </section>
-    <section class="modal-section">
-      <h3>Güçlü yönler</h3>
-      <div class="strength-list">
-        ${(player.strengths || ["Etki", "Form", "Katkı"]).map((s) => `<span>${s}</span>`).join("")}
-      </div>
-    </section>
-    <section class="modal-section">
-      <h3>Değer yorumu</h3>
-      <p>${player.story}</p>
-    </section>
-  `;
+    <section class="modal-section"><h3>Değer yorumu</h3><p>${p.story}</p></section>`;
   playerModal.hidden = false;
   modalClose.focus();
 }
+function closePlayerModal() { playerModal.hidden = true; }
 
-function closePlayerModal() {
-  playerModal.hidden = true;
-}
-
-// ── RENDER: KARŞILAŞTIRMA ─────────────────────────────────────
+// ── KARŞILAŞTIRMA ─────────────────────────────────────────────
 function fillCompareOptions() {
-  const options = enrichedPlayers
-    .map((p) => `<option value="${p.name}">${p.name} — ${p.team}</option>`)
-    .join("");
-  playerA.innerHTML = options;
-  playerB.innerHTML = options;
-  playerA.value = topBy("impactScore").name;
-  playerB.value = topBy("valueScore").name;
+  const opts = enrichedPlayers.map(p=>`<option value="${p.name}">${p.name} — ${p.team}</option>`).join("");
+  playerA.innerHTML = opts; playerB.innerHTML = opts;
+  playerA.value = topBy("impactScore").name; playerB.value = topBy("valueScore").name;
 }
-
-function statLine(label, left, right, suffix = "") {
-  const lw = left > right;
-  const rw = right > left;
-  return `
-    <div class="duel-row">
-      <span>${label}</span>
-      <strong>
-        <span class="${lw ? "winner" : ""}">${left}${suffix}</span>
-        /
-        <span class="${rw ? "winner" : ""}">${right}${suffix}</span>
-      </strong>
-    </div>
-  `;
+function sl(label, l, r, suf="") {
+  return `<div class="duel-row"><span>${label}</span><strong>
+    <span class="${l>r?"winner":""}">${l}${suf}</span>/<span class="${r>l?"winner":""}">${r}${suf}</span>
+  </strong></div>`;
 }
-
 function renderComparison() {
-  const left  = enrichedPlayers.find((p) => p.name === playerA.value);
-  const right = enrichedPlayers.find((p) => p.name === playerB.value);
-  if (!left || !right) return;
-
-  const winner =
-    left.valueScore === right.valueScore
-      ? "Bu eşleşme berabereye çok yakın."
-      : left.valueScore > right.valueScore
-        ? `${left.name} değerine göre daha fazla etki üretiyor.`
-        : `${right.name} değerine göre daha fazla etki üretiyor.`;
-
+  const l = enrichedPlayers.find(p=>p.name===playerA.value);
+  const r = enrichedPlayers.find(p=>p.name===playerB.value);
+  if (!l||!r) return;
+  const w = l.valueScore===r.valueScore ? "Bu eşleşme berabereye çok yakın."
+    : l.valueScore>r.valueScore ? `${l.name} değerine göre daha fazla etki üretiyor.`
+    : `${r.name} değerine göre daha fazla etki üretiyor.`;
   comparison.innerHTML = `
-    <article class="duel-card">
-      <h3>${left.name}</h3>
-      ${statLine("Gol", left.goals, right.goals)}
-      ${statLine("Asist", left.assists, right.assists)}
-      ${statLine("Etki skoru", left.impactScore, right.impactScore)}
-      ${statLine("Değer skoru", left.valueScore, right.valueScore)}
-      ${statLine("Form", left.form, right.form)}
+    <article class="duel-card"><h3>${l.name}</h3>
+      ${sl("Gol",l.goals,r.goals)}${sl("Asist",l.assists,r.assists)}
+      ${sl("Etki skoru",l.impactScore,r.impactScore)}${sl("Değer skoru",l.valueScore,r.valueScore)}${sl("Form",l.form,r.form)}
     </article>
-    <article class="duel-card">
-      <h3>${right.name}</h3>
-      <div class="duel-row"><span>Piyasa değeri</span><strong>${formatValue(left.marketValue)} / ${formatValue(right.marketValue)} €</strong></div>
-      <div class="duel-row"><span>Dakika</span><strong>${left.minutes} / ${right.minutes}</strong></div>
-      <div class="duel-row"><span>Büyük maç</span><strong>${left.bigMatch} / ${right.bigMatch}</strong></div>
-      <div class="duel-row"><span>Scout skoru</span><strong>${left.scoutScore} / ${right.scoutScore}</strong></div>
-      <div class="duel-row"><span>Etiket</span><strong>${getLabel(left)} / ${getLabel(right)}</strong></div>
+    <article class="duel-card"><h3>${r.name}</h3>
+      <div class="duel-row"><span>Piyasa değeri</span><strong>${formatValue(l.marketValue)} / ${formatValue(r.marketValue)} €</strong></div>
+      <div class="duel-row"><span>Dakika</span><strong>${l.minutes} / ${r.minutes}</strong></div>
+      <div class="duel-row"><span>Büyük maç</span><strong>${l.bigMatch} / ${r.bigMatch}</strong></div>
+      <div class="duel-row"><span>Scout skoru</span><strong>${l.scoutScore} / ${r.scoutScore}</strong></div>
     </article>
-    <div class="insight">${winner} Bu sonuç ilk analiz formülüne göre hesaplandı.</div>
-  `;
+    <div class="insight">${w}</div>`;
 }
 
-// ── RENDER: ANKET ─────────────────────────────────────────────
+// ── ANKET ─────────────────────────────────────────────────────
 function renderPoll() {
-  const poll = polls[currentPollIndex];
-  const storageKey = poll.id;
-  const voted = localStorage.getItem(storageKey);
-  const voteCounts = JSON.parse(localStorage.getItem(storageKey + "_counts") || "null") ||
-    Object.fromEntries(poll.candidates.map((c) => [c.name, 0]));
-
+  const poll = polls[0];
+  const voted = localStorage.getItem(poll.id);
+  const counts = JSON.parse(localStorage.getItem(poll.id+"_counts")||"null") ||
+    Object.fromEntries(poll.candidates.map(c=>[c.name,0]));
   pollBadge.textContent = voted ? "Oy verildi ✓" : "Oy ver";
-
-  const totalVotes = Object.values(voteCounts).reduce((s, v) => s + v, 0);
-
-  pollOptions.innerHTML = poll.candidates.map((c) => {
-    const pct  = totalVotes > 0 ? Math.round((voteCounts[c.name] / totalVotes) * 100) : 0;
-    const isVoted = voted === c.name;
-    return `
-      <button class="poll-option ${voted ? (isVoted ? "voted" : "") : ""}"
-        data-candidate="${c.name}" type="button" ${voted ? "disabled" : ""}>
-        <div class="poll-bar" style="width: ${voted ? pct : 0}%"></div>
-        <div class="poll-name">${c.name}</div>
-        <div class="poll-team">${c.team}</div>
-        <div class="poll-pct ${voted ? "visible" : ""}">%${pct}</div>
-      </button>
-    `;
+  const total = Object.values(counts).reduce((s,v)=>s+v,0);
+  pollOptions.innerHTML = poll.candidates.map(c => {
+    const pct = total>0 ? Math.round((counts[c.name]/total)*100) : 0;
+    return `<button class="poll-option ${voted?(voted===c.name?"voted":""):""}"
+      data-candidate="${c.name}" type="button" ${voted?"disabled":""}>
+      <div class="poll-bar" style="width:${voted?pct:0}%"></div>
+      <div class="poll-name">${c.name}</div>
+      <div class="poll-team">${c.team}</div>
+      <div class="poll-pct ${voted?"visible":""}">%${pct}</div>
+    </button>`;
   }).join("");
-
-  pollNote.textContent = voted
-    ? `Toplam ${totalVotes} oy kullanıldı.`
-    : "Oyunuzu kullanın, sonuçları görün.";
-
+  pollNote.textContent = voted ? `Toplam ${total} oy kullanıldı.` : "Oyunuzu kullanın, sonuçları görün.";
   if (!voted) {
-    pollOptions.addEventListener("click", (e) => {
-      const btn = e.target.closest(".poll-option");
-      if (!btn) return;
-      const candidate = btn.dataset.candidate;
-      voteCounts[candidate] = (voteCounts[candidate] || 0) + 1;
-      localStorage.setItem(storageKey, candidate);
-      localStorage.setItem(storageKey + "_counts", JSON.stringify(voteCounts));
+    pollOptions.addEventListener("click", e => {
+      const b = e.target.closest(".poll-option");
+      if (!b) return;
+      counts[b.dataset.candidate] = (counts[b.dataset.candidate]||0)+1;
+      localStorage.setItem(poll.id, b.dataset.candidate);
+      localStorage.setItem(poll.id+"_counts", JSON.stringify(counts));
       renderPoll();
-    }, { once: true });
+    }, { once:true });
   }
 }
 
-// ── RENDER: TAHMİN OYUNU ──────────────────────────────────────
+// ── TAHMİN OYUNU ──────────────────────────────────────────────
 function renderMatchPredictions() {
-  const savedScore = parseInt(localStorage.getItem("predict_total_score") || "0");
+  const savedScore = parseInt(localStorage.getItem("predict_total_score")||"0");
   userTotalScore.textContent = savedScore;
-  const submitted = localStorage.getItem("predict_submitted") === "true";
-
-  matchCards.innerHTML = matchFixtures.map((m, i) => {
-    const savedH = localStorage.getItem(`pred_h_${i}`) || "";
-    const savedA = localStorage.getItem(`pred_a_${i}`) || "";
-    let cardClass = "";
-    let resultLabel = "";
-    if (submitted && savedH !== "" && savedA !== "") {
-      const predH = parseInt(savedH);
-      const predA = parseInt(savedA);
-      if (predH === m.actualHome && predA === m.actualAway) {
-        cardClass = "correct"; resultLabel = "✅ Tam isabet! +3 puan";
-      } else if ((predH > predA) === (m.actualHome > m.actualAway) &&
-                 (predH === predA) === (m.actualHome === m.actualAway)) {
-        cardClass = "partial"; resultLabel = "🟡 Doğru sonuç! +1 puan";
-      } else {
-        cardClass = "wrong"; resultLabel = `❌ Yanlış. Gerçek: ${m.actualHome}–${m.actualAway}`;
-      }
+  const submitted = localStorage.getItem("predict_submitted")==="true";
+  matchCards.innerHTML = matchFixtures.map((m,i) => {
+    const sh=localStorage.getItem(`pred_h_${i}`)||"", sa=localStorage.getItem(`pred_a_${i}`)||"";
+    let cls="", label="";
+    if (submitted && sh!==""&&sa!=="") {
+      const ph=parseInt(sh), pa=parseInt(sa);
+      if (ph===m.actualHome&&pa===m.actualAway) { cls="correct"; label="✅ Tam isabet! +3 puan"; }
+      else if ((ph>pa)===(m.actualHome>m.actualAway)&&(ph===pa)===(m.actualHome===m.actualAway)) { cls="partial"; label="🟡 Doğru sonuç! +1 puan"; }
+      else { cls="wrong"; label=`❌ Yanlış. Gerçek: ${m.actualHome}–${m.actualAway}`; }
     }
-    return `
-      <div class="match-card ${cardClass}" data-match="${i}">
-        <div class="match-teams">
-          <div class="match-team">${m.home}</div>
-          <div class="match-vs">VS</div>
-          <div class="match-team">${m.away}</div>
-        </div>
-        <div class="match-inputs">
-          <input type="number" min="0" max="20" placeholder="0"
-            id="pred_h_${i}" value="${savedH}" ${submitted ? "disabled" : ""}>
-          <div class="match-sep">—</div>
-          <input type="number" min="0" max="20" placeholder="0"
-            id="pred_a_${i}" value="${savedA}" ${submitted ? "disabled" : ""}>
-        </div>
-        <div class="match-result-label">${resultLabel}</div>
+    return `<div class="match-card ${cls}">
+      <div class="match-teams"><div class="match-team">${m.home}</div><div class="match-vs">VS</div><div class="match-team">${m.away}</div></div>
+      <div class="match-inputs">
+        <input type="number" min="0" max="20" placeholder="0" id="pred_h_${i}" value="${sh}" ${submitted?"disabled":""}>
+        <div class="match-sep">—</div>
+        <input type="number" min="0" max="20" placeholder="0" id="pred_a_${i}" value="${sa}" ${submitted?"disabled":""}>
       </div>
-    `;
+      <div class="match-result-label">${label}</div>
+    </div>`;
   }).join("");
-
   if (submitted) {
-    submitPredictions.disabled = true;
-    submitPredictions.textContent = "Tahminler gönderildi ✓";
-    predictResult.hidden = false;
-    predictResult.innerHTML = `
-      <h3>🏆 Toplam Puanın: ${savedScore}</h3>
-      <p>Tebrikler! Tahminlerin değerlendirildi. Yeni haftada tekrar dene!</p>
-    `;
+    submitPredictions.disabled=true;
+    submitPredictions.textContent="Tahminler gönderildi ✓";
+    predictResult.hidden=false;
+    predictResult.innerHTML=`<h3>🏆 Toplam Puanın: ${savedScore}</h3><p>Tebrikler! Yeni haftada tekrar dene.</p>`;
   }
 }
-
 submitPredictions.addEventListener("click", () => {
-  let total = 0;
-  matchFixtures.forEach((m, i) => {
-    const h = document.querySelector(`#pred_h_${i}`)?.value;
-    const a = document.querySelector(`#pred_a_${i}`)?.value;
-    if (h === "" || a === "") return;
-    localStorage.setItem(`pred_h_${i}`, h);
-    localStorage.setItem(`pred_a_${i}`, a);
-    const predH = parseInt(h);
-    const predA = parseInt(a);
-    if (predH === m.actualHome && predA === m.actualAway) {
-      total += 3;
-    } else if ((predH > predA) === (m.actualHome > m.actualAway) &&
-               (predH === predA) === (m.actualHome === m.actualAway)) {
-      total += 1;
-    }
+  let total=0;
+  matchFixtures.forEach((m,i)=>{
+    const h=document.querySelector(`#pred_h_${i}`)?.value;
+    const a=document.querySelector(`#pred_a_${i}`)?.value;
+    if (h===""||a==="") return;
+    localStorage.setItem(`pred_h_${i}`,h); localStorage.setItem(`pred_a_${i}`,a);
+    const ph=parseInt(h), pa=parseInt(a);
+    if (ph===m.actualHome&&pa===m.actualAway) total+=3;
+    else if ((ph>pa)===(m.actualHome>m.actualAway)&&(ph===pa)===(m.actualHome===m.actualAway)) total+=1;
   });
-  const prevScore = parseInt(localStorage.getItem("predict_total_score") || "0");
-  const newScore  = prevScore + total;
-  localStorage.setItem("predict_total_score", newScore);
-  localStorage.setItem("predict_submitted", "true");
-  userTotalScore.textContent = newScore;
+  const prev=parseInt(localStorage.getItem("predict_total_score")||"0");
+  localStorage.setItem("predict_total_score",prev+total);
+  localStorage.setItem("predict_submitted","true");
+  userTotalScore.textContent=prev+total;
   renderMatchPredictions();
 });
-
 resetPredictions.addEventListener("click", () => {
-  matchFixtures.forEach((_, i) => {
-    localStorage.removeItem(`pred_h_${i}`);
-    localStorage.removeItem(`pred_a_${i}`);
-  });
+  matchFixtures.forEach((_,i)=>{ localStorage.removeItem(`pred_h_${i}`); localStorage.removeItem(`pred_a_${i}`); });
   localStorage.removeItem("predict_submitted");
-  submitPredictions.disabled = false;
-  submitPredictions.textContent = "Tahminleri Gönder";
-  predictResult.hidden = true;
+  submitPredictions.disabled=false;
+  submitPredictions.textContent="Tahminleri Gönder";
+  predictResult.hidden=true;
   renderMatchPredictions();
 });
 
-// ── TEAM FİLTER DOLDUR ────────────────────────────────────────
+// ── TAKM FİLTRE DOLDUR ───────────────────────────────────────
 function fillTeamFilter() {
-  const teams = [...new Set(enrichedPlayers.map((p) => p.team))].sort();
+  const teams = [...new Set(enrichedPlayers.map(p=>p.team))].sort();
   teamFilter.innerHTML = `<option value="all">Tüm takımlar</option>` +
-    teams.map((t) => `<option value="${t}">${t}</option>`).join("");
+    teams.map(t=>`<option value="${t}">${t}</option>`).join("");
 }
 
-// ── HAMBURGER NAV ────────────────────────────────────────────
-navHamburger.addEventListener("click", () => {
-  const isHidden = navMobileMenu.hidden;
-  navMobileMenu.hidden = !isHidden;
-  navHamburger.setAttribute("aria-expanded", String(isHidden));
+// ── NAV HAMBURGER ─────────────────────────────────────────────
+navHamburger.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const isOpen = !navMobileMenu.hidden;
+  navMobileMenu.hidden = isOpen;
+  navHamburger.setAttribute("aria-expanded", String(!isOpen));
 });
 
-navMobileMenu.querySelectorAll(".nav-link").forEach((link) => {
-  link.addEventListener("click", () => { navMobileMenu.hidden = true; });
+// Menü dışına tıklayınca kapat
+document.addEventListener("click", (e) => {
+  if (!navMobileMenu.hidden && !e.target.closest(".navbar")) {
+    navMobileMenu.hidden = true;
+    navHamburger.setAttribute("aria-expanded", "false");
+  }
 });
 
-// ── EVENT LİSTENERS ───────────────────────────────────────────
-searchInput.addEventListener("input", (e) => { state.search = e.target.value; renderPlayers(); });
-positionFilter.addEventListener("change", (e) => { state.position = e.target.value; renderPlayers(); });
-teamFilter.addEventListener("change", (e) => { state.team = e.target.value; renderPlayers(); });
-sortMode.addEventListener("change", (e) => { state.sort = e.target.value; renderPlayers(); });
-budgetOnly.addEventListener("change", (e) => { state.budgetOnly = e.target.checked; renderPlayers(); });
+// Link tıklandığında kapat
+navMobileMenu.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    navMobileMenu.hidden = true;
+    navHamburger.setAttribute("aria-expanded", "false");
+  });
+});
+
+// ── EVENT LISTENERS ───────────────────────────────────────────
+searchInput.addEventListener("input", e => { state.search=e.target.value; renderPlayers(); });
+positionFilter.addEventListener("change", e => { state.position=e.target.value; renderPlayers(); });
+teamFilter.addEventListener("change", e => { state.team=e.target.value; renderPlayers(); });
+sortMode.addEventListener("change", e => { state.sort=e.target.value; renderPlayers(); });
+budgetOnly.addEventListener("change", e => { state.budgetOnly=e.target.checked; renderPlayers(); });
 playerA.addEventListener("change", renderComparison);
 playerB.addEventListener("change", renderComparison);
 squadTeamSelect.addEventListener("change", renderSquad);
 
-playerGrid.addEventListener("click", (e) => {
-  const card = e.target.closest(".player-card");
-  if (card) openPlayerModal(card.dataset.player);
-});
-playerGrid.addEventListener("keydown", (e) => {
-  if (e.key !== "Enter" && e.key !== " ") return;
-  const card = e.target.closest(".player-card");
-  if (!card) return;
-  e.preventDefault();
-  openPlayerModal(card.dataset.player);
+playerGrid.addEventListener("click", e => { const c=e.target.closest(".player-card"); if(c) openPlayerModal(c.dataset.player); });
+playerGrid.addEventListener("keydown", e => {
+  if (e.key!=="Enter"&&e.key!==" ") return;
+  const c=e.target.closest(".player-card"); if(!c) return;
+  e.preventDefault(); openPlayerModal(c.dataset.player);
 });
 modalClose.addEventListener("click", closePlayerModal);
-playerModal.addEventListener("click", (e) => { if (e.target === playerModal) closePlayerModal(); });
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !playerModal.hidden) closePlayerModal();
-});
-swapButton.addEventListener("click", () => {
-  const oldA = playerA.value;
-  playerA.value = playerB.value;
-  playerB.value = oldA;
-  renderComparison();
-});
+playerModal.addEventListener("click", e=>{ if(e.target===playerModal) closePlayerModal(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"&&!playerModal.hidden) closePlayerModal(); });
+swapButton.addEventListener("click", ()=>{ const o=playerA.value; playerA.value=playerB.value; playerB.value=o; renderComparison(); });
 
 // ── INIT ──────────────────────────────────────────────────────
 fillTeamFilter();
@@ -1213,6 +1167,7 @@ renderSquadTeams();
 renderSummary();
 renderBoards();
 renderStandings();
+renderAwards();
 renderPlayers();
 renderComparison();
 renderPoll();
