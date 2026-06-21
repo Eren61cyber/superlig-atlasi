@@ -1,33 +1,38 @@
 // ================================================================
 // SÜPER LİG ATLASI — app.js  |  2025-26 Sezonu
 // ================================================================
+
+// Takım adlarını normalize eden yardımcı (Türkçe ↔ ASCII)
+function normalizeTeamName(name) {
+  return name
+    .replace(/ç/g, 'c').replace(/Ç/g, 'C')
+    .replace(/ğ/g, 'g').replace(/Ğ/g, 'G')
+    .replace(/ı/g, 'i').replace(/İ/g, 'I')
+    .replace(/ö/g, 'o').replace(/Ö/g, 'O')
+    .replace(/ş/g, 's').replace(/Ş/g, 'S')
+    .replace(/ü/g, 'u').replace(/Ü/g, 'U');
+}
+
+// Her takım için tek kayıt (ASCII anahtarı — normalizeTeamName ile eşleşir)
 const teamLogos = {
-  Galatasaray: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Galatasaray_Sports_Club_Logo.svg",
-  Fenerbahce: "https://upload.wikimedia.org/wikipedia/en/3/39/Fenerbah%C3%A7e_S.K._logo.svg",
-  Fenerbahçe: "https://upload.wikimedia.org/wikipedia/en/3/39/Fenerbah%C3%A7e_S.K._logo.svg",
-  Besiktas: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Logo_Besiktas.svg",
-  Beşiktaş: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Logo_Besiktas.svg",
-  Trabzonspor: "https://upload.wikimedia.org/wikipedia/commons/8/86/Trabzonspor_amblem.svg",
-  Basaksehir: "https://upload.wikimedia.org/wikipedia/en/e/ee/Medipol_Ba%C5%9Fak%C5%9Fehir_FK_logo.svg",
-  Başakşehir: "https://upload.wikimedia.org/wikipedia/en/e/ee/Medipol_Ba%C5%9Fak%C5%9Fehir_FK_logo.svg",
-  Goztepe: "https://upload.wikimedia.org/wikipedia/en/f/f6/G%C3%B6ztepe_Sports_Club_logo.svg",
-  Göztepe: "https://upload.wikimedia.org/wikipedia/en/f/f6/G%C3%B6ztepe_Sports_Club_logo.svg",
-  Samsunspor: "https://upload.wikimedia.org/wikipedia/commons/8/87/Samsunspor_Logo.svg",
-  Rizespor: "https://upload.wikimedia.org/wikipedia/en/a/a2/%C3%87aykur_Rizespor_logo.svg",
-  Konyaspor: "https://upload.wikimedia.org/wikipedia/commons/d/de/Konyaspor_amblem.svg",
-  Kocaelispor: "https://upload.wikimedia.org/wikipedia/commons/7/75/Kocaelispor_logo.svg",
-  Alanyaspor: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Alanyaspor_Logo.svg",
+  Galatasaray:    "https://upload.wikimedia.org/wikipedia/commons/e/ea/Galatasaray_Sports_Club_Logo.svg",
+  Fenerbahce:     "https://upload.wikimedia.org/wikipedia/en/3/39/Fenerbah%C3%A7e_S.K._logo.svg",
+  Besiktas:       "https://upload.wikimedia.org/wikipedia/commons/e/ea/Logo_Besiktas.svg",
+  Trabzonspor:    "https://upload.wikimedia.org/wikipedia/commons/8/86/Trabzonspor_amblem.svg",
+  Basaksehir:     "https://upload.wikimedia.org/wikipedia/en/e/ee/Medipol_Ba%C5%9Fak%C5%9Fehir_FK_logo.svg",
+  Goztepe:        "https://upload.wikimedia.org/wikipedia/en/f/f6/G%C3%B6ztepe_Sports_Club_logo.svg",
+  Samsunspor:     "https://upload.wikimedia.org/wikipedia/commons/8/87/Samsunspor_Logo.svg",
+  Rizespor:       "https://upload.wikimedia.org/wikipedia/en/a/a2/%C3%87aykur_Rizespor_logo.svg",
+  Konyaspor:      "https://upload.wikimedia.org/wikipedia/commons/d/de/Konyaspor_amblem.svg",
+  Kocaelispor:    "https://upload.wikimedia.org/wikipedia/commons/7/75/Kocaelispor_logo.svg",
+  Alanyaspor:     "https://upload.wikimedia.org/wikipedia/commons/a/ae/Alanyaspor_Logo.svg",
   "Gaziantep FK": "https://upload.wikimedia.org/wikipedia/en/e/e0/Gaziantep_FK_logo.svg",
-  Kasimpasa: "https://upload.wikimedia.org/wikipedia/en/3/30/KASIMPA%C5%9EASPOR.svg",
-  Kasımpaşa: "https://upload.wikimedia.org/wikipedia/en/3/30/KASIMPA%C5%9EASPOR.svg",
+  Kasimpasa:      "https://upload.wikimedia.org/wikipedia/en/3/30/KASIMPA%C5%9EASPOR.svg",
   Genclerbirligi: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Genclerbirligi_Logo.svg",
-  Gençlerbirliği: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Genclerbirligi_Logo.svg",
-  Eyupspor: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Ey%C3%BCpspor_logo.svg",
-  Eyüpspor: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Ey%C3%BCpspor_logo.svg",
-  Antalyaspor: "https://upload.wikimedia.org/wikipedia/commons/8/88/Antalyaspor_Logo.svg",
-  Kayserispor: "https://upload.wikimedia.org/wikipedia/commons/3/31/Kayserispor_logo.svg",
-  Karagumruk: "https://upload.wikimedia.org/wikipedia/en/1/17/Fatih_Karag%C3%BCmr%C3%BCk_logo.svg",
-  Karagümrük: "https://upload.wikimedia.org/wikipedia/en/1/17/Fatih_Karag%C3%BCmr%C3%BCk_logo.svg"
+  Eyupspor:       "https://upload.wikimedia.org/wikipedia/commons/1/1a/Ey%C3%BCpspor_logo.svg",
+  Antalyaspor:    "https://upload.wikimedia.org/wikipedia/commons/8/88/Antalyaspor_Logo.svg",
+  Kayserispor:    "https://upload.wikimedia.org/wikipedia/commons/3/31/Kayserispor_logo.svg",
+  Karagumruk:     "https://upload.wikimedia.org/wikipedia/en/1/17/Fatih_Karag%C3%BCmr%C3%BCk_logo.svg"
 };
 
 function getFallbackLogoSvg(teamName) {
@@ -37,11 +42,12 @@ function getFallbackLogoSvg(teamName) {
 }
 
 function getTeamLogoHtml(teamName, sizeClass = "small") {
-  const logoUrl = teamLogos[teamName];
+  // Önce orijinal adla ara, bulamazsan normalize et
+  const logoUrl = teamLogos[teamName] || teamLogos[normalizeTeamName(teamName)];
   if (!logoUrl) {
     return `<span class="team-logo-wrapper ${sizeClass}">${getFallbackLogoSvg(teamName)}</span>`;
   }
-  const escapedFallback = getFallbackLogoSvg(teamName).replace(/"/g, '&quot;').replace(/'/g, "\\'");
+  const escapedFallback = getFallbackLogoSvg(teamName).replace(/"/g, '&quot;').replace(/'/g, "\\'")
   return `<span class="team-logo-wrapper ${sizeClass}"><img src="${logoUrl}" alt="${teamName}" class="team-logo-img" onerror="this.outerHTML='${escapedFallback}'"></span>`;
 }
 
