@@ -2,6 +2,42 @@
 // SÜPER LİG ATLASI — app.js  |  2025-26 Sezonu
 // ================================================================
 
+// ===================== TEMA YÖNETİMİ =====================
+(function initTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const currentTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const iconDark = document.getElementById('themeIconDark');
+    const iconLight = document.getElementById('themeIconLight');
+    
+    if (!themeToggleBtn) return;
+    
+    const updateIcons = (theme) => {
+      if (theme === 'light') {
+        iconLight.style.display = 'none';
+        iconDark.style.display = 'block';
+      } else {
+        iconLight.style.display = 'block';
+        iconDark.style.display = 'none';
+      }
+    };
+    
+    updateIcons(currentTheme);
+    
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateIcons(newTheme);
+    });
+  });
+})();
+
 // Takım adlarını normalize eden yardımcı (Türkçe ↔ ASCII)
 function normalizeTeamName(name) {
   return name
@@ -723,7 +759,7 @@ const positionModels = {
 };
 
 // ── STATE ─────────────────────────────────────────────────────
-const state = { search:"", position:"all", team:"all", sort:"valueScore", budgetOnly:false, visibleLimit: 12 };
+const state = { search:"", position:"all", team:"all", sort:"valueScore", budgetOnly:false, visibleLimit: 12, maxAge: 40, maxPrice: 1000 };
 
 // ── ENRİCHED PLAYERS ──────────────────────────────────────────
 const enrichedPlayers = players.map(p => {
@@ -743,6 +779,9 @@ const positionFilter   = document.querySelector("#positionFilter");
 const teamFilter       = document.querySelector("#teamFilter");
 const sortMode         = document.querySelector("#sortMode");
 const budgetOnly       = document.querySelector("#budgetOnly");
+const ageFilter        = document.querySelector("#ageFilter");
+const ageLabel         = document.querySelector("#ageLabel");
+const maxPriceFilter   = document.querySelector("#maxPriceFilter");
 const playerA          = document.querySelector("#playerA");
 const playerB          = document.querySelector("#playerB");
 const comparison       = document.querySelector("#comparison");
@@ -793,7 +832,9 @@ function getFilteredPlayers() {
       return txt.includes(state.search.toLowerCase()) &&
         (state.position==="all" || p.position===state.position) &&
         (state.team==="all"     || p.team===state.team) &&
-        (!state.budgetOnly      || p.marketValue<2);
+        (!state.budgetOnly      || p.marketValue<2) &&
+        (p.age <= state.maxAge) &&
+        (p.marketValue <= state.maxPrice);
     })
     .sort((a,b) => b[state.sort]-a[state.sort]);
 }
@@ -972,6 +1013,69 @@ function renderPlayers() {
   }
 }
 
+// ===================== RADAR CHART =====================
+function drawRadarChart(player, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  
+  const hücum = Math.min(player.contribution / 30, 1);
+  const istikrar = Math.min(player.valueScore / 1000, 1);
+  const oyunAklı = Math.min(player.impactScore / 1000, 1);
+  const büyükMaç = Math.min(player.bigMatch / 100, 1);
+  const formSkoru = (player.form && player.form.length) 
+      ? player.form.reduce((a,b)=>a+(b==='W'?1:b==='D'?0.5:0),0)/player.form.length 
+      : 0.6;
+  
+  const data = [hücum, istikrar, oyunAklı, büyükMaç, formSkoru];
+  const labels = ["Hücum", "İstikrar", "Oyun Aklı", "Büyük Maç", "Form"];
+  
+  const size = 220;
+  const center = size / 2;
+  const radius = center - 35; 
+  
+  let svg = `<svg class="radar-svg" viewBox="0 0 ${size} ${size}">`;
+  
+  for(let i=1; i<=4; i++){
+    let r = radius * (i/4);
+    let points = "";
+    for(let j=0; j<5; j++){
+      let angle = (Math.PI / 2) - (2 * Math.PI * j / 5);
+      let x = center + r * Math.cos(angle);
+      let y = center - r * Math.sin(angle);
+      points += `${x},${y} `;
+    }
+    svg += `<polygon class="radar-grid" points="${points.trim()}" />`;
+  }
+  
+  for(let j=0; j<5; j++){
+    let angle = (Math.PI / 2) - (2 * Math.PI * j / 5);
+    let x = center + radius * Math.cos(angle);
+    let y = center - radius * Math.sin(angle);
+    svg += `<line class="radar-axis" x1="${center}" y1="${center}" x2="${x}" y2="${y}" />`;
+    
+    let labelX = center + (radius + 20) * Math.cos(angle);
+    let labelY = center - (radius + 20) * Math.sin(angle) + 4;
+    svg += `<text class="radar-label" x="${labelX}" y="${labelY}">${labels[j]}</text>`;
+  }
+  
+  let dataPoints = "";
+  let circles = "";
+  for(let j=0; j<5; j++){
+    let angle = (Math.PI / 2) - (2 * Math.PI * j / 5);
+    let val = Math.max(0.1, data[j] || 0.1);
+    let x = center + radius * val * Math.cos(angle);
+    let y = center - radius * val * Math.sin(angle);
+    dataPoints += `${x},${y} `;
+    circles += `<circle class="radar-point" cx="${x}" cy="${y}" r="3" />`;
+  }
+  
+  svg += `<polygon class="radar-area" points="${dataPoints.trim()}" />`;
+  svg += circles;
+  svg += `</svg>`;
+  
+  container.innerHTML = svg;
+}
+
 // ── MODAL ─────────────────────────────────────────────────────
 function openPlayerModal(name) {
   const p = enrichedPlayers.find(x=>x.name===name);
@@ -997,6 +1101,7 @@ function openPlayerModal(name) {
         </div>
       </div>
     </div>
+    <div id="radarChartContainer" class="radar-chart-container"></div>
     <section class="modal-section"><h3>Oyuncu profili</h3><p>${p.story}</p></section>
     <section class="modal-section"><h3>Kulüp geçmişi</h3>
       <div class="career-list">${(p.career||[p.team]).map(c=>`<span class="career-chip">${c}</span>`).join("")}</div>
@@ -1010,6 +1115,9 @@ function openPlayerModal(name) {
         Transfermarkt'ta Detaylı Profil
       </a>
     </section>`;
+    
+  setTimeout(() => drawRadarChart(p, "radarChartContainer"), 0);
+  
   playerModal.hidden = false;
   modalClose.focus();
 }
@@ -1355,6 +1463,23 @@ positionFilter.addEventListener("change",e=>{state.position=e.target.value; stat
 teamFilter.addEventListener("change",  e=>{state.team=e.target.value; state.visibleLimit=12; renderPlayers();});
 sortMode.addEventListener("change",    e=>{state.sort=e.target.value; state.visibleLimit=12; renderPlayers();});
 budgetOnly.addEventListener("change",  e=>{state.budgetOnly=e.target.checked; state.visibleLimit=12; renderPlayers();});
+
+if (ageFilter) {
+  ageFilter.addEventListener("input", e => {
+    state.maxAge = parseInt(e.target.value, 10);
+    if(ageLabel) ageLabel.textContent = state.maxAge;
+    state.visibleLimit=12;
+    renderPlayers();
+  });
+}
+
+if (maxPriceFilter) {
+  maxPriceFilter.addEventListener("change", e => {
+    state.maxPrice = parseFloat(e.target.value);
+    state.visibleLimit=12;
+    renderPlayers();
+  });
+}
 playerA.addEventListener("change", renderComparison);
 playerB.addEventListener("change", renderComparison);
 squadTeamSelect.addEventListener("change", renderSquad);

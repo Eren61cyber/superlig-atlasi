@@ -52,6 +52,10 @@
           <a href="#squad-builder-section" class="nav-link">Kadro Kur</a>
           <a href="#poll-section" class="nav-link">Anket</a>
           <a href="#predict-section" class="nav-link">Tahmin Oyunu</a>
+          <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Temayı Değiştir" title="Aydınlık/Karanlık Tema">
+            <svg id="themeIconDark" viewBox="0 0 24 24" style="display:none;"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+            <svg id="themeIconLight" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zm0-11c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1c0 .55.45 1 1 1zm0 18c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1s1-.45 1-1v-1c0-.55-.45-1-1-1zm8-10h1c.55 0 1-.45 1-1s-.45-1-1-1h-1c-.55 0-1 .45-1 1s.45 1 1 1zM3 12c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1s.45-1 1-1h1c.55 0 1 .45 1 1zm16.24-6.83l.71-.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-.71.71c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0zM5.05 18.95l.71-.71c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-.71.71c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0zm13.9-1.41l.71.71c.39.39.39 1.02 0 1.41.39.39 1.02.39 1.41 0l-.71-.71c-.39-.39-.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0zM5.76 5.05l-.71-.71c-.39-.39-.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l.71.71c.39.39.39 1.02 0 1.41.39.39 1.02.39 1.41 0z"/></svg>
+          </button>
         </div>
         <button class="nav-hamburger" id="navHamburger" aria-label="Menüyü aç" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -265,6 +269,25 @@
             <label for="teamFilter">Takım</label>
             <select id="teamFilter">
               <option value="all">Tüm takımlar</option>
+            </select>
+          </div>
+
+          <div class="panel-section">
+            <label for="ageFilter">Maks Yaş</label>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <input id="ageFilter" type="range" min="16" max="40" value="40" style="flex:1;">
+              <span id="ageLabel" style="font-weight:600; width:24px; text-align:right;">40</span>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <label for="maxPriceFilter">Maks Piyasa Değeri</label>
+            <select id="maxPriceFilter">
+              <option value="1000">Limit Yok</option>
+              <option value="25">Maks 25 Milyon €</option>
+              <option value="10">Maks 10 Milyon €</option>
+              <option value="5">Maks 5 Milyon €</option>
+              <option value="2">Maks 2 Milyon €</option>
             </select>
           </div>
 
