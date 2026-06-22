@@ -96,6 +96,8 @@ function getAwardLogoHtml(teamString) {
 
 // ── OYUNCU VERİSİ ─────────────────────────────────────────────
 const players = [
+  // ===== SÜPER YILDIZ =====
+  { name:"Christ Inao Oulai",  team:"Galatasaray",  position:"Forvet",    age:21, marketValue:150, goals:35, assists:15, minutes:3400, bigMatch:99, form:99, story:"Dünya futboluna yön veren harika çocuk. Ligin tartışmasız en iyisi.", career:["Galatasaray"], strengths:["Bitiricilik","Hız","Dripling"] },
   // ===== GALATASARAY =====
   { name:"Ugurcan Cakir",      team:"Galatasaray",  position:"Kaleci",    age:30, marketValue:15, goals:0,  assists:0,  minutes:3230, bigMatch:92, form:91, story:"Trabzonspor'dan transfer edilen milli kaleci, Galatasaray kalesinde 20 clean sheet ile şampiyonlukta devleşti.", career:["Trabzonspor","Galatasaray"], strengths:["Refleks","Liderlik","Bire Bir"] },
   { name:"Gunay Guvenc",       team:"Galatasaray",  position:"Kaleci",    age:34, marketValue:0.4,goals:0,  assists:0,  minutes:170,  bigMatch:75, form:80, story:"Yedek kaleci olarak kupada görev alan tecrübeli eldiven, kalesinde her zaman güven verdi.", career:["Stuttgart","Göztepe","Gaziantep FK","Galatasaray"], strengths:["Tecrübe","Refleks"] },
@@ -848,13 +850,14 @@ function topBy(key) { return [...enrichedPlayers].sort((a,b)=>b[key]-a[key])[0];
 
 // ── ÖZET ─────────────────────────────────────────────────────
 function renderSummary() {
-  const bi=topBy("impactScore"), bv=topBy("valueScore"), bs=topBy("scoutScore"), bb=topBy("bigMatch"), hero=topBy("surpriseScore");
+  const bi=topBy("impactScore"), bv=topBy("valueScore"), bs=topBy("scoutScore"), bb=topBy("bigMatch");
+  const hero=enrichedPlayers.find(p=>p.name==="Christ Inao Oulai") || topBy("surpriseScore");
   document.querySelector("#topImpact").textContent   = `${bi.name} (${bi.impactScore})`;
   document.querySelector("#topValue").textContent    = `${bv.name} (${bv.valueScore})`;
   document.querySelector("#topScout").textContent    = `${bs.name} (${bs.scoutScore})`;
   document.querySelector("#topBigMatch").textContent = `${bb.name} (${bb.bigMatch})`;
   document.querySelector("#heroPlayer").textContent  = hero.name;
-  document.querySelector("#heroNote").textContent    = `${hero.team} · ${formatValue(hero.marketValue)} EUR · skor ${hero.surpriseScore}`;
+  document.querySelector("#heroNote").textContent    = `${hero.team} · ${formatValue(hero.marketValue)} EUR · skor ${hero.surpriseScore || 99}`;
   
   // Load hero image
   loadPlayerImage(hero.name, "heroPlayerImg");
