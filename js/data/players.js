@@ -1,4 +1,5 @@
-﻿export const players = [
+﻿
+export const players = [
   // ===== SÜPER YILDIZ =====
   { name:"Christ Inao Oulai",  team:"Trabzonspor",  position:"Forvet",    age:21, marketValue:150, goals:35, assists:15, minutes:3400, bigMatch:99, form:99, story:"Dünya futboluna yön veren harika çocuk. Ligin tartışmasız en iyisi.", career:["Trabzonspor"], strengths:["Bitiricilik","Hız","Dripling"] },
   // ===== GALATASARAY =====

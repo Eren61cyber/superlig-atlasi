@@ -1,7 +1,10 @@
-﻿import { state, positionModels } from './state.js';
-import * as DOM from './dom.js';
+﻿import { positionModels, state, enrichedPlayers } from './state.js';
+import { navHamburger, playerModal, playerGrid, modalClose, maxPriceFilter, swapTeamButton, teamFilter, loadMoreBtn, ageFilter, playerB, teamBSelect, searchInput, squadTeamSelect, swapButton, teamASelect, sortMode, navMobileMenu, budgetOnly, ageLabel, playerA, positionFilter } from './dom.js';
+import { closePlayerModal, renderBoards, renderPlayers, syncCustomSelectLabel, openPlayerModal } from './render.js';
+import { renderSquad } from './squad.js';
 import { getFilteredPlayers, getLabel } from './utils.js';
-import { renderPlayers, renderBoards, renderComparison, renderTeamComparison, syncCustomSelectLabel } from './render.js';
+import { renderComparison, renderTeamComparison } from './comparison.js';
+
 export function fillTeamFilter() {
   const teams=[...new Set(enrichedPlayers.map(p=>p.team))].sort();
   teamFilter.innerHTML=`<option value="all">Tüm takımlar</option>`+teams.map(t=>`<option value="${t}">${t}</option>`).join("");

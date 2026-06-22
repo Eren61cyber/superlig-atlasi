@@ -1,5 +1,6 @@
 ﻿import { teamThemes } from '../data/teams.js';
-import * as DOM from './dom.js';
+import { themeBar, activeThemeName } from './dom.js';
+
 
 export function applyTheme(t) {
   const r = document.documentElement;
@@ -24,7 +25,7 @@ export function renderThemes() {
 
 
 // ===================== TEMA YÖNETİMİ =====================
-(export function initTheme() {
+export function initTheme() {
   const savedTheme = localStorage.getItem('theme');
   const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
   const currentTheme = savedTheme || (prefersLight ? 'light' : 'dark');
@@ -57,4 +58,4 @@ export function renderThemes() {
       updateIcons(newTheme);
     });
   });
-})();
+}

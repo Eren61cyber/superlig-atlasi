@@ -1,4 +1,5 @@
-﻿export const teamLogos = {
+﻿
+export const teamLogos = {
   Galatasaray:    "https://tmssl.akamaized.net/images/wappen/head/141.png",
   Fenerbahce:     "https://tmssl.akamaized.net/images/wappen/head/36.png",
   Besiktas:       "https://tmssl.akamaized.net/images/wappen/head/114.png",

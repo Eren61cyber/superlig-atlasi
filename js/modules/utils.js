@@ -1,4 +1,7 @@
-﻿import { teamLogos, teamThemes } from '../data/teams.js';
+﻿import { state, enrichedPlayers } from './state.js';
+import { teamLogos, teamThemes } from '../data/teams.js';
+import { budgetOnly } from './dom.js';
+
 // Takım adlarını normalize eden yardımcı (Türkçe ↔ ASCII)
 export function normalizeTeamName(name) {
   return name
@@ -55,7 +58,6 @@ export function getAwardLogoHtml(teamString) {
   return getTeamLogoHtml(teamString, "tiny");
 }
 
-import { enrichedPlayers } from './state.js';
 export function formatValue(v) { return v >= 1 ? v.toFixed(1)+"M" : Math.round(v*1000)+"K"; }
 export function getLabel(p) {
   if (p.valueScore > 900) return "Değer canavarı";

@@ -1,4 +1,6 @@
 ﻿import { players } from '../data/players.js';
+import { budgetOnly } from './dom.js';
+
 export const positionModels = {
   Forvet:       { goal:8.5, assist:4.2, minutes:0.010, bigMatch:0.42, form:0.35, roleBonus:8  },
   Kanat:        { goal:7.0, assist:5.6, minutes:0.011, bigMatch:0.38, form:0.42, roleBonus:10 },

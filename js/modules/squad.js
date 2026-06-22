@@ -1,7 +1,10 @@
-﻿import { teamSquads } from '../data/squads.js';
-import * as DOM from './dom.js';
-import { getTeamLogoHtml } from './utils.js';
-export export function renderSquadTeams() {
+﻿import { squadNote, squadGrid, squadTeamSelect } from './dom.js';
+import { teamThemes } from '../data/teams.js';
+import { getTeamLogoHtml, tmUrl } from './utils.js';
+import { teamSquads } from '../data/squads.js';
+import { applyTheme } from './theme.js';
+
+export function renderSquadTeams() {
   squadTeamSelect.innerHTML = teamThemes.filter(t=>t.name!=="Lig teması").map(t=>`<option value="${t.name}">${t.name}</option>`).join("");
   squadTeamSelect.value = "Trabzonspor";
   renderSquad();

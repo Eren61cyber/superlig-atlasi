@@ -1,4 +1,5 @@
-﻿export const teamSquads = {
+﻿
+export const teamSquads = {
   Galatasaray: [
     {name:"Ugurcan Cakir", position:"Kaleci", note:"15M€ · 20 CS"},
     {name:"Gunay Guvenc", position:"Kaleci", note:"0.4M€ · Yedek"},

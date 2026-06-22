@@ -1,7 +1,9 @@
-﻿import { enrichedPlayers } from './state.js';
+﻿import { state, enrichedPlayers } from './state.js';
+import { teamComparison, playerB, teamBSelect, teamASelect, playerA, comparison } from './dom.js';
+import { initCustomSelect } from './render.js';
+import { formatValue, topBy, getTeamLogoHtml } from './utils.js';
 import { teamSquads } from '../data/squads.js';
-import * as DOM from './dom.js';
-import { getTeamLogoHtml, formatValue } from './utils.js';
+
 export function fillCompareOptions() {
   initCustomSelect("containerPlayerA", "playerA", topBy("impactScore").name);
   initCustomSelect("containerPlayerB", "playerB", topBy("valueScore").name);

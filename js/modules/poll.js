@@ -1,5 +1,6 @@
 ﻿import { polls } from '../data/polls.js';
-import * as DOM from './dom.js';
+import { pollNote, pollBadge, pollOptions } from './dom.js';
+
 
 export function renderPoll() {
   const poll=polls[0], voted=localStorage.getItem(poll.id);

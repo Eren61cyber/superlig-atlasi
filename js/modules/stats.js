@@ -1,4 +1,6 @@
 ﻿import { getTeamLogoHtml } from './utils.js';
+
+let chartsInstance = [];
 export function renderStatsCharts() {
   if (typeof Chart === 'undefined') return;
   Chart.defaults.color = '#94a3b8';

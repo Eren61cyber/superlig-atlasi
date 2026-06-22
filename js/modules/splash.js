@@ -1,4 +1,14 @@
-﻿import * as DOM from './dom.js';
+﻿import { initSquadBuilder } from './squadBuilder.js';
+import { renderMatchPredictions } from './predict.js';
+import { renderStatsCharts } from './stats.js';
+import { fillTeamFilter } from './filter.js';
+import { renderPoll } from './poll.js';
+import { renderSummary, renderStandings, renderBoards, renderPlayers, renderAwards } from './render.js';
+import { renderSquadTeams } from './squad.js';
+import { initAmbientMusic } from './music.js';
+import { fillTeamCompareOptions, fillCompareOptions, renderComparison, renderTeamComparison } from './comparison.js';
+import { renderThemes } from './theme.js';
+
 
 export function initWelcomeSplash() {
   const splash = document.getElementById("welcomeSplash");

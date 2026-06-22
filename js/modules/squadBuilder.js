@@ -1,8 +1,11 @@
 ﻿import { state, enrichedPlayers } from './state.js';
-import { BuilderDOM as DOM } from './dom.js';
+import { standings } from '../data/standings.js';
+import { players } from '../data/players.js';
+import { simStatRecord, simulateSquadBtn, simReportContent, simStatDiff, simulationModalClose, simDerbyHeader, simDerbyTimeline, simConsoleLogs, totalValueValue, builderModal, totalImpactValue, builderMessage, simStatPoints, squadBudgetLimit, builderModalSubtitle, simStatGoals, builderModalClose, scoutSuggestionsContent, simChemistryBar, simResultsScreen, resetBuilderBtn, builderSearchInput, scoutSuggestionsPanel, builderPlayerList, maxBudgetValue, simStandingsBody, simulationModal, simStatChemistry, budgetProgressBar, simLoadingScreen } from './dom.js';
+import { renderSquad, renderSquadTeams } from './squad.js';
+import { formatValue, getTeamLogoHtml, getFallbackLogoSvg } from './utils.js';
 import { teamSquads } from '../data/squads.js';
-import { formatValue, getTeamLogoHtml } from './utils.js';
-import { renderSquadTeams, renderSquad } from './render.js';
+
 function loadPlayerImage(playerName, imgElementId) {
   if (state.playerImages[playerName]) {
     const imgEl = document.getElementById(imgElementId);

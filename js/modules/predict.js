@@ -1,6 +1,7 @@
 ﻿import { matchFixtures } from '../data/fixtures.js';
-import * as DOM from './dom.js';
 import { getTeamLogoHtml } from './utils.js';
+import { submitPredictions, matchCards, userTotalScore, predictResult, resetPredictions } from './dom.js';
+
 
 export function renderMatchPredictions() {
   const savedScore=parseInt(localStorage.getItem("predict_total_score")||"0");

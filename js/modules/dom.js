@@ -1,4 +1,5 @@
-﻿export const playerGrid = document.querySelector("#playerGrid");
+﻿
+export const playerGrid = document.querySelector("#playerGrid");
 export const resultCount = document.querySelector("#resultCount");
 export const searchInput = document.querySelector("#searchInput");
 export const positionFilter = document.querySelector("#positionFilter");

@@ -1,4 +1,5 @@
-﻿export function initAmbientMusic() {
+﻿
+export function initAmbientMusic() {
   const musicPlayer = document.querySelector("#musicPlayer");
   const bgAudio = document.querySelector("#bgAudio");
   const playBtn = document.querySelector("#musicPlayBtn");

@@ -1,4 +1,5 @@
-﻿export const matchFixtures = [
+﻿
+export const matchFixtures = [
   { home:"Galatasaray",  away:"Fenerbahce",   actualHome:1, actualAway:1 },
   { home:"Trabzonspor",  away:"Besiktas",     actualHome:2, actualAway:1 },
   { home:"Basaksehir",   away:"Goztepe",      actualHome:2, actualAway:0 },

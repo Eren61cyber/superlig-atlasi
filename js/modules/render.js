@@ -1,8 +1,9 @@
 ﻿import { state, enrichedPlayers } from './state.js';
 import { standings } from '../data/standings.js';
+import { playerModal, playerGrid, modalPlayerTeam, modalClose, loadMoreBtn, valueBoard, modalContent, scoutBoard, resultCount, standingsBody, awardsGrid, modalPlayerTag, modalPlayerName } from './dom.js';
+import { formatValue, getFilteredPlayers, topBy, getAwardLogoHtml, getTeamLogoHtml, getLabel, tmUrl } from './utils.js';
 import { seasonAwards } from '../data/awards.js';
-import * as DOM from './dom.js';
-import { formatValue, getTeamLogoHtml, getAwardLogoHtml, getFilteredPlayers } from './utils.js';
+
 export function renderSummary() {
   const bi=topBy("impactScore"), bv=topBy("valueScore"), bs=topBy("scoutScore"), bb=topBy("bigMatch");
   const hero=enrichedPlayers.find(p=>p.name==="Christ Inao Oulai") || topBy("surpriseScore");
