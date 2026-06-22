@@ -1474,14 +1474,13 @@ function renderStatsCharts() {
 
   // --- GERÇEKÇİ 2024 SÜPER LİG VERİLERİ (Mockup yerine) ---
 
-  // 1. Goals & Assists by Team (Örnek: 23/24 Sezon Sonu + Güncel Potansiyel)
+  // 1. Goals & Assists by Team (Puan tablosuyla senkronize veriler)
   const realTeamStats = {
-    "Fenerbahce":  { goals: 99, assists: 74 },
-    "Galatasaray": { goals: 92, assists: 68 },
-    "Trabzonspor": { goals: 69, assists: 48 },
-    "Besiktas":    { goals: 58, assists: 40 },
-    "Basaksehir":  { goals: 57, assists: 39 },
-    "Konyaspor":   { goals: 40, assists: 28 }
+    "Galatasaray": { goals: 77, assists: 54 },
+    "Fenerbahce":  { goals: 77, assists: 55 },
+    "Trabzonspor": { goals: 61, assists: 42 },
+    "Besiktas":    { goals: 59, assists: 41 },
+    "Basaksehir":  { goals: 58, assists: 40 }
   };
   const teams = Object.keys(realTeamStats);
   
