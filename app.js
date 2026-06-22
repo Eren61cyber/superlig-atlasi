@@ -2451,7 +2451,7 @@ function initSquadBuilder() {
   const downloadSquadBtn = document.getElementById("downloadSquadBtn");
   if (downloadSquadBtn) {
     downloadSquadBtn.addEventListener("click", () => {
-      const pitch = document.querySelector(".squad-pitch");
+      const pitch = document.querySelector(".pitch-container");
       if (!pitch) return;
       
       // Add a loading state to the button
