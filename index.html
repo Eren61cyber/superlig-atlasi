@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
   </head>
   <body>
@@ -433,6 +434,7 @@
           </div>
           <div class="builder-actions">
             <button id="simulateSquadBtn" class="btn-primary compact" type="button" disabled>🤖 AI ile Simüle Et</button>
+            <button id="downloadSquadBtn" class="btn-secondary compact" type="button" style="background: var(--primary); color: white; border: none;">📸 Kadroyu İndir</button>
             <button id="resetBuilderBtn" class="btn-ghost compact" type="button">Kadroyu Sıfırla</button>
           </div>
         </div>
@@ -688,6 +690,12 @@
       <button class="music-control-btn" id="musicTrackBtn" type="button" aria-label="Şarkı Değiştir" title="Şarkı Değiştir">🔄</button>
       <audio id="bgAudio" loop preload="none"></audio>
     </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>© 2026 Süper Lig Atlası. Tüm hakları saklıdır.</p>
+      <p>Eren61cyber tarafından açık kaynak (MIT) olarak geliştirilmiştir. <a href="mailto:Demirciahmeteren1@gmail.com">İletişim</a></p>
+    </footer>
 
     <script src="app.js"></script>
   </body>

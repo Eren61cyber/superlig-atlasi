@@ -4003,3 +4003,27 @@ body::before {
   fill: var(--theme-accent);
 }
 
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer p {
+  margin: 5px 0;
+}
+.site-footer a {
+  color: var(--theme-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+

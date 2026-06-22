@@ -2445,6 +2445,46 @@ function initSquadBuilder() {
     simulateSquadBtn.addEventListener("click", runSquadSimulation);
   }
 
+  // Download button click
+  const downloadSquadBtn = document.getElementById("downloadSquadBtn");
+  if (downloadSquadBtn) {
+    downloadSquadBtn.addEventListener("click", () => {
+      const pitch = document.querySelector(".squad-pitch");
+      if (!pitch) return;
+      
+      // Add a loading state to the button
+      const origText = downloadSquadBtn.innerHTML;
+      downloadSquadBtn.innerHTML = "İndiriliyor...";
+      downloadSquadBtn.disabled = true;
+
+      // Ensure html2canvas is loaded
+      if (typeof html2canvas === "undefined") {
+        alert("İndirme aracı yüklenemedi. Lütfen sayfayı yenileyin.");
+        downloadSquadBtn.innerHTML = origText;
+        downloadSquadBtn.disabled = false;
+        return;
+      }
+
+      html2canvas(pitch, { 
+        backgroundColor: "#0f172a", 
+        scale: 2,
+        useCORS: true,
+        allowTaint: true
+      }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "ruya-onbirim.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      }).catch(err => {
+        console.error("Ekran görüntüsü alınırken hata:", err);
+        alert("Bir hata oluştu.");
+      }).finally(() => {
+        downloadSquadBtn.innerHTML = origText;
+        downloadSquadBtn.disabled = false;
+      });
+    });
+  }
+
   if (simulationModalClose) {
     simulationModalClose.addEventListener("click", closeSimulationModal);
   }
